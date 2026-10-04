@@ -290,6 +290,7 @@ export function mount(el, { reduced, signal } = {}) {
     onMove(e);
     if (!ptr.in) return;
     ptr.down = true; ptr.downAt = time; ptr.sx = ptr.x; ptr.sy = ptr.y;
+    window.getSelection()?.removeAllRanges();
     fire(ptr.x, ptr.y, 1);
   };
   const onUp = (e) => {
@@ -306,6 +307,10 @@ export function mount(el, { reduced, signal } = {}) {
     window.addEventListener('pointercancel', onCancel, { ...o, signal });
     window.addEventListener('blur', onCancel, { ...o, signal });
     document.documentElement.addEventListener('pointerleave', () => { ptr.in = false; }, { ...o, signal });
+    // A press on the field is a gesture, not a text selection: block selecting and dragging the copy on top.
+    const block = (e) => { if (ptr.down) e.preventDefault(); };
+    document.addEventListener('selectstart', block, { signal });
+    document.addEventListener('dragstart', block, { signal });
   }
 
   const BASE_SPEED = 1 / 42; // band fraction per second
