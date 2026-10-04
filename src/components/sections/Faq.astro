@@ -103,16 +103,16 @@ const { eyebrow, title, card, items, id = 'faq', class: cls, cardWidth = '319px'
   }
   .toggle-glow-wrap {
     position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center;
-    padding: 2px 0; transition: padding 0.4s var(--ease-framer);
+    padding: 2px 0; transition: padding 0.4s var(--ease-soft);
   }
   .toggle-glow {
     width: 100%; flex: 1; border-radius: 9px; opacity: 0; background: rgb(77, 197, 229);
     box-shadow: 0 0 8px 0 rgba(77, 197, 229, 0.7), 0 2px 6px 0 rgba(77, 197, 229, 0.7), 0 3px 8px 0 rgba(99, 173, 69, 0.7), 0 6px 16px 0 rgba(233, 211, 82, 0.7), 0 8px 22px 0 rgba(77, 197, 229, 0.7);
-    transition: opacity 0.4s var(--ease-framer);
+    transition: opacity 0.4s var(--ease-soft);
     animation: faq-hue 2s linear infinite;
   }
   .toggle-surface { position: absolute; inset: 1px; border-radius: 8px; background: var(--white); }
-  .toggle :global(.toggle-icon) { position: relative; z-index: 1; color: var(--dark-grey); transition: transform 0.4s var(--ease-framer); }
+  .toggle :global(.toggle-icon) { position: relative; z-index: 1; color: var(--dark-grey); transition: transform 0.4s var(--ease-soft); }
   .toggle :global(path) { stroke-width: 2; }
   .item[open]:not(.is-closing) .toggle :global(.toggle-icon) { transform: rotate(45deg); }
   @media (hover: hover) {

@@ -18,12 +18,12 @@ const { href, variant = 'primary', class: cls, ...rest } = Astro.props;
   }
   .btn-glow-wrap {
     position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center;
-    padding: 2px 0; transition: padding 0.4s var(--ease-framer);
+    padding: 2px 0; transition: padding 0.4s var(--ease-soft);
   }
   .btn-glow {
     width: 100%; flex: 1; border-radius: 9px; opacity: 0;
     box-shadow: 0 0 8px 0 rgba(77, 197, 229, 0.7), 0 2px 6px 0 rgba(77, 197, 229, 0.7), 0 3px 8px 0 rgba(99, 173, 69, 0.7), 0 6px 16px 0 rgba(233, 211, 82, 0.7), 0 8px 22px 0 rgba(77, 197, 229, 0.7);
-    transition: opacity 0.4s var(--ease-framer);
+    transition: opacity 0.4s var(--ease-soft);
     animation: btn-hue 2s linear infinite;
   }
   .btn--primary .btn-glow { background: rgb(77, 197, 229); }

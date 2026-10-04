@@ -14,6 +14,6 @@
 
   --canvas: 1200px;
   --radius: 16px;
-  --ease-framer: cubic-bezier(0.2, 0.71, 0.2, 0.99);
+  --ease-soft: cubic-bezier(0.2, 0.71, 0.2, 0.99);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
