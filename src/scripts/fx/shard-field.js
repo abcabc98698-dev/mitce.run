@@ -10,7 +10,7 @@
  * flakes into an orbiting cloud that disperses, with a stronger ring, on release.
  *
  * Options via data attributes on the element (all optional):
- *   data-bg="#120f17"  background the canvas clears to
+ *   data-bg="#101010"  background the canvas clears to
  */
 
 const VS = `#version 300 es
@@ -62,7 +62,7 @@ void main(){
   float cG = smoothstep(1.0 + aa, 1.0 - aa, dG);
   float cR = smoothstep(1.0 + aa, 1.0 - aa, dia(v_p + v_ca, k));
   float cB = smoothstep(1.0 + aa, 1.0 - aa, dia(v_p - v_ca, k));
-  vec3 base = mix(mix(u_c1, u_c2, v_b.w), vec3(1.0, 0.94, 1.0), 0.18);
+  vec3 base = mix(mix(u_c1, u_c2, v_b.w), vec3(1.0), 0.18);
   // two facets either side of the spine, lit unequally, plus a bright ridge
   float facet = 0.8 + 0.22 * sign(v_p.y) * v_c.y;
   float ridge = exp(-abs(v_p.y) / k * 9.0) * 0.5;
@@ -70,12 +70,12 @@ void main(){
   vec3 col = base * (facet + ridge) * taper * cG;
   col += vec3(1.0, 0.32, 0.22) * max(cR - cG, 0.0) * 1.2;
   col += vec3(0.2, 0.5, 1.0) * max(cB - cG, 0.0) * 1.3;
-  col += vec3(1.0, 0.97, 1.0) * v_b.z * cG * (0.5 + ridge);
+  col += vec3(1.0) * v_b.z * cG * (0.5 + ridge);
   // soft halo stands in for bloom
   float halo = exp(-dG * 2.4) * (0.10 + 0.45 * v_b.z);
   col += mix(base, vec3(1.0), 0.2) * halo;
   col *= v_b.y;
-  // shockwave flash in the accent colour
+  // shockwave flash in the accent (white)
   col += u_c2 * v_c.x * (cG * 1.1 + halo * 2.4);
   col *= u_fade;
   o = vec4(col, 0.0);
@@ -155,7 +155,7 @@ export function mount(el, { reduced, signal } = {}) {
   el.style.touchAction = 'pan-y';
   el.appendChild(canvas);
 
-  const bg = rgb(el.dataset.bg, [18 / 255, 15 / 255, 23 / 255]);
+  const bg = rgb(el.dataset.bg, [16 / 255, 16 / 255, 16 / 255]);
   const U = (n) => gl.getUniformLocation(prog, n);
   const uBg = gl.getUniformLocation(grain, 'u_bg'), uSeed = gl.getUniformLocation(grain, 'u_seed');
   const uRes = U('u_res'), uDpr = U('u_dpr'), uC1 = U('u_c1'), uC2 = U('u_c2'), uFade = U('u_fade');
@@ -438,7 +438,7 @@ export function mount(el, { reduced, signal } = {}) {
     }
   }
 
-  const c1 = hex(0x896abd), c2 = hex(0xa855f7);
+  const c1 = hex(0xa3a3a3), c2 = hex(0xf2f2f2); // neutral greys; the fringes keep the colour
   let fade = 0, frame = 0;
   function draw() {
     gl.viewport(0, 0, canvas.width, canvas.height);
