@@ -1,4 +1,5 @@
 ---
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import '@fontsource-variable/figtree';
 import '@fontsource/fragment-mono/400.css';
 import '@fontsource-variable/climate-crisis/year.css';
@@ -52,5 +53,6 @@ const analytics = import.meta.env.PUBLIC_VERCEL_ANALYTICS === 'true';
     </script>
     {analytics && <Analytics />}
     {analytics && <SpeedInsights />}
+    <GoogleAnalytics />
   </body>
 </html>
