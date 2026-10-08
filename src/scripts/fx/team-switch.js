@@ -72,7 +72,7 @@ export function mount(root, { reduced }) {
     return new Spring(i === active ? 1 : 0, (o) => { star.style.opacity = String(o); });
   });
   const open = cards.map((card, i) => {
-    const photo = card.querySelector('.photo');
+    const photo = card.querySelector('.about-team-photo');
     const veil = card.querySelector('.veil');
     return new Spring(i === active ? 1 : 0, (p) => {
       photo.style.width = `${lerp(PHOTO_IDLE.width, PHOTO_OPEN.width, p)}%`;

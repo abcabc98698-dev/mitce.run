@@ -14,7 +14,7 @@ const DEMO_DELAY_MS = 900; // fake "sending" time when no endpoint is set
 
 export function mount(form) {
   const btn = form.querySelector('button[type="submit"]');
-  const label = btn?.querySelector('.label');
+  const label = btn?.querySelector('.submit-label');
   if (!btn || !label) return;
   let timer = 0;
 

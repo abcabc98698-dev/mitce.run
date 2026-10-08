@@ -34,7 +34,7 @@ function tracks(index) {
 }
 
 export function mount(section, { reduced }) {
-  const stage = section.querySelector('.stage');
+  const stage = section.querySelector('.how-stage');
   const slides = [...section.querySelectorAll('.slide')];
   const numbers = [...section.querySelectorAll('.active')];
   const t = slides.map((_, i) => tracks(i));

@@ -4,7 +4,6 @@ import ArticleTop from '../../components/sections/ArticleTop.astro';
 import ArticleBody from '../../components/sections/ArticleBody.astro';
 import BlogRow from '../../components/sections/BlogRow.astro';
 import blog from '../../content/pages/blog.json';
-import { render } from 'astro:content';
 import { getPosts, type Post } from '../../lib/blog';
 
 export async function getStaticPaths() {
@@ -21,13 +20,10 @@ export async function getStaticPaths() {
 
 interface Props { post: Post; related: Post[]; }
 const { post, related } = Astro.props;
-const { Content } = await render(post);
 ---
 <Base title={post.data.title + blog.meta.postTitleSuffix} description={post.data.excerpt} image={post.data.cover}>
   <ArticleTop post={post} />
-  <ArticleBody post={post}>
-    <Content />
-  </ArticleBody>
+  <ArticleBody post={post} />
   {related.length > 0 && (
     <section class="related">
       <h2 class="t-h2 balance">{blog.related}</h2>

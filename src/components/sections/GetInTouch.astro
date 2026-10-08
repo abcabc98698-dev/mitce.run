@@ -29,17 +29,17 @@ const pad = (n: number) => String(n).padStart(2, '0');
   </form>
   <div class="aside">
     {[email, phone].map((c) => (
-      <a class="card contact-card" href={c.href}>
+      <a class="touch-card contact-card" href={c.href}>
         <span class="t-eyebrow">{c.label}</span>
         <span class="t-label value">{c.value}</span>
       </a>
     ))}
-    <div class="card next">
+    <div class="touch-card next">
       <h2 class="t-label value balance">{next.title}</h2>
-      <ol class="rows">
+      <ol class="touch-rows">
         {next.steps.map((s, i) => (
           <li class="step">
-            <span class="t-eyebrow num">{pad(i + 1)}</span>
+            <span class="t-eyebrow touch-num">{pad(i + 1)}</span>
             <span class="t-body-s step-copy">{s}</span>
           </li>
         ))}
@@ -69,13 +69,13 @@ const pad = (n: number) => String(n).padStart(2, '0');
   .form > .t-body-s { width: 100%; }
 
   .aside { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
-  .card { width: 100%; display: flex; flex-direction: column; border-radius: 16px; background: var(--surface); overflow: clip; }
+  .touch-card { width: 100%; display: flex; flex-direction: column; border-radius: 16px; background: var(--surface); overflow: clip; }
   .contact-card { gap: 10px; padding: 28px 32px; cursor: pointer; }
   .value { color: var(--white); }
   .next { gap: 20px; padding: 32px; }
-  .rows { list-style: none; display: flex; flex-direction: column; }
+  .touch-rows { list-style: none; display: flex; flex-direction: column; }
   .step { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; box-shadow: inset 0 1px 0 0 var(--grey-20); }
-  .num { width: 24px; flex: none; }
+  .touch-num { width: 24px; flex: none; }
   .step-copy { flex: 1 0 0; min-width: 0; color: var(--grey); }
 
   @media (max-width: 1199.98px) {

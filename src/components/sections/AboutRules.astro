@@ -9,15 +9,15 @@ import about from '../../content/pages/about.json';
 const { rules } = about;
 ---
 <section class="about-rules" id="about-rules" data-fx="rules-scroll">
-  <div class="stage" id="about-rules-stage">
-    <div class="title">
+  <div class="about-rules-stage" id="about-rules-stage">
+    <div class="about-rules-title">
       <p class="t-eyebrow">{rules.eyebrow}</p>
       <h2 class="t-h2 balance">{rules.title}</h2>
     </div>
-    <div class="viewport" id="about-rules-viewport">
-      <div class="track" id="about-rules-track">
+    <div class="about-rules-viewport" id="about-rules-viewport">
+      <div class="about-rules-track" id="about-rules-track">
         {rules.items.map((r) => (
-          <article class="rule">
+          <article class="about-rule">
             <div class="copy">
               <p class="t-eyebrow">{r.number}</p>
               <p class="t-label text">{r.text}</p>
@@ -36,15 +36,15 @@ const { rules } = about;
     width: 100%; max-width: var(--canvas); margin: 0 auto; height: 2400px;
     display: flex; flex-direction: column; align-items: center;
   }
-  .stage {
+  .about-rules-stage {
     position: sticky; top: 0; width: 100%; height: 830px; overflow: clip; background: var(--black);
     display: flex; flex-direction: column; align-items: center; gap: 80px; padding: 100px 20px;
   }
-  .title { width: 100%; max-width: 700px; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
-  .title > * { width: 100%; }
-  .viewport { width: 100%; height: 394px; flex: none; overflow: clip; display: flex; align-items: flex-start; }
-  .track { flex: none; display: flex; align-items: flex-start; gap: 8px; }
-  .rule {
+  .about-rules-title { width: 100%; max-width: 700px; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
+  .about-rules-title > * { width: 100%; }
+  .about-rules-viewport { width: 100%; height: 394px; flex: none; overflow: clip; display: flex; align-items: flex-start; }
+  .about-rules-track { flex: none; display: flex; align-items: flex-start; gap: 8px; }
+  .about-rule {
     flex: none; width: 381px; height: 394px; display: flex; align-items: flex-start;
     background: var(--surface); border-radius: 16px; overflow: clip;
   }
@@ -57,13 +57,13 @@ const { rules } = about;
   .texture { flex: none; width: 90px; height: 100%; }
   .texture img { width: 100%; height: 100%; object-fit: cover; }
   @media (max-width: 1199.98px) {
-    .rule { width: 300px; }
+    .about-rule { width: 300px; }
   }
   @media (max-width: 809.98px) {
     .about-rules { height: auto; }
-    .stage { position: relative; height: auto; gap: 48px; padding: 64px 20px; }
-    .viewport { height: auto; overflow: visible; }
-    .track { width: 100%; flex-direction: column; gap: 20px; }
-    .rule { width: 100%; height: 300px; }
+    .about-rules-stage { position: relative; height: auto; gap: 48px; padding: 64px 20px; }
+    .about-rules-viewport { height: auto; overflow: visible; }
+    .about-rules-track { width: 100%; flex-direction: column; gap: 20px; }
+    .about-rule { width: 100%; height: 300px; }
   }
 </style>

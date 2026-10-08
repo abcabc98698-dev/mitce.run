@@ -3,12 +3,12 @@
 import contact from '../../content/pages/contact.json';
 ---
 <section class="contact-top">
-  <div class="row">
-    <div class="title">
+  <div class="contact-top-row">
+    <div class="contact-top-title">
       <p class="t-eyebrow">{contact.eyebrow}</p>
       <h1 class="t-h1 balance">{contact.title}</h1>
     </div>
-    <div class="description">
+    <div class="contact-top-description">
       <p class="t-body-m">{contact.blurb}</p>
     </div>
   </div>
@@ -18,16 +18,16 @@ import contact from '../../content/pages/contact.json';
     width: 100%; max-width: var(--canvas); margin: 0 auto;
     display: flex; flex-direction: column; align-items: center; padding: 100px 20px 0;
   }
-  .row { width: 100%; display: flex; justify-content: space-between; align-items: flex-end; }
-  .title { flex: 1 0 0; max-width: 700px; display: flex; flex-direction: column; gap: 24px; }
-  .description { width: 273px; flex: none; }
+  .contact-top-row { width: 100%; display: flex; justify-content: space-between; align-items: flex-end; }
+  .contact-top-title { flex: 1 0 0; max-width: 700px; display: flex; flex-direction: column; gap: 24px; }
+  .contact-top-description { width: 273px; flex: none; }
   @media (max-width: 1199.98px) {
-    .row { flex-direction: column; align-items: flex-start; gap: 24px; }
-    .title { flex: none; width: 100%; }
-    .description { width: 100%; }
+    .contact-top-row { flex-direction: column; align-items: flex-start; gap: 24px; }
+    .contact-top-title { flex: none; width: 100%; }
+    .contact-top-description { width: 100%; }
   }
   @media (max-width: 809.98px) {
     .contact-top { padding-top: 64px; }
-    .row { gap: 20px; }
+    .contact-top-row { gap: 20px; }
   }
 </style>

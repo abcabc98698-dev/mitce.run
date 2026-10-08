@@ -11,7 +11,7 @@ const { compare } = page;
 type Cell = string | boolean | { monthly: string; annual: string };
 ---
 <section class="compare" id="compare">
-  <div class="title">
+  <div class="compare-title">
     <p class="t-eyebrow">{compare.eyebrow}</p>
     <h2 class="t-h2 balance">{compare.title}</h2>
   </div>
@@ -19,9 +19,9 @@ type Cell = string | boolean | { monthly: string; annual: string };
     <div class="tabs-row below-desktop">
       <div class="tabs" role="group" aria-label={compare.tabsLabel}>
         {compare.columns.map((c, i) => (
-          <button type="button" class="tab" data-plan-tab={c.id} aria-pressed={i === 0 ? 'true' : 'false'}>
+          <button type="button" class="compare-tab" data-plan-tab={c.id} aria-pressed={i === 0 ? 'true' : 'false'}>
             <span class="tab-pill" aria-hidden="true"></span>
-            <span class="tab-label t-label">{c.label}</span>
+            <span class="compare-tab-label t-label">{c.label}</span>
           </button>
         ))}
       </div>
@@ -35,14 +35,14 @@ type Cell = string | boolean | { monthly: string; annual: string };
       <div class="group">
         <div class="group-title"><p class="t-eyebrow">{g.title}</p></div>
         {g.rows.map((r) => (
-          <div class="row">
-            <p class="label t-body-m">{r.label}</p>
+          <div class="compare-row">
+            <p class="compare-label t-body-m">{r.label}</p>
             {(r.cells as Cell[]).map((cell, i) => {
               const col = compare.columns[i];
               const cls = ['cell', `cell--${col.id}`];
               if (cell === true) return (
                 <div class:list={[...cls, 'cell--tick']}>
-                  <span class="tick"><Icon name="check" size={10} /></span>
+                  <span class="compare-tick"><Icon name="check" size={10} /></span>
                   <span class="sr-only">{col.label}: {compare.included}</span>
                 </div>
               );
@@ -69,8 +69,8 @@ type Cell = string | boolean | { monthly: string; annual: string };
     width: 100%; max-width: var(--canvas); margin: 0 auto;
     display: flex; flex-direction: column; align-items: center; gap: 48px; padding: 100px 20px;
   }
-  .title { width: 100%; display: flex; flex-direction: column; gap: 24px; }
-  .title h2 { max-width: 800px; }
+  .compare-title { width: 100%; display: flex; flex-direction: column; gap: 24px; }
+  .compare-title h2 { max-width: 800px; }
 
   .table {
     width: 100%; display: flex; flex-direction: column; align-items: flex-start;
@@ -93,21 +93,21 @@ type Cell = string | boolean | { monthly: string; annual: string };
 
   .group { width: 100%; display: flex; flex-direction: column; }
   .group-title { padding: 34px 0 14px; }
-  .row {
+  .compare-row {
     width: 100%; display: flex; align-items: center; gap: 20px; padding: 16px 0;
     box-shadow: inset 0 1px 0 var(--grey-20);
   }
-  .label { flex: 2 1 0; min-width: 0; color: var(--white); }
+  .compare-label { flex: 2 1 0; min-width: 0; color: var(--white); }
   .cell { flex: 1 1 0; min-width: 0; color: var(--grey); }
   .cell--growth { color: var(--white); }
   .cell--none { color: var(--dark-grey); }
   .cell--tick { display: flex; align-items: center; }
-  .tick {
+  .compare-tick {
     width: 16px; height: 16px; flex: none; display: flex; align-items: center; justify-content: center;
     border-radius: 999px; box-shadow: inset 0 0 0 1px var(--grey-20); color: var(--grey);
   }
-  .cell--growth .tick { color: var(--white); }
-  .tick :global(path) { stroke-width: 2; }
+  .cell--growth .compare-tick { color: var(--white); }
+  .compare-tick :global(path) { stroke-width: 2; }
 
   .footnote {
     width: 100%; display: flex; align-items: center; gap: 20px; padding-top: 32px;
@@ -121,14 +121,14 @@ type Cell = string | boolean | { monthly: string; annual: string };
     width: 100%; display: flex; align-items: center; gap: 4px; padding: 4px;
     border-radius: 12px; background: var(--surface); overflow: clip;
   }
-  .tab {
+  .compare-tab {
     position: relative; flex: 1 1 0; min-width: 0; height: 38px; padding: 9px 12px; border-radius: 8px;
     display: flex; align-items: center; justify-content: center; overflow: clip;
   }
   .tab-pill { position: absolute; inset: 0; border-radius: 8px; background: var(--white); visibility: hidden; }
-  .tab-label { position: relative; color: var(--grey); user-select: none; white-space: nowrap; }
-  .tab[aria-pressed='true'] .tab-pill { visibility: visible; }
-  .tab[aria-pressed='true'] .tab-label { color: var(--black); }
+  .compare-tab-label { position: relative; color: var(--grey); user-select: none; white-space: nowrap; }
+  .compare-tab[aria-pressed='true'] .tab-pill { visibility: visible; }
+  .compare-tab[aria-pressed='true'] .compare-tab-label { color: var(--black); }
 
   @media (max-width: 1199.98px) {
     .table[data-plan='starter'] .cell:not(.cell--starter),
@@ -138,11 +138,11 @@ type Cell = string | boolean | { monthly: string; annual: string };
   @media (max-width: 809.98px) {
     .compare { padding: 64px 20px; }
     .table { padding: 8px 20px 24px; }
-    .row { gap: 12px; }
-    .label { flex: 1 1 0; }
+    .compare-row { gap: 12px; }
+    .compare-label { flex: 1 1 0; }
     .cell { text-align: center; }
     .cell--tick { justify-content: center; }
-    .cell--growth .tick { color: var(--grey); }
+    .cell--growth .compare-tick { color: var(--grey); }
     .footnote { gap: 12px; }
   }
 </style>

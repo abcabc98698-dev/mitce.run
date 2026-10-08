@@ -4,7 +4,7 @@
 const WIDE = 1200;
 export function mount(root) {
   const capsule = root.querySelector('.capsule');
-  const toggle = root.querySelector('.toggle');
+  const toggle = root.querySelector('.nav-toggle');
   let hovered = false;
   const update = () => root.classList.toggle('is-collapsed', window.scrollY > 8 && !hovered && innerWidth >= WIDE);
   addEventListener('scroll', update, { passive: true });

@@ -12,7 +12,7 @@ const { nav } = site;
         <div class="links desktop-only">
           {nav.links.map((l) => <a class="t-body-m link" href={l.href}>{l.label}</a>)}
         </div>
-        <button class="toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu" tabindex="-1">
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu" tabindex="-1">
           <Icon name="dots-nine" class="i-open" />
           <Icon name="x" class="i-close" />
         </button>
@@ -45,12 +45,12 @@ const { nav } = site;
     transition: opacity 0.45s cubic-bezier(0.2, 0.715, 0.205, 0.99), max-width 0.45s cubic-bezier(0.2, 0.715, 0.205, 0.99);
   }
   .link { color: var(--white); white-space: nowrap; user-select: none; }
-  .toggle { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 8px; color: var(--grey); cursor: default; }
-  .toggle :global(.i-close) { display: none; }
+  .nav-toggle { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 8px; color: var(--grey); cursor: default; }
+  .nav-toggle :global(.i-close) { display: none; }
   .buttons { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 7px; }
   /* Desktop: past the top of the page the links fold away until the capsule is pointed at. */
-  :global(.topbar.is-collapsed) .capsule { gap: 36px; }
-  :global(.topbar.is-collapsed) .links { opacity: 0; max-width: 0; }
+  .topbar.is-collapsed .capsule { gap: 36px; }
+  .topbar.is-collapsed .links { opacity: 0; max-width: 0; }
 
   .menu {
     position: absolute; left: 16px; right: 16px; top: 72px; display: flex; flex-direction: column; gap: 20px; padding: 16px;
@@ -64,10 +64,10 @@ const { nav } = site;
     .nav { padding: 16px; height: 77px; }
     .bar { justify-content: flex-start; }
     .capsule { width: 100%; justify-content: space-between; }
-    .toggle { cursor: pointer; }
-    :global(.topbar.is-open) .menu { opacity: 1; pointer-events: auto; }
-    :global(.topbar.is-open) .toggle :global(.i-open) { display: none; }
-    :global(.topbar.is-open) .toggle :global(.i-close) { display: inline-flex; }
+    .nav-toggle { cursor: pointer; }
+    .topbar.is-open .menu { opacity: 1; pointer-events: auto; }
+    .topbar.is-open .nav-toggle :global(.i-open) { display: none; }
+    .topbar.is-open .nav-toggle :global(.i-close) { display: inline-flex; }
   }
   @media (prefers-reduced-motion: reduce) { .capsule, .links, .menu { transition: none; } }
 </style>

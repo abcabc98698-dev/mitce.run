@@ -18,7 +18,7 @@ const { content } = Astro.props;
 const pad = (n: number) => String(n).padStart(2, '0');
 ---
 <section class="legal-top">
-  <div class="title">
+  <div class="legal-title">
     <p class="t-eyebrow">{content.eyebrow}</p>
     <h1 class="t-h1 balance">{content.title}</h1>
   </div>
@@ -41,7 +41,7 @@ const pad = (n: number) => String(n).padStart(2, '0');
     display: flex; flex-direction: column; align-items: center;
   }
   .legal-top { gap: 24px; padding: 100px 20px 0; }
-  .title { width: 100%; max-width: 760px; display: flex; flex-direction: column; gap: 24px; }
+  .legal-title { width: 100%; max-width: 760px; display: flex; flex-direction: column; gap: 24px; }
   .updated { width: 100%; max-width: 760px; }
   .legal-body { padding: 64px 20px 120px; }
   .column { width: 100%; max-width: 760px; display: flex; flex-direction: column; gap: 40px; }

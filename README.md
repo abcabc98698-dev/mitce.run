@@ -2,7 +2,9 @@
 
 A dark, motion-led, nine-page site for an AI product: scroll-pinned sections that explain what the product changes and how it works, a pricing page with a plan comparison, a Markdown blog, and a contact form. Static output, no UI framework: every interaction is a small vanilla JavaScript module.
 
-Live demo: [lapse.startfrom.co](https://lapse.startfrom.co)
+Two builds of the same site, Astro and Next.js: the Astro project is this folder, and a Next.js 16 version lives in [`next/`](next/). They are visually identical, checked element by element on every page at desktop, tablet and phone widths.
+
+Live demo: [lapse.startfrom.co](https://lapse.startfrom.co) (Astro), [lapse-next.startfrom.co](https://lapse-next.startfrom.co) (Next.js)
 
 ## Features
 
@@ -27,6 +29,19 @@ npm run dev      # http://localhost:4321
 npm run build    # outputs to dist/
 npm run preview  # serves dist/
 ```
+
+## Next.js version
+
+`next/` is the same site as a Next.js 16 app (App Router, React 19, static export): server components that render the same markup, the same behaviour modules, the same content files. See [`next/README.md`](next/README.md).
+
+```sh
+cd next
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # outputs to out/
+```
+
+`next/` is generated from this Astro source by `tools/astro-to-next.mjs` and `tools/collect-css.mjs`, so the two never drift. Use either one on its own; you do not need both.
 
 ## Pages
 
@@ -68,6 +83,7 @@ src/
   scripts/entry.js   loads each effect on demand from data-fx="name"
   scripts/fx/        one module per behaviour
   styles/            tokens.css, global.css
+next/                the Next.js version of the same site
 ```
 
 ## Environment variables
