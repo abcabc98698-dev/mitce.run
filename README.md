@@ -1,10 +1,27 @@
+<p align="center">
+  <a href="https://startfrom.co/templates/lapse?utm_source=github&utm_medium=readme&utm_campaign=lapse"><img alt="Lapse: A dark, motion-led AI and SaaS template for Astro and Next.js. Free and MIT licensed, by Startfrom." src="./.github/assets/cover.jpg" width="100%"></a>
+</p>
+
+<p align="center">
+  <a href="./LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-111111?style=flat-square"></a>
+  <img alt="Astro 7" src="https://img.shields.io/badge/Astro-7-111111?style=flat-square">
+  <img alt="Next.js 16" src="https://img.shields.io/badge/Next.js-16-111111?style=flat-square">
+  <img alt="Static output" src="https://img.shields.io/badge/output-static-111111?style=flat-square">
+</p>
+
+<p align="center">
+  <a href="https://lapse.startfrom.co"><b>Astro demo</b></a>
+  &nbsp;·&nbsp;
+  <a href="https://lapse-next.startfrom.co"><b>Next.js demo</b></a>
+  &nbsp;·&nbsp;
+  <a href="https://startfrom.co/templates/lapse?utm_source=github&utm_medium=readme&utm_campaign=lapse"><b>Startfrom</b></a>
+</p>
+
 # Lapse, an Astro theme for AI and SaaS products
 
 A dark, motion-led, nine-page site for an AI product: scroll-pinned sections that explain what the product changes and how it works, a pricing page with a plan comparison, a Markdown blog, and a contact form. Static output, no UI framework: every interaction is a small vanilla JavaScript module.
 
 Two builds of the same site, Astro and Next.js: the Astro project is this folder, and a Next.js 16 version lives in [`next/`](next/). They are visually identical, checked element by element on every page at desktop, tablet and phone widths.
-
-Live demo: [lapse.startfrom.co](https://lapse.startfrom.co) (Astro), [lapse-next.startfrom.co](https://lapse-next.startfrom.co) (Next.js)
 
 ## Features
 
