@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://startfrom.co/templates/lapse?utm_source=github&utm_medium=readme&utm_campaign=lapse"><img alt="Lapse: A dark, motion-led AI and SaaS template for Astro and Next.js. Free and MIT licensed, by Startfrom." src="./.github/assets/cover.jpg" width="100%"></a>
+  <a href="https://startfrom.co/?utm_source=github&utm_medium=readme&utm_campaign=lapse"><img alt="Lapse: A dark, motion-led AI and SaaS template for Astro and Next.js. Free and MIT licensed, by Startfrom." src="./.github/assets/cover.jpg" width="100%"></a>
 </p>
 
 <p align="center">
@@ -14,7 +14,7 @@
   &nbsp;·&nbsp;
   <a href="https://lapse-next.startfrom.co"><b>Next.js demo</b></a>
   &nbsp;·&nbsp;
-  <a href="https://startfrom.co/templates/lapse?utm_source=github&utm_medium=readme&utm_campaign=lapse"><b>Startfrom</b></a>
+  <a href="https://startfrom.co/?utm_source=github&utm_medium=readme&utm_campaign=lapse"><b>Startfrom</b></a>
 </p>
 
 # Lapse, an Astro theme for AI and SaaS products
