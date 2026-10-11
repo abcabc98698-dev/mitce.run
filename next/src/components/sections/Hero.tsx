@@ -4,6 +4,9 @@ import Button from '@/components/ui/Button';
 
 export default function Hero() {
   const { hero } = home;
+  const sized = (src: string, w: number) => src.replace(/\.webp$/, `-${w}.webp`);
+  const bgSet = `${sized(hero.background, 800)} 800w, ${sized(hero.background, 1400)} 1400w, ${hero.background} 2400w`;
+  const shotSet = `${sized(hero.screenshot, 800)} 800w, ${hero.screenshot} 1497w`;
 
   return (
     <>
@@ -20,8 +23,8 @@ export default function Hero() {
         </div>
         <div className="hero-media">
           <div className="product">
-            <img className="bg" src={hero.background} alt={hero.backgroundAlt} width="2400" height="1528" fetchPriority="high" />
-            <img className="shot" src={hero.screenshot} alt={hero.screenshotAlt} width="1497" height="1024" fetchPriority="high" />
+            <img className="bg" src={hero.background} srcSet={bgSet} sizes="(max-width: 1199.98px) calc(100vw - 40px), 1160px" alt={hero.backgroundAlt} width="2400" height="1528" fetchPriority="high" />
+            <img className="shot" src={hero.screenshot} srcSet={shotSet} sizes="(max-width: 1199.98px) calc(89vw - 36px), 1034px" alt={hero.screenshotAlt} width="1497" height="1024" fetchPriority="high" />
           </div>
           <div className="stats">
             {hero.stats.map((s, index) => (

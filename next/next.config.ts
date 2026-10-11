@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
   output: 'export', // fully static, same as the Astro build
   trailingSlash: true, // /about/, like the Astro build's URLs, canonicals and sitemap
   images: { unoptimized: true },
+  // One small stylesheet: put it inside the page instead of a render-blocking request.
+  experimental: { inlineCss: true },
   // The Markdown renderer is a native module; load it from node_modules at build time.
   serverExternalPackages: ['satteri'],
 };
