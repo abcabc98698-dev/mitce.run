@@ -15,6 +15,8 @@
   <a href="https://lapse-next.startfrom.co"><b>Next.js demo</b></a>
   &nbsp;·&nbsp;
   <a href="https://startfrom.co/?utm_source=github&utm_medium=readme&utm_campaign=lapse"><b>Startfrom</b></a>
+  &nbsp;·&nbsp;
+  <a href="https://buy.polar.sh/polar_cl_C7mCmNfCQK9xTynrq5u0t4I4CpMoRc5tN5UCB3mx56l?utm_source=github&utm_medium=readme&utm_campaign=lapse"><b>All Astro Themes</b></a>
 </p>
 
 # Lapse, an Astro theme for AI and SaaS products
