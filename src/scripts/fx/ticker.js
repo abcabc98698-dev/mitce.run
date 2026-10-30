@@ -1,4 +1,4 @@
-// Vertical ticker, as Framer's Ticker effect: the list scrolls up at a steady
+// Vertical ticker, as UI Ticker effect: the list scrolls up at a steady
 // 30px/s, slows to 20px/s under the pointer, and can be dragged. Items are
 // cloned (aria-hidden) so the loop never shows a gap.
 const VELOCITY = 30;

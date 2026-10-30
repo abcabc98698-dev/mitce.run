@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "About — Lapse",
+    "title": "About — Mitce",
     "description": "Eleven people, one product, one rule: we do not sell headcount reduction."
   },
   "hero": {
@@ -8,7 +8,7 @@
     "description": "Support started, not in a lab. Eleven people, one product, one rule: we declined money.",
     "photo": {
       "src": "/assets/about/office-team.webp",
-      "alt": "Five people in Lapse t-shirts talking around a desk",
+      "alt": "Five people in Mitce t-shirts talking around a desk",
       "width": 1536,
       "height": 651
     },
@@ -51,7 +51,7 @@
       "The last decade’s answer was a widget in the corner of the page that asked you to rephrase your question four times and then offered to open a ticket. It did not save anyone money. It moved the cost onto the customer and called it self-service.",
       "The mistake was in the framing. Support was treated as a cost to remove rather than a queue to clear. Once you decide the goal is fewer people, every product decision that follows is a small cruelty to somebody.",
       "We started from the other end. A support queue is mostly the same fifteen questions, asked by people who are mildly annoyed and would like an answer before lunch. Almost none of it needs a person. The part that does needs a person badly, and needs them unhurried.",
-      "So Lapse takes the first part and protects the second. That is the whole idea, and everything in the product exists to keep those two halves separate."
+      "So Mitce takes the first part and protects the second. That is the whole idea, and everything in the product exists to keep those two halves separate."
     ]
   },
   "rules": {
@@ -133,7 +133,7 @@
         "role": "Support lead",
         "photo": {
           "src": "/assets/about/team-ines-duarte.webp",
-          "alt": "Ines Duarte smiling in a Lapse t-shirt"
+          "alt": "Ines Duarte smiling in a Mitce t-shirt"
         }
       }
     ]

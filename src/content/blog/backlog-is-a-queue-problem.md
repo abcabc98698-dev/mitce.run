@@ -9,7 +9,7 @@ cover: /assets/blog/backlog-is-a-queue-problem.webp
 coverAlt: "A curved fold in a pale ribbed surface, the ribs bending around the curve"
 author:
   name: "Jonas Meyer"
-  role: "Operations, Lapse"
+  role: "Operations, Mitce"
   avatar: /assets/blog/avatar-jonas-meyer.webp
   avatarAlt: "Portrait of Jonas Meyer"
 ---

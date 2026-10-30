@@ -1,7 +1,7 @@
 ---
 /**
  * Post body (the Markdown, rendered by the content collection) and the author line.
- * Markdown conventions, styled here to match the Framer article components:
+ * Markdown conventions, styled here to match the Design article components:
  *   blockquote starting with a bold line  -> Article/Callout
  *   ordered list                          -> Article/Step rows (01, 02 ...)
  *   <figure class="figure"> HTML block    -> Article/Figure bar chart
@@ -30,7 +30,7 @@ const { author } = post.data;
   }
   .prose, .ab-author { width: 700px; max-width: 100%; }
 
-  /* Rich text. Framer spaces blocks with each preset's paragraph spacing,
+  /* Rich text. Design spaces blocks with each preset's paragraph spacing,
      applied above every block but the first; components take none. */
   .prose { display: flex; flex-direction: column; }
   .prose > :global(*) { margin: 0; }

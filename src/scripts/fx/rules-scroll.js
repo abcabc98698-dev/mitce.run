@@ -16,7 +16,7 @@ const TURNS = [
 const SHIFT = [0.56, 0.78];
 
 const clamp01 = (v) => (v < 0 ? 0 : v > 1 ? 1 : v);
-/** Framer's useTransform with clamp: map v from [a, b] to [from, to]. */
+/** UI useTransform with clamp: map v from [a, b] to [from, to]. */
 const map = (v, a, b, from, to) => from + (to - from) * clamp01((v - a) / (b - a));
 
 export function mount(section, { reduced }) {

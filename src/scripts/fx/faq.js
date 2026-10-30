@@ -1,6 +1,6 @@
-// FAQ accordion (Framer "Sections/FAQ Item", Closed <-> Open, tap anywhere on
+// FAQ accordion (Design "Sections/FAQ Item", Closed <-> Open, tap anywhere on
 // the item cycles the variant; transition tween 0.4,0,0.2,1 0.35s).
-// Framer animates this as a layout animation: the rows below jump to their
+// Design animates this as a layout animation: the rows below jump to their
 // new place at once and only the item's own box grows or shrinks. We do the
 // same: the layout changes instantly and a clip-path inset on the item plays
 // the size change. Closing keeps the answer rendered under a negative bottom
@@ -53,7 +53,7 @@ export function mount(list, { reduced }) {
     };
 
     item.addEventListener('click', (e) => {
-      // A tap anywhere on the card toggles it, as in Framer; links inside an
+      // A tap anywhere on the card toggles it, by design; links inside an
       // answer keep working.
       if (e.target.closest('a')) return;
       e.preventDefault();

@@ -9,7 +9,7 @@ cover: /assets/blog/say-it-is-an-agent.webp
 coverAlt: "Closely spaced vertical pleats fading from lit on the left into darkness on the right"
 author:
   name: "Hana Park"
-  role: "Customer research, Lapse"
+  role: "Customer research, Mitce"
   avatar: /assets/blog/avatar-hana-park.webp
   avatarAlt: "Portrait of Hana Park"
 ---

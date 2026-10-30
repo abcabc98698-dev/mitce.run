@@ -9,7 +9,7 @@ cover: /assets/blog/what-2-4-million-support-messages-look-like.webp
 coverAlt: "Fine ridges fanning out from a bright point, like light raking across a pleated surface"
 author:
   name: "Anika Bose"
-  role: "Data science, Lapse"
+  role: "Data science, Mitce"
   avatar: /assets/blog/avatar-anika-bose.webp
   avatarAlt: "Portrait of Anika Bose"
 ---

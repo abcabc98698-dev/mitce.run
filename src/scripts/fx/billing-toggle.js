@@ -1,11 +1,11 @@
-// Monthly / Annual billing switch (Framer page variables "Billing Monthly" /
+// Monthly / Annual billing switch (Design page variables "Billing Monthly" /
 // "Billing Annual"). Mounted on any element holding buttons with
 // data-billing="monthly|annual". A choice updates, page-wide:
 //   - every [data-price-monthly][data-price-annual] element's text
 //   - every [data-billing-state] element's attribute (for CSS hooks)
 //   - aria-pressed on every billing button
 // so several toggles and a comparison table stay in sync. Swaps are instant,
-// as in Framer (visibility variables, no transition).
+// by design (visibility variables, no transition).
 function apply(period) {
   const key = period === 'annual' ? 'priceAnnual' : 'priceMonthly';
   for (const el of document.querySelectorAll('[data-price-monthly][data-price-annual]')) {

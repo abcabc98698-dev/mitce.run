@@ -111,7 +111,7 @@ function scatter(px, gw, gh, n) {
 }
 
 export function mount(el, { reduced, signal } = {}) {
-  // Teardown for hosts that unmount (Framer): pass an AbortSignal as `signal`.
+  // Teardown for hosts that unmount (Design): pass an AbortSignal as `signal`.
   const observers = [];
   const watch = (o) => { observers.push(o); return o; };
   signal?.addEventListener('abort', () => {

@@ -3,7 +3,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 
 export type Post = CollectionEntry<'blog'>;
 
-/** Every post, newest first (the Framer lists all sort by Date, descending). */
+/** Every post, newest first (the Design lists all sort by Date, descending). */
 export async function getPosts(): Promise<Post[]> {
   const posts = await getCollection('blog');
   return posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
@@ -16,6 +16,6 @@ export function pickFeatured(posts: Post[]): Post | undefined {
 
 export const postUrl = (post: Post) => `/blog/${post.id}`;
 
-/** Framer's "medium" date style, e.g. "Sep 12, 2026". */
+/** UI "medium" date style, e.g. "Sep 12, 2026". */
 export const formatDate = (date: Date) =>
   date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });

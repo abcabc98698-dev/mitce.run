@@ -1,4 +1,4 @@
-// Endless left-drifting row, the port of Framer's ticker effect.
+// Endless left-drifting row, the port of UI ticker effect.
 // Markup: <div data-fx="logo-ticker" data-velocity="12"> <ul> <li>...</li> </ul> </div>
 // The list moves left at data-velocity px/s; an item that leaves the left edge
 // is moved one loop length to the right, so the row never runs out. If the

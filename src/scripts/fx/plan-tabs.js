@@ -1,7 +1,7 @@
-// Comparison table plan tabs (tablet/phone). Framer page variables "Plan
+// Comparison table plan tabs (tablet/phone). Design page variables "Plan
 // Starter/Growth/Enterprise" show one plan column at a time; the choice is
 // written to data-plan on the table and CSS hides the other columns.
-// Instant swap, as in Framer.
+// Instant swap, by design.
 export function mount(table) {
   const tabs = [...table.querySelectorAll('button[data-plan-tab]')];
   for (const tab of tabs) {

@@ -9,7 +9,7 @@ cover: /assets/blog/what-we-will-not-automate.webp
 coverAlt: "Dark pleated fabric in vertical folds, a band of fine ribbing catching the light across the middle"
 author:
   name: "Sana Rahimi"
-  role: "Policy and trust, Lapse"
+  role: "Policy and trust, Mitce"
   avatar: /assets/blog/avatar-sana-rahimi.webp
   avatarAlt: "Portrait of Sana Rahimi"
 ---

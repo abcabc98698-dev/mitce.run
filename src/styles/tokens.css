@@ -1,4 +1,4 @@
-/* Colour and type tokens, read from the Framer project's colour styles and
+/* Colour and type tokens, read from the Design project's colour styles and
    text styles. Breakpoints: Desktop >= 1200, Tablet 810-1199, Phone < 810. */
 :root {
   --black: rgb(16, 16, 16);

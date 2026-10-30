@@ -1,5 +1,5 @@
 /**
- * Contact form states, as in the Framer "UI/Contact Submit" button:
+ * Contact form states, as in the Design "UI/Contact Submit" button:
  * Default ("Send it") -> Sending… -> Sent ("Thanks — we'll reply") or Error.
  *
  * A static theme has no backend. The form posts to whatever URL is in its

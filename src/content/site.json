@@ -1,5 +1,5 @@
 {
-  "brand": "Lapse",
+  "brand": "Mitce",
   "nav": {
     "links": [
       { "href": "/about", "label": "About" },
@@ -20,26 +20,38 @@
   },
   "footer": {
     "columns": [
-      { "label": "Explore", "links": [
-        { "href": "/about", "label": "About" },
-        { "href": "/pricing", "label": "Pricing" },
-        { "href": "/contact", "label": "Contact" },
-        { "href": "/blog", "label": "Blog" }
-      ] },
-      { "label": "Contact", "links": [
-        { "href": "mailto:hello@example.com", "label": "hello@example.com" },
-        { "href": "tel:+15555550123", "label": "+1 555 555 0123" }
-      ] },
-      { "label": "Legal", "links": [
-        { "href": "/privacy", "label": "Privacy policy" },
-        { "href": "/terms", "label": "Terms & Conditions" }
-      ] },
-      { "label": "Social", "links": [
-        { "href": "https://x.com", "label": "Twitter (X)", "external": true },
-        { "href": "https://www.linkedin.com", "label": "LinkedIn", "external": true }
-      ] }
+      {
+        "label": "Explore",
+        "links": [
+          { "href": "/about", "label": "About" },
+          { "href": "/pricing", "label": "Pricing" },
+          { "href": "/contact", "label": "Contact" },
+          { "href": "/blog", "label": "Blog" }
+        ]
+      },
+      {
+        "label": "Contact",
+        "links": [
+          { "href": "mailto:contact@mitce.run", "label": "contact@mitce.run" },
+          { "href": "tel:+15555550123", "label": "+1 555 555 0123" }
+        ]
+      },
+      {
+        "label": "Legal",
+        "links": [
+          { "href": "/privacy", "label": "Privacy policy" },
+          { "href": "/terms", "label": "Terms & Conditions" }
+        ]
+      },
+      {
+        "label": "Social",
+        "links": [
+          { "href": "https://x.com", "label": "Twitter (X)", "external": true },
+          { "href": "https://www.linkedin.com", "label": "LinkedIn", "external": true }
+        ]
+      }
     ],
-    "copyright": "© 2026 Lapse.",
+    "copyright": "© 2026 Mitce.",
     "note": "Replies retain their source article."
   }
 }

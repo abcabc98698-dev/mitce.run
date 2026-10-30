@@ -9,7 +9,7 @@ cover: /assets/blog/what-a-wrong-answer-costs.webp
 coverAlt: "A diagonal ridge of tightly stacked fine lines, lit along its edge against black"
 author:
   name: "Tobi Adeyemi"
-  role: "Evaluation, Lapse"
+  role: "Evaluation, Mitce"
   avatar: /assets/blog/avatar-tobi-adeyemi.webp
   avatarAlt: "Portrait of Tobi Adeyemi"
 ---

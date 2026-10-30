@@ -1,20 +1,22 @@
 {
-  "name": "lapse-astro",
+  "name": "mitce-run",
   "type": "module",
   "version": "1.0.0",
   "private": true,
+  "description": "Mitce — Autonomous AI Agent Platform for Support & Operations",
+  "author": "MITCE",
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@fontsource-variable/climate-crisis": "^5.3.0",
     "@fontsource-variable/figtree": "^5.3.0",
     "@fontsource/fragment-mono": "^5.3.0",
-    "@vercel/analytics": "^2.0.1",
-    "@vercel/speed-insights": "^2.0.0",
     "astro": "^7.3.5"
   }
 }

@@ -1,6 +1,6 @@
 ---
 /**
- * Billing toggle + the three plan cards (Framer "Plan Cards" on /pricing,
+ * Billing toggle + the three plan cards (Design "Plan Cards" on /pricing,
  * "Plans" on the home page). Copy and prices live in src/content/plans.json.
  *
  * Behaviour (src/scripts/fx/billing-toggle.js): the Monthly/Annual buttons
@@ -101,7 +101,7 @@ const { toggle } = plans;
     background: rgb(28, 28, 28); color: var(--grey); overflow: clip; user-select: none; white-space: nowrap;
     font-family: var(--font-mono); font-size: 10px; line-height: 1.2em; letter-spacing: 0.8px;
   }
-  /* Annual chosen: the pill turns light (Framer "Save Badge Ring Light"). */
+  /* Annual chosen: the pill turns light (Design "Save Badge Ring Light"). */
   .plans-tab[aria-pressed='true'] .save-pill { background: var(--white); color: var(--black); }
 
   /* Cards */
@@ -138,7 +138,7 @@ const { toggle } = plans;
   .plans-card :global(.card-btn) { width: 100%; }
 
   /* Growth card glow: three blurred blobs sat low in the card, each drifting
-     on its own mirrored loop (Framer loopEffect, tween 0.4,0,0.6,1). */
+     on its own mirrored loop (Design loopEffect, tween 0.4,0,0.6,1). */
   .glows { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
   .plans-glow { position: absolute; border-radius: 999px; filter: blur(90px); will-change: transform; }
   .plans-glow--right { left: 237px; top: 545px; width: 137px; height: 137px; background: #cd20ca; animation: glow-right 9.5s cubic-bezier(0.4, 0, 0.6, 1) infinite alternate; }

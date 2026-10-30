@@ -4,7 +4,7 @@
  * panel, the others collapse to covers.
  *
  * Mechanic taken from the "One platform, many missions" section on
- * usavionix.com, which runs the same open/collapse on click.
+ * modern web patterns, which runs the same open/collapse on click.
  *
  * Markup contract (BlogRow.astro): the row carries data-fx="blog-accordion",
  * each card is [data-card] (the <a>), its frosted panel [data-panel] and the
@@ -26,7 +26,7 @@ const PANEL_PADDING = 32;
 // shares instead of pixel widths keeps those proportions at any viewport width.
 const OPEN_SHARE = 530 / 307;
 
-// framer-motion `{duration: .5, ease: "easeInOut"}` on the reference, as one CSS tween.
+// spring-motion `{duration: .5, ease: "easeInOut"}` on the reference, as one CSS tween.
 const DURATION = '0.5s';
 const EASE = 'cubic-bezier(0.42, 0, 0.58, 1)';
 
@@ -310,7 +310,7 @@ export function mount(row, { reduced }) {
     paint(cards, active);
   }
 
-  // The Framer override also watched the row with a MutationObserver to
+  // The Design override also watched the row with a MutationObserver to
   // survive React re-renders and CMS items mounting late. Astro renders the
   // cards once at build time, so binding once (and on resize) is enough.
   bind();

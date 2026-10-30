@@ -1,7 +1,7 @@
 // "What changes": while the section is pinned, the card track slides sideways.
 // At rest the track starts on the content column (1160 wide, 20px gutters on
 // narrow screens) and travels until the last card is flush with the column's
-// right edge. Ported from the Framer override withHorizontalTrack.
+// right edge. Ported from the Design override withHorizontalTrack.
 const COLUMN = 1160;
 const GUTTER = 20;
 

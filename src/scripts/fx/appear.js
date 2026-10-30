@@ -1,4 +1,4 @@
-// Framer "appear on in view", played once. The element's own CSS holds the
+// Design "appear on in view", played once. The element's own CSS holds the
 // hidden state (behind @media (scripting: enabled)) and the transition; this
 // only adds .is-in the first time any part of it enters the viewport.
 // With reduced motion the CSS never hides it, so this is a no-op.

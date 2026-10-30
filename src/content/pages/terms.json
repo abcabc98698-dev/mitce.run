@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Terms and Conditions — Lapse",
-    "description": "The agreement behind a support agent that drafts on your behalf: what Lapse does, what stays yours, and what happens if it goes wrong."
+    "title": "Terms and Conditions — Mitce",
+    "description": "The agreement behind a support agent that drafts on your behalf: what Mitce does, what stays yours, and what happens if it goes wrong."
   },
   "eyebrow": "Legal",
   "title": "Terms and Conditions",
@@ -10,11 +10,11 @@
   "sections": [
     {
       "title": "Who these terms are between",
-      "body": "These terms are an agreement between Lapse and the company that opens the account. Whoever accepts them confirms they are allowed to do so for that company."
+      "body": "These terms are an agreement between Mitce and the company that opens the account. Whoever accepts them confirms they are allowed to do so for that company."
     },
     {
-      "title": "What Lapse does",
-      "body": "Lapse connects to a support inbox, drafts replies, sorts conversations by urgency and tone, and hands a conversation to a person when it should not answer. It is a tool your team operates. It does not replace the people who are accountable for the answers."
+      "title": "What Mitce does",
+      "body": "Mitce connects to a support inbox, drafts replies, sorts conversations by urgency and tone, and hands a conversation to a person when it should not answer. It is a tool your team operates. It does not replace the people who are accountable for the answers."
     },
     {
       "title": "Accounts and access",
@@ -30,7 +30,7 @@
     },
     {
       "title": "Acceptable use",
-      "body": "Do not use Lapse to break the law, to generate abusive or deceptive messages, to work around usage limits, or to resell the service without a written agreement. Do not attempt to extract the underlying models or probe the service for weaknesses without asking us first."
+      "body": "Do not use Mitce to break the law, to generate abusive or deceptive messages, to work around usage limits, or to resell the service without a written agreement. Do not attempt to extract the underlying models or probe the service for weaknesses without asking us first."
     },
     {
       "title": "Shadow mode",

@@ -13,8 +13,8 @@ const SPRING = { stiffness: 210, damping: 30, mass: 0.9 };
 const VEIL_IN = 0.22;
 
 /**
- * A spring that keeps its velocity when the target moves, like framer-motion's
- * useSpring. restDelta/restSpeed follow framer-motion's defaults: fine values
+ * A spring that keeps its velocity when the target moves, like spring-motion's
+ * useSpring. restDelta/restSpeed follow spring-motion's defaults: fine values
  * for 0-1 quantities, coarser ones for pixels.
  */
 class Spring {

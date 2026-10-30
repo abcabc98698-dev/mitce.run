@@ -19,7 +19,7 @@ ul, ol { padding: 0; }
 input, textarea { font: inherit; }
 :focus-visible { outline: 2px solid var(--grey); outline-offset: 2px; }
 
-/* Text styles, one class per Framer preset. Desktop values first, then
+/* Text styles, one class per Design preset. Desktop values first, then
    Tablet and Phone overrides where the preset has them. */
 .t-eyebrow { font-family: var(--font-mono); font-size: 14px; line-height: 1.2em; color: var(--dark-grey); }
 .t-h1 { font-size: 56px; line-height: 1.1em; font-weight: 400; color: var(--white); }
@@ -43,7 +43,7 @@ input, textarea { font: inherit; }
 
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
-/* Breakpoint visibility, mirroring Framer's per-breakpoint `visible`. */
+/* Breakpoint visibility, mirroring UI per-breakpoint `visible`. */
 @media (min-width: 1200px) { .below-desktop { display: none !important; } }
 @media (max-width: 1199.98px) { .desktop-only { display: none !important; } }
 @media (min-width: 810px) { .phone-only { display: none !important; } }

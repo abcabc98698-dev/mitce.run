@@ -1,13 +1,13 @@
 // "How it works": while the section is pinned, the four step cards take
 // turns on stage. A card waits down-right at +30deg, lands square, then leaves
 // up-left at -30deg, and the matching step number lights up. Step 1 starts
-// composed, step 4 holds to the end. Ported from the Framer override
+// composed, step 4 holds to the end. Ported from the Design override
 // withStepScroll; constants copied as they are.
 const STEPS = 4;
 const ENTER_X = 660, ENTER_Y = 120, EXIT_X = -560, EXIT_Y = -110, TILT = 30;
 const IN_END = 0.34, OUT_START = 0.84;
 
-// Piecewise-linear map, clamped at both ends (framer-motion useTransform).
+// Piecewise-linear map, clamped at both ends (spring-motion useTransform).
 function lerp(u, stops, values) {
   if (u <= stops[0]) return values[0];
   for (let i = 1; i < stops.length; i++) {

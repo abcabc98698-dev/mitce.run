@@ -12,7 +12,7 @@ export async function getStaticPaths() {
   const posts = await getPosts();
   return posts.map((post) => ({
     params: { slug: post.id },
-    // Related reading, as on the Framer site: the RELATED_LIMIT newest posts,
+    // Related reading, as on the Design site: the RELATED_LIMIT newest posts,
     // minus this one if it is among them (so the newest posts show two cards).
     props: { post, related: posts.slice(0, RELATED_LIMIT).filter((p) => p.id !== post.id) },
   }));
@@ -21,7 +21,16 @@ export async function getStaticPaths() {
 interface Props { post: Post; related: Post[]; }
 const { post, related } = Astro.props;
 ---
-<Base title={post.data.title + blog.meta.postTitleSuffix} description={post.data.excerpt} image={post.data.cover}>
+<Base
+  title={post.data.title + blog.meta.postTitleSuffix}
+  description={post.data.excerpt}
+  image={post.data.cover}
+  ogType="article"
+  articleData={{
+    publishedTime: post.data.date.toISOString(),
+    authors: [post.data.author.name],
+  }}
+>
   <ArticleTop post={post} />
   <ArticleBody post={post} />
   {related.length > 0 && (

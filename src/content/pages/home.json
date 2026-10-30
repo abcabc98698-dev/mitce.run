@@ -1,12 +1,12 @@
 {
   "meta": {
-    "title": "Lapse — support agent for inboxes that never empty",
-    "description": "Lapse reads every message, sorts it, answers the common queries and hands your team the ones that need a person. Two weeks in shadow mode, nothing sends without you."
+    "title": "Mitce — support agent for inboxes that never empty",
+    "description": "Mitce reads every message, sorts it, answers the common queries and hands your team the ones that need a person. Two weeks in shadow mode, nothing sends without you."
   },
   "hero": {
     "eyebrow": "Support agent for inboxes that never empty",
     "title": "Your team handles the tough ones. ",
-    "titleMuted": "Lapse takes the rest.",
+    "titleMuted": "Mitce takes the rest.",
     "description": "It reads every message, sorts it, answers common queries, and hands your team the ones that need a person.",
     "button": {
       "href": "/contact",
@@ -15,7 +15,7 @@
     "background": "/assets/home/hero-fabric.webp",
     "backgroundAlt": "Soft folded fabric in low light",
     "screenshot": "/assets/home/inbox.webp",
-    "screenshotAlt": "Lapse inbox showing new and waiting conversations",
+    "screenshotAlt": "Mitce inbox showing new and waiting conversations",
     "stats": [
       {
         "value": "74%",
@@ -27,7 +27,7 @@
       },
       {
         "value": "4.8",
-        "label": "CSAT on the replies Lapse sent"
+        "label": "CSAT on the replies Mitce sent"
       }
     ]
   },
@@ -210,7 +210,7 @@
       },
       {
         "q": "Are we buying this to cut our support team?",
-        "a": "Not from us. The teams running Lapse kept their headcount — what dropped was overtime, weekend cover and the Monday backlog. It takes the order-status half so your people get the half that needs judgement. If the business case is redundancies, we are the wrong vendor."
+        "a": "Not from us. The teams running Mitce kept their headcount — what dropped was overtime, weekend cover and the Monday backlog. It takes the order-status half so your people get the half that needs judgement. If the business case is redundancies, we are the wrong vendor."
       },
       {
         "q": "Our help centre is a mess. Is that a dealbreaker?",

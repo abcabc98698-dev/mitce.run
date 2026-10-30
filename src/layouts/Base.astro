@@ -1,45 +1,118 @@
 ---
-import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import '@fontsource-variable/figtree';
 import '@fontsource/fragment-mono/400.css';
 import '@fontsource-variable/climate-crisis/year.css';
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import StoreBadge from '../components/StoreBadge.astro';
-import Analytics from '@vercel/analytics/astro';
-import SpeedInsights from '@vercel/speed-insights/astro';
 
 interface Props {
   title: string;
   description: string;
   image?: string;
-  /** The 404 page has no nav or footer, as in the Framer template. */
   bare?: boolean;
   noindex?: boolean;
+  ogType?: 'website' | 'article';
+  articleData?: {
+    publishedTime?: string;
+    authors?: string[];
+  };
 }
-const { title, description, image = '/assets/site/og.jpg', bare = false, noindex = false } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL(image, Astro.site);
-const analytics = import.meta.env.PUBLIC_VERCEL_ANALYTICS === 'true';
+
+const {
+  title,
+  description,
+  image = '/assets/site/og.jpg',
+  bare = false,
+  noindex = false,
+  ogType = 'website',
+  articleData,
+} = Astro.props;
+
+const siteUrl = Astro.site ?? new URL('https://mitce.run');
+const canonical = new URL(Astro.url.pathname, siteUrl).href;
+const ogImage = new URL(image, siteUrl).href;
+
+const siteSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${new URL('/', siteUrl).href}#organization`,
+      name: 'Mitce',
+      url: new URL('/', siteUrl).href,
+      logo: new URL('/favicon.png', siteUrl).href,
+      sameAs: [],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${new URL('/', siteUrl).href}#website`,
+      url: new URL('/', siteUrl).href,
+      name: 'Mitce',
+      description: 'Autonomous AI Agent Platform for Support & Operations',
+      publisher: {
+        '@id': `${new URL('/', siteUrl).href}#organization`,
+      },
+    },
+    ...(ogType === 'article' && articleData
+      ? [
+          {
+            '@type': 'BlogPosting',
+            '@id': `${canonical}#article`,
+            isPartOf: {
+              '@id': `${new URL('/', siteUrl).href}#website`,
+            },
+            headline: title,
+            description: description,
+            image: ogImage,
+            datePublished: articleData.publishedTime,
+            mainEntityOfPage: canonical,
+            author: articleData.authors?.map((name) => ({
+              '@type': 'Person',
+              name,
+            })) ?? [{ '@type': 'Organization', name: 'Mitce' }],
+            publisher: {
+              '@id': `${new URL('/', siteUrl).href}#organization`,
+            },
+          },
+        ]
+      : []),
+  ],
+};
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta property="og:type" content="website" />
+    <link rel="alternate" type="application/rss+xml" title="Mitce RSS Feed" href="/rss.xml" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:site_name" content="Mitce" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_US" />
+    {ogType === 'article' && articleData?.publishedTime && (
+      <meta property="article:published_time" content={articleData.publishedTime} />
+    )}
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="twitter:url" content={canonical} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify(siteSchema)} />
   </head>
   <body>
     {!bare && <Nav />}
@@ -47,12 +120,8 @@ const analytics = import.meta.env.PUBLIC_VERCEL_ANALYTICS === 'true';
       <slot />
     </main>
     {!bare && <Footer />}
-    <StoreBadge />
     <script>
       import '../scripts/entry';
     </script>
-    {analytics && <Analytics />}
-    {analytics && <SpeedInsights />}
-    <GoogleAnalytics />
   </body>
 </html>

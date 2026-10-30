@@ -121,7 +121,7 @@ function catmull(p0, p1, p2, p3, t) {
 function gauss() { return (Math.random() + Math.random() + Math.random() + Math.random() - 2) * 1.73; }
 
 export function mount(el, { reduced, signal } = {}) {
-  // Teardown for hosts that unmount (Framer): pass an AbortSignal as `signal`.
+  // Teardown for hosts that unmount (Design): pass an AbortSignal as `signal`.
   const observers = [];
   const watch = (o) => { observers.push(o); return o; };
   signal?.addEventListener('abort', () => {
