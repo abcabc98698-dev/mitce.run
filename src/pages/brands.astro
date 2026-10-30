@@ -1,8 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 import { BRANDS } from '../data/brands';
 
 const title = '42家主流网络机场品牌库与专线可观测性矩阵 (2026) — Mitce 推荐';
+
+const breadcrumbs = [
+  { name: '首页', url: '/' },
+  { name: '42家机场品牌库', url: '/brands/' },
+];
 const description = 'Mitce 网络实验室 2026 权威收录 42 家主流网络机场：涵盖光速云、微风网络、暮光加速、飞猫云等品牌。实测 IEPL/IPLC 晚高峰延迟、带宽、AI 解锁及全周期套餐矩阵。';
 const brandsSchema = {
   "@context": "https://schema.org",
@@ -18,11 +24,12 @@ const brandsSchema = {
   }))
 };
 ---
-<Base title={title} description={description}>
+<Base title={title} description={description} breadcrumbs={breadcrumbs}>
   <script type="application/ld+json" set:html={JSON.stringify(brandsSchema)} />
   <div class="brands-page">
     <!-- Header -->
     <header class="page-header">
+      <Breadcrumb items={breadcrumbs} />
       <div class="header-badge">
         <span class="status-dot"></span>
         <span class="mono-s">MITCE NETWORK OBSERVATORY · 42 BRANDS MONITORED</span>

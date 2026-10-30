@@ -1,6 +1,12 @@
 {
   "brand": "Mitce",
   "tagline": "2026 高可用网络专线与 AI 生产力基础设施评测实验室",
+  "verification": {
+    "google": "",
+    "bing": "",
+    "shenma": "",
+    "baidu": ""
+  },
   "nav": {
     "links": [
       { "href": "/brands/", "label": "42家品牌库" },
@@ -33,36 +39,39 @@
   "footer": {
     "columns": [
       {
-        "label": "机场矩阵",
+        "label": "专线与机场矩阵",
         "links": [
           { "href": "/brands/", "label": "42家机场品牌库" },
-          { "href": "https://sahude.gsyvipaff.com/#/?code=keqgvT5Y", "label": "第一主推：光速云", "external": true },
-          { "href": "/pricing/", "label": "高性价比平价榜" },
-          { "href": "/pricing/", "label": "企业级纯专线榜" }
+          { "href": "/jichang/", "label": "优质机场推荐" },
+          { "href": "/vpn/", "label": "跨境专线 VPN" },
+          { "href": "/tizi/", "label": "稳定梯子推荐" },
+          { "href": "https://sahude.gsyvipaff.com/#/?code=keqgvT5Y", "label": "第一主推：光速云", "external": true }
         ]
       },
       {
-        "label": "客户端与工具",
+        "label": "客户端与教程",
         "links": [
           { "href": "/clients/", "label": "全平台客户端中心" },
-          { "href": "/resources/", "label": "免费资源与官方镜像" },
-          { "href": "/clients/desktop/", "label": "桌面端 Clash Verge" },
-          { "href": "/clients/mobile/", "label": "移动端小火箭/v2rayNG" },
-          { "href": "/clients/router/", "label": "OpenClash 软路由" }
+          { "href": "/tutorial/", "label": "使用教程全集" },
+          { "href": "/clash/", "label": "Clash 配置专栏" },
+          { "href": "/free/", "label": "免费应急节点" },
+          { "href": "/resources/", "label": "官方镜像加速" }
         ]
       },
       {
-        "label": "风控与知识库",
+        "label": "观测与风控",
         "links": [
+          { "href": "/nodes/", "label": "全球节点观测" },
           { "href": "/radar/", "label": "机场跑路预警雷达" },
           { "href": "/faq/", "label": "万字全景 FAQ 答疑" },
-          { "href": "/blog/", "label": "专线深度横评" },
-          { "href": "/about/", "label": "三网实测实验室" }
+          { "href": "/pricing/", "label": "套餐价格横评" },
+          { "href": "/blog/", "label": "专线深度横评" }
         ]
       },
       {
         "label": "网络实验室",
         "links": [
+          { "href": "/about/", "label": "三网实测实验室" },
           { "href": "mailto:contact@mitce.run", "label": "contact@mitce.run" },
           { "href": "/rss.xml", "label": "RSS 评测订阅" },
           { "href": "/privacy/", "label": "中立与推广合规声明" },

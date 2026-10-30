@@ -1,0 +1,228 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+
+const title = '全球代理节点拓扑与延迟丢包观测 (香港/日本/新加坡/美国) — Mitce 推荐';
+const description = '全球网络节点延迟、带宽与丢包全景观测：深度解读香港 CN2/BGP、日本软银/IIJ、新加坡、美国住宅 IP 等主流出口节点的流媒体与 AI 解锁特性，提供不同网络场景的最佳节点选配策略。';
+
+const breadcrumbs = [
+  { name: '首页', url: '/' },
+  { name: '全球节点观测', url: '/nodes/' },
+];
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  'name': title,
+  'description': description,
+  'url': 'https://mitce.run/nodes/',
+  'isPartOf': {
+    '@type': 'WebSite',
+    'name': 'Mitce',
+    'url': 'https://mitce.run/'
+  }
+};
+---
+<Base title={title} description={description} breadcrumbs={breadcrumbs}>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+
+  <div class="pillar-page">
+    <header class="page-header">
+      <Breadcrumb items={breadcrumbs} />
+      <div class="header-badge">
+        <span class="status-dot"></span>
+        <span class="mono-s">PILLAR MATRIX · GLOBAL NODES & TELEMETRY</span>
+      </div>
+      <h1 class="t-h1 page-title">全球代理节点网络拓扑与延迟丢包全景观测</h1>
+      <p class="t-body-m page-desc">
+        节点不仅看测速数字，更看网络质量与场景适配。Mitce 实验室对全球 5 大核心区域节点的物理时延、运营商路由（三网优化）及 IP 纯净度实施全天候遥测。
+      </p>
+
+      <div class="cluster-nav">
+        <a href="/brands/" class="cluster-pill is-active">42家品牌节点参数</a>
+        <a href="/resources/" class="cluster-pill">应急节点沙盒</a>
+        <a href="/pricing/" class="cluster-pill">纯专线套餐榜</a>
+        <a href="/radar/" class="cluster-pill">网络抗风险雷达</a>
+        <a href="/faq/" class="cluster-pill">节点超时与 1020 答疑</a>
+      </div>
+    </header>
+
+    <!-- Answer-First Block -->
+    <section class="answer-box">
+      <div class="answer-badge mono-s">GEO 核心决策摘要 · ANSWER-FIRST</div>
+      <h2 class="t-h3 answer-heading">香港、日本、新加坡、美国四大节点应该如何选配？</h2>
+      <p class="t-body-s answer-text">
+        <strong>香港节点（延迟 18ms~35ms）</strong>是日常主力浏览、网页加速、股票期货盯盘的首选；<strong>新加坡与日本节点（延迟 45ms~65ms）</strong>拥有最平衡的流媒体（Netflix/Disney+）全区解锁能力，且对中文 AI 模型支持极其友好；<strong>美国节点（延迟 130ms~170ms）</strong>是 Claude / ChatGPT 深度开发以及跨境电商防关联账号的终极安全锚点，必须认准具有原生住宅属性的落地 IP。
+      </p>
+    </section>
+
+    <!-- Regional Node Profiles -->
+    <section class="content-section">
+      <h2 class="t-h2 section-heading">一、四大核心区域节点遥测画像</h2>
+      <div class="nodes-grid">
+        <div class="node-card">
+          <div class="node-head">
+            <span class="node-flag">🇭🇰</span>
+            <div>
+              <h3 class="t-h4 node-name">香港专线节点 (Hong Kong)</h3>
+              <span class="mono-s node-sub">低延迟王者 · 核心日常主力</span>
+            </div>
+          </div>
+          <div class="node-stats">
+            <div class="node-stat-item">
+              <span class="stat-val mono-s">18-32ms</span>
+              <span class="stat-lbl">电信/联通实测延迟</span>
+            </div>
+            <div class="node-stat-item">
+              <span class="stat-val mono-s">0.0%</span>
+              <span class="stat-lbl">IEPL 晚高峰丢包</span>
+            </div>
+          </div>
+          <p class="t-body-s node-desc">直连华南骨干网，极致响应速度。适合 YouTube 4K 秒开、Git 仓库拉取、学术文献查询。注意：香港 IP 绝大部分已被 OpenAI / Claude 封禁，不能用于大模型提问。</p>
+        </div>
+
+        <div class="node-card">
+          <div class="node-head">
+            <span class="node-flag">🇸🇬</span>
+            <div>
+              <h3 class="t-h4 node-name">新加坡专线节点 (Singapore)</h3>
+              <span class="node-sub mono-s">AI 解锁全能 · 亚太枢纽</span>
+            </div>
+          </div>
+          <div class="node-stats">
+            <div class="node-stat-item">
+              <span class="stat-val mono-s">42-55ms</span>
+              <span class="stat-lbl">亚太专线实测延迟</span>
+            </div>
+            <div class="node-stat-item">
+              <span class="stat-val mono-s">100%</span>
+              <span class="stat-lbl">流媒体/AI 解锁率</span>
+            </div>
+          </div>
+          <p class="t-body-s node-desc">亚太地区最具性价比的综合节点。完美支持 ChatGPT Plus 订阅付费与 TikTok 运营，带宽冗余充沛，是晚高峰分流的重要备选路线。</p>
+        </div>
+
+        <div class="node-card">
+          <div class="node-head">
+            <span class="node-flag">🇯🇵</span>
+            <div>
+              <h3 class="t-h4 node-name">日本东京专线 (Tokyo, JP)</h3>
+              <span class="node-sub mono-s">软银/IIJ 优化 · 游戏追番</span>
+            </div>
+          </div>
+          <div class="node-stats">
+            <div class="node-stat-item">
+              <span class="stat-val mono-s">52-68ms</span>
+              <span class="stat-lbl">北方三网实测延迟</span>
+            </div>
+            <div class="node-stat-item">
+              <span class="stat-val mono-s">ABEMA</span>
+              <span class="stat-lbl">日本本土流媒体原生</span>
+            </div>
+          </div>
+          <p class="t-body-s node-desc">北方省份（北京/山东/辽宁）访问首选。原生解锁 DMM、Niconico、Pixiv 等日本限定平台，Steam / PS5 主机游戏联机抗抖动表现优异。</p>
+        </div>
+
+        <div class="node-card">
+          <div class="node-head">
+            <span class="node-flag">🇺🇸</span>
+            <div>
+              <h3 class="t-h4 node-name">美国住宅专线 (US Residential)</h3>
+              <span class="node-sub mono-s">双 ISP 原生 · 商业防封</span>
+            </div>
+          </div>
+          <div class="node-stats">
+            <div class="node-stat-item">
+              <span class="stat-val mono-s">135-165ms</span>
+              <span class="stat-lbl">中美直达专线延迟</span>
+            </div>
+            <div class="node-stat-item">
+              <span class="stat-val mono-s">0 风控</span>
+              <span class="stat-lbl">OpenAI / Stripe 信任度</span>
+            </div>
+          </div>
+          <p class="t-body-s node-desc">硅谷与洛杉矶本地原生 IP。专门针对 Claude Opus / GPT-4o 深度调用、PayPal / Stripe 跨境结算及海外社交媒体营销账号防封。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testing & Verification Guide -->
+    <section class="content-section">
+      <h2 class="t-h2 section-heading">二、节点真实延迟与虚标辨识技巧</h2>
+      <div class="tips-box">
+        <h3 class="t-h4 tips-title">警惕客户端测速的“握手延迟欺骗”</h3>
+        <p class="t-body-s tips-text">
+          很多用户在 Clash 界面点击测速看到香港节点显示“5ms”，以为自己用上了神仙网络。实际上，该数值仅仅是<strong>本地电脑到国内中转入口服务器的 Ping 值</strong>，并不代表境外端到端延迟！真实的端到端延迟测量应当通过在终端直接发起 <code>curl -s -o /dev/null -w "%&#123;time_total&#125;\n" https://google.com</code>，或者通过 Speedtest 选择海外目标服务器测速。像光速云这样采用真实端到端测速的机场，其标注的 22ms 才是真正从你家直达香港落地的物理时延。
+        </p>
+      </div>
+    </section>
+
+    <!-- Cluster Linking -->
+    <section class="content-section">
+      <h2 class="t-h2 section-heading">三、延伸阅读与节点资源</h2>
+      <div class="related-grid">
+        <a href="/blog/what-a-wrong-answer-costs/" class="related-card">
+          <span class="mono-s card-tag">AI 防封</span>
+          <h3 class="t-h4 card-title">AI 生产力防封指南：为什么同一个机场有人能用 ChatGPT 有人被拒？</h3>
+          <p class="t-body-s card-excerpt">深度拆解 Cloudflare 机房 ASN 识别机制、住宅 IP 伪装与浏览器指纹防护。</p>
+        </a>
+        <a href="/resources/" class="related-card">
+          <span class="mono-s card-tag">应急沙盒</span>
+          <h3 class="t-h4 card-title">免费资源中心与网络安全工具箱</h3>
+          <p class="t-body-s card-excerpt">提供 4 条由探针实时清洗的免费应急节点，关键时刻保障网络不断联。</p>
+        </a>
+        <a href="/brands/" class="related-card">
+          <span class="mono-s card-tag">品牌横评</span>
+          <h3 class="t-h4 card-title">42 家机场品牌库与专线参数矩阵</h3>
+          <p class="t-body-s card-excerpt">查看每一家机场的节点总数、倍率透明度及晚高峰下行带宽。</p>
+        </a>
+      </div>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .pillar-page { max-width: var(--canvas); margin: 0 auto; padding: 40px 20px 100px; }
+  .page-header { margin-bottom: 56px; }
+  .header-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 99px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--grey-20); margin-bottom: 20px; }
+  .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981; }
+  .page-title { margin-bottom: 20px; }
+  .page-desc { max-width: 820px; color: var(--grey); line-height: 1.7; margin-bottom: 32px; }
+  .cluster-nav { display: flex; flex-wrap: wrap; gap: 10px; }
+  .cluster-pill { padding: 8px 18px; border-radius: 99px; font-size: 13px; text-decoration: none; color: var(--grey); background: var(--surface); border: 1px solid var(--grey-20); transition: all 0.2s ease; }
+  .cluster-pill:hover, .cluster-pill.is-active { color: var(--white); background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.3); }
+
+  .answer-box { background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 16px; padding: 28px 32px; margin-bottom: 64px; }
+  .answer-badge { color: #10b981; font-size: 11px; letter-spacing: 0.5px; margin-bottom: 12px; }
+  .answer-heading { margin-bottom: 12px; font-size: 18px; color: var(--white); }
+  .answer-text { color: #d1d5db; line-height: 1.8; margin: 0; }
+
+  .content-section { margin-bottom: 72px; }
+  .section-heading { margin-bottom: 28px; }
+
+  .nodes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .node-card { background: var(--surface); border: 1px solid var(--grey-20); border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+  .node-head { display: flex; align-items: center; gap: 16px; }
+  .node-flag { font-size: 32px; }
+  .node-name { color: var(--white); margin: 0; font-size: 18px; }
+  .node-sub { font-size: 11px; color: var(--grey); display: block; margin-top: 4px; }
+  .node-stats { display: flex; gap: 24px; padding: 14px 0; border-top: 1px solid var(--grey-20); border-bottom: 1px solid var(--grey-20); }
+  .stat-val { font-size: 18px; font-weight: 700; color: #10b981; display: block; }
+  .stat-lbl { font-size: 11px; color: var(--grey); }
+  .node-desc { color: var(--grey); line-height: 1.6; margin: 0; font-size: 13px; }
+
+  .tips-box { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--grey-20); border-radius: 14px; padding: 24px 28px; }
+  .tips-title { color: var(--white); margin: 0 0 10px 0; font-size: 16px; }
+  .tips-text { color: var(--grey); line-height: 1.7; margin: 0; }
+
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .related-card { background: var(--surface); border: 1px solid var(--grey-20); border-radius: 14px; padding: 24px; text-decoration: none; display: flex; flex-direction: column; gap: 12px; transition: border-color 0.2s ease, transform 0.2s ease; }
+  .related-card:hover { border-color: rgba(255, 255, 255, 0.4); transform: translateY(-2px); }
+  .card-tag { font-size: 11px; color: var(--grey); }
+  .card-title { color: var(--white); margin: 0; font-size: 16px; line-height: 1.4; }
+  .card-excerpt { color: var(--grey); font-size: 13px; line-height: 1.6; margin: 0; }
+
+  @media (max-width: 900px) {
+    .nodes-grid, .related-grid { grid-template-columns: 1fr; }
+  }
+</style>

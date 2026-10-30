@@ -9,7 +9,7 @@
     "titleMuted": "光速云旗舰专线与 42 家机场评测。",
     "description": "Mitce 实验室对全网 42 家主流机场开展 7×24 小时三网晚高峰监测。第一主推光速云：双专线架构、单节点最高 2.5Gbps、首创 147 永久套餐不过期，自研端与全订阅一键导入。",
     "button": {
-      "href": "/brands",
+      "href": "/brands/",
       "label": "探索 42 家机场品牌库"
     },
     "background": "/assets/home/hero-fabric.webp",
@@ -195,7 +195,7 @@
       "title": "还有其他选型疑问？",
       "text": "欢迎联系 Mitce 实验室技术人员或查阅品牌库。",
       "button": {
-        "href": "/brands",
+        "href": "/brands/",
         "label": "查看 42 家品牌库"
       }
     },
@@ -230,7 +230,7 @@
     "eyebrow": "网络评测专栏",
     "title": "深入网络底层：42 家机场评测与专线避坑技术解析",
     "button": {
-      "href": "/blog",
+      "href": "/blog/",
       "label": "浏览全部评测文章"
     }
   }
