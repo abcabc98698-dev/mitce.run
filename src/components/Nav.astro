@@ -10,7 +10,26 @@ const { nav } = site;
       <div class="capsule">
         <a class="t-logo logo" href="/">{site.brand}</a>
         <div class="links desktop-only">
-          {nav.links.map((l) => <a class="t-body-m link" href={l.href}>{l.label}</a>)}
+          {nav.links.map((l: any) => (
+            l.children ? (
+              <div class="nav-item has-dropdown">
+                <a class="t-body-m link link-parent" href={l.href}>
+                  {l.label}
+                  <span class="dropdown-chevron" aria-hidden="true">▾</span>
+                </a>
+                <div class="dropdown-pane">
+                  {l.children.map((c: any) => (
+                    <a class="dropdown-item" href={c.href}>
+                      <span class="dropdown-dot"></span>
+                      <span class="t-body-s">{c.label}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <a class="t-body-m link" href={l.href}>{l.label}</a>
+            )
+          ))}
         </div>
         <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu" tabindex="-1">
           <Icon name="dots-nine" class="i-open" />
@@ -18,47 +37,87 @@ const { nav } = site;
         </button>
       </div>
       <div class="buttons desktop-only">
-        <Button href={nav.login.href} variant="ghost">{nav.login.label}</Button>
+        <Button href={nav.login.href} variant="ghost" target="_blank" rel="nofollow sponsored noopener">{nav.login.label}</Button>
         <Button href={nav.demo.href}>{nav.demo.label}</Button>
       </div>
     </div>
     <div class="menu below-desktop" id="nav-menu">
       <div class="menu-links">
-        {nav.links.map((l) => <a class="t-body-m menu-link" href={l.href}>{l.label}</a>)}
+        {nav.links.map((l: any) => (
+          l.children ? (
+            <div class="menu-group">
+              <a class="t-body-m menu-link" href={l.href} style="font-weight: 600; color: var(--white);">{l.label}</a>
+              <div class="mobile-sublinks">
+                {l.children.map((c: any) => (
+                  <a class="t-body-s mobile-sublink" href={c.href}>{c.label}</a>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <a class="t-body-m menu-link" href={l.href}>{l.label}</a>
+          )
+        ))}
       </div>
-      <div><Button href={nav.demo.href}>{nav.demo.label}</Button></div>
+      <div><Button href={nav.login.href} target="_blank" rel="nofollow sponsored noopener">{nav.login.label}</Button></div>
     </div>
   </nav>
 </div>
 <style>
-  .topbar { position: sticky; top: 0; z-index: 5; width: 100%; max-width: var(--canvas); margin: 0 auto; }
+  .topbar { position: sticky; top: 0; z-index: 50; width: 100%; max-width: var(--canvas); margin: 0 auto; }
   .nav { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 20px; height: 91px; }
   .bar { display: flex; align-items: center; justify-content: space-between; }
-  .capsule, .buttons { background: var(--surface); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-radius: 16px; }
+  .capsule, .buttons { background: var(--surface); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-radius: 16px; border: 1px solid var(--grey-20); }
   .capsule {
-    display: flex; align-items: center; justify-content: center; gap: 64px; padding: 12px 24px;
+    display: flex; align-items: center; justify-content: center; gap: 48px; padding: 12px 24px;
     transition: gap 0.45s cubic-bezier(0.2, 0.715, 0.205, 0.99);
   }
-  .logo { font-size: 16px; text-align: center; }
+  .logo { font-size: 16px; text-align: center; color: var(--white); text-decoration: none; font-weight: 700; letter-spacing: 0.5px; }
   .links {
-    display: flex; align-items: center; gap: 16px; overflow: hidden; max-width: 480px;
+    display: flex; align-items: center; gap: 20px; max-width: 560px;
     transition: opacity 0.45s cubic-bezier(0.2, 0.715, 0.205, 0.99), max-width 0.45s cubic-bezier(0.2, 0.715, 0.205, 0.99);
   }
-  .link { color: var(--white); white-space: nowrap; user-select: none; }
-  .nav-toggle { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 8px; color: var(--grey); cursor: default; }
+  .link { color: var(--grey); text-decoration: none; white-space: nowrap; user-select: none; transition: color 0.2s ease; }
+  .link:hover { color: var(--white); }
+  .nav-toggle { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 8px; color: var(--grey); cursor: default; background: transparent; border: none; }
   .nav-toggle :global(.i-close) { display: none; }
   .buttons { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 7px; }
-  /* Desktop: past the top of the page the links fold away until the capsule is pointed at. */
-  .topbar.is-collapsed .capsule { gap: 36px; }
-  .topbar.is-collapsed .links { opacity: 0; max-width: 0; }
 
+  /* Dropdown Styles */
+  .nav-item.has-dropdown { position: relative; display: inline-flex; align-items: center; height: 100%; }
+  .link-parent { display: inline-flex; align-items: center; gap: 4px; }
+  .dropdown-chevron { font-size: 11px; opacity: 0.7; transition: transform 0.25s ease; }
+  .nav-item.has-dropdown:hover .dropdown-chevron { transform: rotate(180deg); }
+  .dropdown-pane {
+    position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(8px);
+    min-width: 190px; padding: 8px; background: rgba(20, 20, 22, 0.96); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--grey-20); border-radius: 12px; box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+    opacity: 0; pointer-events: none; transition: opacity 0.25s ease, transform 0.25s ease; z-index: 100;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .nav-item.has-dropdown:hover .dropdown-pane { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+  .dropdown-item {
+    display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px;
+    color: var(--grey); text-decoration: none; transition: background 0.2s ease, color 0.2s ease;
+  }
+  .dropdown-item:hover { background: var(--surface); color: var(--white); }
+  .dropdown-dot { width: 5px; height: 5px; border-radius: 50%; background: #38bdf8; opacity: 0.7; }
+
+  /* Collapsed topbar */
+  .topbar.is-collapsed .capsule { gap: 36px; }
+  .topbar.is-collapsed .links { opacity: 0; max-width: 0; pointer-events: none; }
+
+  /* Mobile menu */
   .menu {
-    position: absolute; left: 16px; right: 16px; top: 72px; display: flex; flex-direction: column; gap: 20px; padding: 16px;
-    background: rgba(16, 16, 16, 0.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-radius: 16px;
+    position: absolute; left: 16px; right: 16px; top: 72px; display: flex; flex-direction: column; gap: 20px; padding: 20px;
+    background: rgba(16, 16, 18, 0.96); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-radius: 16px; border: 1px solid var(--grey-20);
     opacity: 0; pointer-events: none; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  .menu-links { display: flex; flex-direction: column; gap: 14px; }
-  .menu-link { color: var(--white); }
+  .menu-links { display: flex; flex-direction: column; gap: 16px; }
+  .menu-link { color: var(--white); text-decoration: none; }
+  .menu-group { display: flex; flex-direction: column; gap: 8px; }
+  .mobile-sublinks { display: flex; flex-direction: column; gap: 8px; padding-left: 12px; border-left: 1px solid var(--grey-20); margin-top: 4px; }
+  .mobile-sublink { color: var(--grey); text-decoration: none; }
+  .mobile-sublink:hover { color: var(--white); }
 
   @media (max-width: 1199.98px) {
     .nav { padding: 16px; height: 77px; }
@@ -69,5 +128,5 @@ const { nav } = site;
     .topbar.is-open .nav-toggle :global(.i-open) { display: none; }
     .topbar.is-open .nav-toggle :global(.i-close) { display: inline-flex; }
   }
-  @media (prefers-reduced-motion: reduce) { .capsule, .links, .menu { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { .capsule, .links, .menu, .dropdown-pane { transition: none; } }
 </style>

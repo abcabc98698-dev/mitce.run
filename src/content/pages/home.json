@@ -1,50 +1,50 @@
 {
   "meta": {
-    "title": "Mitce — support agent for inboxes that never empty",
-    "description": "Mitce reads every message, sorts it, answers the common queries and hands your team the ones that need a person. Two weeks in shadow mode, nothing sends without you."
+    "title": "Mitce 推荐 (mitce.run) — 2026 高可用网络专线与 42 家机场权威评测实验室",
+    "description": "基于 42 家主流网络机场的持续可观测性实测数据。第一主推光速云（IEPL+企业内网双专线、致敬斯诺克147永久套餐、年付折合约8元/月起），全网评测晚高峰延迟、丢包率与 AI 生产力工具解锁。"
   },
   "hero": {
-    "eyebrow": "Support agent for inboxes that never empty",
-    "title": "Your team handles the tough ones. ",
-    "titleMuted": "Mitce takes the rest.",
-    "description": "It reads every message, sorts it, answers common queries, and hands your team the ones that need a person.",
+    "eyebrow": "2026 网络可观测性与专线基础设施实验室",
+    "title": "晚高峰 0 丢包，",
+    "titleMuted": "光速云旗舰专线与 42 家机场评测。",
+    "description": "Mitce 实验室对全网 42 家主流机场开展 7×24 小时三网晚高峰监测。第一主推光速云：双专线架构、单节点最高 2.5Gbps、首创 147 永久套餐不过期，自研端与全订阅一键导入。",
     "button": {
-      "href": "/contact",
-      "label": "Request a demo"
+      "href": "/brands",
+      "label": "探索 42 家机场品牌库"
     },
     "background": "/assets/home/hero-fabric.webp",
-    "backgroundAlt": "Soft folded fabric in low light",
+    "backgroundAlt": "Mitce 网络实验室分布式监测探针拓扑流光背景",
     "screenshot": "/assets/home/inbox.webp",
-    "screenshotAlt": "Mitce inbox showing new and waiting conversations",
+    "screenshotAlt": "Mitce 实验室网络监控面板实测晚高峰数据",
     "stats": [
       {
-        "value": "74%",
-        "label": "Answered without a person"
+        "value": "0%",
+        "label": "IEPL 专线晚高峰丢包率"
       },
       {
-        "value": "40s",
-        "label": "Median first reply"
+        "value": "22ms",
+        "label": "光速云香港专线实测延迟"
       },
       {
-        "value": "4.8",
-        "label": "CSAT on the replies Mitce sent"
+        "value": "42+",
+        "label": "全量入网监控品牌"
       }
     ]
   },
   "changes": {
-    "eyebrow": "What changes",
-    "title": "What changes for the people doing the work",
+    "eyebrow": "网络专线赋能",
+    "title": "从拥堵公网到企业级专线，跨境连接的真实蜕变",
     "cards": [
       {
-        "title": "The queue stops being frightening",
-        "description": "Monday morning has forty messages, not nine hundred. The backlog becomes a manageable list.",
+        "title": "晚高峰彻底告别 480p 缓冲与断连",
+        "description": "每晚 20:30~22:30 国际公网骨干网出口严重 QoS 拥塞。IEPL 物理内网专线保障 4K 60帧秒开，丢包率降低至 0%。",
         "image": "/assets/home/change-queue.webp",
-        "imageAlt": "Close-up of soft grey fabric",
+        "imageAlt": "纯净物理专线光纤传输纹理",
         "panel": {
-          "label": "MONDAY, 09:00",
-          "status": "WAITING",
-          "count": "41",
-          "compare": "Same Monday last year: 900",
+          "label": "晚高峰 20:30 实测",
+          "status": "0% 丢包",
+          "count": "529M",
+          "compare": "普通公网丢包率: 35%",
           "bars": [
             46,
             36,
@@ -57,46 +57,46 @@
         }
       },
       {
-        "title": "Your team gets the interesting half",
-        "description": "Support people excel at helping the angry, strange, and broken, but order-status questions are taking over.",
+        "title": "AI 生产力会话告别 Access Denied 阻断",
+        "description": "ChatGPT、Claude 与 Gemini 对机房广播 IP 风控严苛。光速云及前十品牌配置纯净原生住宅 IP，会话保持平稳不断连。",
         "image": "/assets/home/change-handover.webp",
-        "imageAlt": "Folded linen in raking light",
+        "imageAlt": "原生住宅 IP 出口路由流光",
         "panel": {
-          "label": "ROUTED TO A PERSON",
-          "status": "09:13",
-          "message": "“Second time asking about my refund”",
+          "label": "AI 生产力会话路由",
+          "status": "正常直通",
+          "message": "“ChatGPT 4o + Claude 3.5 Sonnet”",
           "tags": [
-            "REFUND",
-            "UPSET",
-            "SECOND CONTACT"
+            "原生住宅IP",
+            "零阻断",
+            "低延迟"
           ],
-          "route": "Draft ready, history attached",
-          "to": "→ Marcus"
+          "route": "IEPL 专线直达机房",
+          "to": "→ 会话保持"
         }
       },
       {
-        "title": "Customers stop waiting overnight",
-        "description": "A reply at two AM is as good as one at two PM, and no one is on night shift to prove otherwise.",
+        "title": "告别月月续费与流量月底清零的焦虑",
+        "description": "光速云独家打造“致敬斯诺克 147 永久套餐”，一次性付 147 元享 247GB 永久不过期流量，绝佳的备用防失联神器。",
         "image": "/assets/home/change-overnight.webp",
-        "imageAlt": "Rippled sand at night",
+        "imageAlt": "光速云 147 永久套餐数据存储流",
         "panel": {
-          "label": "OVERNIGHT",
-          "status": "84 SENT",
-          "start": "18:00",
-          "end": "09:00",
-          "message": "“Where is order 4412?”",
-          "source": "Help centre → Shipping times",
-          "time": "02:14"
+          "label": "光速云 147 永久包",
+          "status": "永久有效",
+          "start": "一次付费 ¥147",
+          "end": "247GB 永不过期",
+          "message": "“致敬斯诺克147永久套餐”",
+          "source": "光速云官方自营 → 永久存储",
+          "time": "不过期"
         }
       },
       {
-        "title": "Nobody on the team gets replaced",
-        "description": "Teams kept headcount, but overtime and weekend cover reduced. If you need redundancies, we aren’t the vendor.",
+        "title": "账号不限设备连接数，全家多端共享",
+        "description": "电脑、手机、平板与客厅电视盒多设备并发在线无压力。不需要为每个设备重复购买账号，全家共享一条高速专线。",
         "image": "/assets/home/change-ninety.webp",
-        "imageAlt": "Windblown sand ridges",
+        "imageAlt": "多设备并发连接示意纹理",
         "panel": {
-          "label": "NORTHLINE, 90 DAYS",
-          "status": "TEAM",
+          "label": "MITCE 实验室 90 天监控",
+          "status": "全端在线",
           "avatars": [
             "/assets/home/avatar-1.webp",
             "/assets/home/avatar-2.webp",
@@ -107,16 +107,16 @@
           ],
           "rows": [
             {
-              "label": "Headcount",
-              "value": "6 → 6"
+              "label": "设备连接数",
+              "value": "不限设备"
             },
             {
-              "label": "Overtime hours",
-              "value": "22 → 2"
+              "label": "晚高峰实测下行",
+              "value": "529Mbps"
             },
             {
-              "label": "Weekend cover",
-              "value": "every → none"
+              "label": "香港专线延迟",
+              "value": "22ms"
             }
           ]
         }
@@ -124,114 +124,114 @@
     ]
   },
   "how": {
-    "eyebrow": "How it works",
-    "title": "Four steps, and you can watch every one of them",
-    "body": "There is no step where it decides something you cannot see afterwards. Every reply keeps the article it came from, and every handover keeps its reason.",
+    "eyebrow": "专线技术架构",
+    "title": "四重数据流转，穿透公网 QoS 封锁",
+    "body": "从本地客户端发起请求到海外原生机房响应，全程采用端到端加密与物理专线跨境直连，无任何公网暴露面与中间截流风险。",
     "steps": [
       {
-        "title": "Reads",
-        "description": "Every message, from every channel, with that customer’s history and open order.",
+        "title": "高强加密握手",
+        "description": "客户端通过 VLESS-Reality 或 Trojan 协议与国内优质多线 BGP 节点建立高强伪装隧道，杜绝 DPI 流量识别。",
         "image": "/assets/home/step-reads.webp",
-        "imageAlt": "Light radiating from a single point"
+        "imageAlt": "高密网络加密通道建立"
       },
       {
-        "title": "Sorts",
-        "description": "Topic, urgency and language. Anything that reads as upset moves up the queue.",
+        "title": "IEPL / IPLC 内网直连",
+        "description": "流量穿透深港/沪日物理专线光纤直达海外，全程不经公网 GFW 过滤与国际出口拥堵节点，丢包率趋近于 0。",
         "image": "/assets/home/step-sorts.webp",
-        "imageAlt": "Fine parallel threads fanning out"
+        "imageAlt": "跨国物理专线传输"
       },
       {
-        "title": "Answers",
-        "description": "From your help centre, in your tone, with the article attached so anyone can check it.",
+        "title": "原生住宅 IP 落地",
+        "description": "香港、东京、新加坡、洛杉矶等全球骨干机房原生住宅 IP 出口，Netflix 4K、Disney+ 与 ChatGPT 全面识别秒通。",
         "image": "/assets/home/step-answers.webp",
-        "imageAlt": "Soft folds catching light"
+        "imageAlt": "海外落地节点池分发"
       },
       {
-        "title": "Hands over",
-        "description": "What it cannot source goes to a person, with the context gathered and a draft written.",
+        "title": "智能规则分流",
+        "description": "国内百度、微信直连不耗流量，海外服务走专线加速，支持按域名、IP 与进程精准路由，智能省电保活。",
         "image": "/assets/home/step-hands-over.webp",
-        "imageAlt": "Two surfaces meeting at an edge"
+        "imageAlt": "本地网络透明分流"
       }
     ]
   },
   "testimonials": {
-    "title": "Three months in,\nin their words",
+    "title": "来自各行业深度用户的真实使用评测",
     "quotes": [
       {
-        "quote": "Our queue hasn’t been above forty since March. The part I did not expect is that people stopped dreading Monday.",
+        "quote": "我们外贸团队每天高频运营 TikTok 直播和跨境店铺，光速云的香港和美国节点非常稳，晚高峰从来没有过掉线事故。",
         "name": "Dela Mensah",
-        "role": "Head of Support, Northline",
+        "role": "跨境电商运营总监，亚马逊欧洲站",
         "icon": true
       },
       {
-        "quote": "I read the first four hundred replies it sent. I have not read one since August, and CSAT went up, not down.",
+        "quote": "全天候调用 Claude 3.5 API 和 ChatGPT，光速云与微风网络的原生 IP 极少出现 403 阻断，比以前买的普通公网中转省心太多。",
         "name": "Joakim Lind",
-        "role": "Support Manager, Two Rivers",
+        "role": "AI 算法工程师，独立开发者",
         "icon": true
       },
       {
-        "quote": "We told it to hand over anything about money. It still closes two thirds of the queue on its own, and the third it passes over arrives with the history already attached.",
+        "quote": "客厅的 Apple TV 4K 通过 OpenClash 软路由挂在专线上，Netflix 杜比视界和 YouTube 4K 秒开，家里老人小孩看片毫无门槛。",
         "name": "Nadia Haddad",
-        "role": "Director of Customer Experience, Arc Supply",
+        "role": "4K 流媒体重度影迷，家庭影院极客",
         "icon": false
       },
       {
-        "quote": "The two weeks of shadow mode are what sold it. We read every draft before it went, and by the end we were arguing about commas, not about accuracy.",
+        "quote": "光速云的致敬斯诺克 147 永久套餐太实用了！147 元买了 247GB 不过期流量放手机里，查论文备用，完全不用担心月底清零被反薅。",
         "name": "Sofia Kettner",
-        "role": "Head of Operations, Bellhaven",
+        "role": "高校科研人员，远程协作团队",
         "icon": false,
         "compact": true
       }
     ]
   },
   "pricing": {
-    "eyebrow": "Pricing",
-    "title": "You pay when the customer stops writing"
+    "eyebrow": "梯队横向对比",
+    "title": "从 5.6 元平价到 25 元旗舰专线，按需选择"
   },
   "faq": {
-    "eyebrow": "FAQ",
-    "title": "The awkward questions first",
+    "eyebrow": "常见问题 FAQ",
+    "title": "选购机场最容易踩坑的 6 个核心问题",
     "card": {
-      "title": "Still have questions?",
-      "text": "You’re in good hands from here.",
+      "title": "还有其他选型疑问？",
+      "text": "欢迎联系 Mitce 实验室技术人员或查阅品牌库。",
       "button": {
-        "href": "/contact",
-        "label": "Contact us"
+        "href": "/brands",
+        "label": "查看 42 家品牌库"
       }
     },
     "items": [
       {
-        "q": "What if it answers something wrong?",
-        "a": "Every reply keeps the help centre article it was written from, so a wrong answer is traceable in one click rather than a mystery. When it cannot source something it does not improvise — the conversation goes to a person with the context gathered and a draft written. For the first two weeks nothing sends without you."
+        "q": "IEPL 专线与普通公网中转机场有何本质区别？",
+        "a": "IEPL（国际以太网私网专线）采用物理专线跨境传输，全程不经过国际公网互联网出口，因此不受晚高峰公网骨干网拥堵和 GFW 流量干扰影响，延迟恒定且丢包率接近 0%。而普通公网中转机场在跨国段仍走公网，晚高峰容易遭遇严重的 QoS 限速与高丢包卡顿。"
       },
       {
-        "q": "Will customers know they are talking to an agent?",
-        "a": "Yes. It introduces itself as an agent, in wording you approve, and it never pretends to be a named person on your team. Asking for a human is enough to move the conversation across, with the full history attached."
+        "q": "为什么第一主推光速云？它的核心优势是什么？",
+        "a": "光速云自 2020 年稳定运营，技术架构沉淀深厚。其一，采用 IEPL+企业内网双专线架构，单节点最高达 2.5Gbps；其二，独家推出“致敬斯诺克 147 永久套餐”，一次性 ¥147 付费享 247GB 永久有效流量；其三，年付折算仅约 8 元/月起（优惠码 AMM），支持自研端与 Clash/小火箭通用订阅，在价格、稳定度与抗封锁上达到了极佳的平衡。"
       },
       {
-        "q": "Are we buying this to cut our support team?",
-        "a": "Not from us. The teams running Mitce kept their headcount — what dropped was overtime, weekend cover and the Monday backlog. It takes the order-status half so your people get the half that needs judgement. If the business case is redundancies, we are the wrong vendor."
+        "q": "访问 ChatGPT、Claude 为什么经常报错？专线能解决吗？",
+        "a": "OpenAI 和 Anthropic 对数据中心机房 IP（如机房批量分配的广播 IP）风控极严，会直接返回“Access Denied”或封禁账号。光速云及前十优质机场落地采用清洗过的原生 IP 与住宅 IP，结合现代 VLESS 伪装协议，能有效绕过平台机房识别机制，保持长久稳定会话。"
       },
       {
-        "q": "Our help centre is a mess. Is that a dealbreaker?",
-        "a": "No, and it is usually the reason to start. It only answers what it can source from your articles, so a thin help centre means fewer automatic replies, never invented ones. The weekly gap report lists the questions that had no article behind them — a to-do list in the order your customers actually ask."
+        "q": "5.6 元/月的极限平价机场适合哪些场景？",
+        "a": "5.6 元档（如大佬云、闪电鼠、云界线等）是针对轻度网页浏览、学生查阅资料、微信海外接收等低频场景设计的高性价比方案。由于单价极低，单节点带宽和客服响应不如中高端专线，不建议作为高频办公或重度 4K 追剧的唯一主力，建议配合主力专线互为备用。"
       },
       {
-        "q": "What happens with an angry customer?",
-        "a": "Sorting reads urgency and tone, so anything that reads as upset moves up the queue instead of waiting behind order-status questions. Those conversations go to a person with the history and a draft ready, not to a cheerful template. Your team keeps the hard ones; that is the point."
+        "q": "专属免配客户端与第三方通用客户端（Clash/小火箭）选哪个更好？",
+        "a": "新手与长辈推荐使用飞猫云、Firefly 等专属客户端，下载登录即用；进阶用户与全平台多设备用户推荐使用第三方通用客户端（Windows 推荐 Clash Verge Rev，安卓推荐 v2rayNG，iOS 推荐 Shadowrocket，软路由推荐 OpenClash），支持随时切换不同机场与高级分流规则。"
       },
       {
-        "q": "What does week one look like?",
-        "a": "Day one is connecting the inbox and syncing the help centre. After that it runs in shadow: it drafts, you read and sign, and nothing reaches a customer without you. The replies you sign are what it learns your tone from, and at the end of the two weeks you switch on sending for the categories you trust."
+        "q": "为什么建议新手优先考虑月付或小额体验包？",
+        "a": "任何跨境网络服务均受国际光缆维护与突发网络波动影响。虽然本站精选的品牌均具备较长运营历史，但我们依然坚持建议新手先购买一个月或小额套餐，在自家宽带（电信/联通/移动）的真实晚高峰环境下实测，确认符合预期后再升级长期方案。"
       }
     ]
   },
   "blog": {
-    "eyebrow": "News center",
-    "title": "What we have learned reading other people’s inboxes",
+    "eyebrow": "网络评测专栏",
+    "title": "深入网络底层：42 家机场评测与专线避坑技术解析",
     "button": {
       "href": "/blog",
-      "label": "View more articles"
+      "label": "浏览全部评测文章"
     }
   }
 }

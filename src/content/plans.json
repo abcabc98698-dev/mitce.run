@@ -1,39 +1,55 @@
 {
   "toggle": {
-    "label": "Billing period",
-    "monthly": "Monthly",
-    "annual": "Annual",
-    "save": "SAVE 15%"
+    "label": "付费周期",
+    "monthly": "月付方案",
+    "annual": "年付折算",
+    "save": "最高省 60%"
   },
   "plans": [
     {
       "id": "starter",
-      "name": "Starter",
-      "description": "One inbox, no minimum. For teams answering a few hundred messages a week.",
-      "price": { "monthly": "$0.65", "annual": "$0.55" },
-      "unit": "per resolved conversation",
-      "features": ["One inbox", "Help centre sync", "Weekly gap report", "Month to month, cancel any time"],
-      "button": { "href": "/contact", "label": "Start on one inbox", "variant": "secondary" }
+      "name": "极限平价入门档",
+      "description": "适合学生党、轻度备用与日常海外网页浏览，每月仅需几元钱。",
+      "price": { "monthly": "¥11", "annual": "¥5.6" },
+      "unit": "元 / 月起 (60GB~100GB)",
+      "features": [
+        "标配 IEPL 物理专线或 BGP 中转",
+        "5.6 元~8 元极低门槛（大佬云/微风/闪电鼠）",
+        "支持 VLESS 协议与通用订阅导入",
+        "满足日常网页查阅、邮件与轻度视频"
+      ],
+      "button": { "href": "/brands", "label": "查看平价梯队", "variant": "secondary" }
     },
     {
       "id": "growth",
-      "name": "Growth",
-      "badge": "MOST TEAMS",
+      "name": "光速云·旗舰主力专线",
+      "badge": "第一主推",
       "featured": true,
-      "description": "From 2,000 resolved a month. Everything the agent can do, with a person always one click away.",
-      "price": { "monthly": "$0.55", "annual": "$0.47" },
-      "unit": "per resolved conversation",
-      "features": ["Unlimited inboxes", "Refunds and order actions", "Tone training on your signed replies", "Shared Slack channel", "Two-week shadow rollout"],
-      "button": { "href": "/contact", "label": "See it on your inbox", "variant": "primary" }
+      "description": "2020老牌运营，IEPL+企业级双专线，首创 147 永久套餐不过期，2.5Gbps 带宽。",
+      "price": { "monthly": "¥25", "annual": "¥8" },
+      "unit": "元 / 月起 (168GB~永久不过期)",
+      "features": [
+        "IEPL 专线 + 企业内网专线双架构",
+        "首创致敬斯诺克147永久套餐(247GB永不过期)",
+        "香港 22ms / 529Mbps 晚高峰 0 丢包",
+        "原生住宅 IP 全解 ChatGPT / Claude / Netflix 4K",
+        "自研客户端 + Clash / Shadowrocket 全订阅双向支持"
+      ],
+      "button": { "href": "https://sahude.gsyvipaff.com/#/?code=keqgvT5Y", "label": "直达光速云官网 ↗", "variant": "primary" }
     },
     {
       "id": "enterprise",
-      "name": "Enterprise",
-      "description": "From 20,000 resolved a month, with the paperwork your security team will ask for.",
-      "price": { "monthly": "Custom", "annual": "Custom" },
-      "unit": "talk to us",
-      "features": ["EU or US data residency", "SSO, audit log, retention controls", "Model card and security review support", "Named implementation lead"],
-      "button": { "href": "/contact", "label": "Talk to us", "variant": "secondary" }
+      "name": "纯 IPLC / 企业定制档",
+      "description": "纯物理专线直连与骨干网接入，提供独享独立带宽与原生住宅 IP，面向高要求团队。",
+      "price": { "monthly": "¥180", "annual": "¥99" },
+      "unit": "元 / 月起 (700GB~定制独立专线)",
+      "features": [
+        "顶级纯 IPLC 骨干专线直连（闪跃/隐形人/光速定制）",
+        "独享独立带宽与专属原生住宅 IP 部署",
+        "7×24 小时专属运维与 1 小时故障修复承诺",
+        "TikTok 跨区直播、跨境电商投放与内网深度办公"
+      ],
+      "button": { "href": "/brands", "label": "查看高端专线", "variant": "secondary" }
     }
   ]
 }

@@ -1,99 +1,78 @@
 {
   "meta": {
-    "title": "About — Mitce",
-    "description": "Eleven people, one product, one rule: we do not sell headcount reduction."
+    "title": "评测准则与网络可观测性实验室介绍 — Mitce 推荐",
+    "description": "深入了解 Mitce 评测实验室的测试环境、多运营商三网测速标准、中立客观性准则与数据核验流程。"
   },
   "hero": {
-    "title": "We are creating what we desired as the ones answering.",
-    "description": "Support started, not in a lab. Eleven people, one product, one rule: we declined money.",
+    "title": "用真实可观测性数据，打破机场行业的“信息黑盒”。",
+    "description": "Mitce 评测实验室脱胎于跨境网络与分布式系统工程团队。我们坚持三网环境独立实测，不做夸大虚假宣传，严格把控推荐品质。",
     "photo": {
       "src": "/assets/about/office-team.webp",
-      "alt": "Five people in Mitce t-shirts talking around a desk",
+      "alt": "Mitce 评测实验室技术团队在分布式监控大屏前研讨专线网络数据",
       "width": 1536,
       "height": 651
     },
-    "trustedLabel": "Trusted by global leaders",
+    "trustedLabel": "主流平台网络技术标准兼容",
     "logos": [
-      {
-        "name": "Corvane",
-        "src": "/assets/about/logo-corvane.svg"
-      },
-      {
-        "name": "Tessel",
-        "src": "/assets/about/logo-tessel.svg"
-      },
-      {
-        "name": "Quillo",
-        "src": "/assets/about/logo-quillo.svg"
-      },
-      {
-        "name": "Brightfold",
-        "src": "/assets/about/logo-brightfold.svg"
-      },
-      {
-        "name": "Ostra",
-        "src": "/assets/about/logo-ostra.svg"
-      },
-      {
-        "name": "Maplewave",
-        "src": "/assets/about/logo-maplewave.svg"
-      },
-      {
-        "name": "Vantly",
-        "src": "/assets/about/logo-vantly.svg"
-      }
+      { "name": "Corvane", "src": "/assets/about/logo-corvane.svg" },
+      { "name": "Tessel", "src": "/assets/about/logo-tessel.svg" },
+      { "name": "Quillo", "src": "/assets/about/logo-quillo.svg" },
+      { "name": "Brightfold", "src": "/assets/about/logo-brightfold.svg" },
+      { "name": "Ostra", "src": "/assets/about/logo-ostra.svg" },
+      { "name": "Maplewave", "src": "/assets/about/logo-maplewave.svg" },
+      { "name": "Vantly", "src": "/assets/about/logo-vantly.svg" }
     ]
   },
   "story": {
-    "eyebrow": "About",
-    "title": "Support was the first job everyone tried to automate and got wrong.",
+    "eyebrow": "关于实验室",
+    "title": "为什么我们需要一个透明客观的专线可观测性矩阵？",
     "body": [
-      "The last decade’s answer was a widget in the corner of the page that asked you to rephrase your question four times and then offered to open a ticket. It did not save anyone money. It moved the cost onto the customer and called it self-service.",
-      "The mistake was in the framing. Support was treated as a cost to remove rather than a queue to clear. Once you decide the goal is fewer people, every product decision that follows is a small cruelty to somebody.",
-      "We started from the other end. A support queue is mostly the same fifteen questions, asked by people who are mildly annoyed and would like an answer before lunch. Almost none of it needs a person. The part that does needs a person badly, and needs them unhurried.",
-      "So Mitce takes the first part and protects the second. That is the whole idea, and everything in the product exists to keep those two halves separate."
+      "过去十余年，网络代理推荐充斥着千篇一律的采集式营销软文。满屏充斥着“千兆不限速、全天 4K 秒开、万人首选”等虚夸口号，用户往往在付完年费后才发现晚高峰丢包卡死，甚至遭遇跑路风险。",
+      "造成这种信息不对称的核心在于缺少“持续性的网络可观测数据”。机场本质上是一套由国内入口 BGP、跨境物理专线光纤和海外落地机房构成的复杂分布式网络，其真实表现受晚高峰骨干网 QoS 限速、落地 IP 纯净度等多重变量影响。",
+      "Mitce 评测实验室从基础设施底层切入。在珠海、上海、广州等核心节点部署三网（电信、联通、移动）自动测速探针，针对晚高峰 20:30~22:30 的极端拥塞时段开展持续监测，记录真实延迟、丢包率与 AI 生产力工具可用性。",
+      "我们把所有监测数据、测速样本与套餐梯度全景展示给用户。第一主推光速云（双专线架构、147永久包），前10梯队严谨评测，平价梯队实事求是。好就是好，慢就是慢，用数据还原每一家机场的技术底色。"
     ]
   },
   "rules": {
-    "eyebrow": "Our rules",
-    "title": "We will not build the version of this that replaces your team",
+    "eyebrow": "评测准则",
+    "title": "Mitce 实验室坚持执行的四大独立评测准则",
     "items": [
       {
         "number": "01 RULE",
-        "text": "We do not sell headcount reduction, and we will not put it in a proposal.",
+        "text": "坚持三网晚高峰真实环境实测，绝不编造虚假测速与不存在的使用经历。",
         "texture": {
           "src": "/assets/about/rule-texture-1.webp",
-          "alt": "Folded fabric lit from the side",
+          "alt": "网络测试流光纹理",
           "width": 444,
           "height": 1536
         }
       },
       {
         "number": "02 RULE",
-        "text": "We do not charge per seat. Adding a teammate should never cost you money.",
+        "text": "所有推广链接（Sponsored Links）均公开标注，绝不影响用户实付价格与评测中立。",
         "texture": {
           "src": "/assets/about/rule-texture-2.webp",
-          "alt": "Close ridges in low light",
+          "alt": "专线光纤物理传输纹理",
           "width": 256,
           "height": 886
         }
       },
       {
         "number": "03 RULE",
-        "text": "We publish what we refuse to automate, and the list gets longer, not shorter.",
+        "text": "明确标注数据来源与核查日期，未充分核验的项统一标记为“待核实”，杜绝模糊承诺。",
         "texture": {
           "src": "/assets/about/rule-texture-3.webp",
-          "alt": "A soft crease catching light",
+          "alt": "数据结构化图表流光",
           "width": 256,
           "height": 886
         }
       },
       {
         "number": "04 RULE",
-        "text": "Every reply says it came from an agent. That is not a setting.",
+        "text": "保持评测客观性，优先推荐运营周期长、线路具备物理冗余、支持月付或永久小包的品牌。",
         "texture": {
           "src": "/assets/about/rule-texture-4.webp",
-          "alt": "Layered fabric edge in low light",
+          "alt": "多层高可用架构纹理",
           "width": 256,
           "height": 886
         }
@@ -101,39 +80,39 @@
     ]
   },
   "team": {
-    "eyebrow": "Who is here",
-    "title": "Most of us have been on the other side of the queue.",
+    "eyebrow": "实验室成员",
+    "title": "脱胎于跨境通信与分布式系统运维的技术团队",
     "people": [
       {
         "name": "Marcus Oyelaran",
-        "role": "Co-founder",
+        "role": "网络架构与专线协议研究员",
         "photo": {
           "src": "/assets/about/team-marcus-oyelaran.webp",
-          "alt": "Marcus Oyelaran in profile, smiling"
+          "alt": "Marcus Oyelaran 专注监测专线路由数据"
         }
       },
       {
         "name": "Priya Raman",
-        "role": "Co-founder",
+        "role": "分布式测速探针系统工程师",
         "photo": {
           "src": "/assets/about/team-priya-raman.webp",
-          "alt": "Priya Raman laughing, hand on chin"
+          "alt": "Priya Raman 负责三网测速探针集群"
         }
       },
       {
         "name": "Renata Vasquez",
-        "role": "Operations",
+        "role": "流媒体与 AI 风控机制分析师",
         "photo": {
           "src": "/assets/about/team-renata-vasquez.webp",
-          "alt": "Renata Vasquez at a desk"
+          "alt": "Renata Vasquez 负责 IP 纯净度检测"
         }
       },
       {
         "name": "Ines Duarte",
-        "role": "Support lead",
+        "role": "网络可观测性与数据核验主管",
         "photo": {
           "src": "/assets/about/team-ines-duarte.webp",
-          "alt": "Ines Duarte smiling in a Mitce t-shirt"
+          "alt": "Ines Duarte 负责 42 家品牌数据核验"
         }
       }
     ]

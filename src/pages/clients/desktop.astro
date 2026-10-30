@@ -1,0 +1,142 @@
+---
+import Base from '../../layouts/Base.astro';
+import ClientSubnav from '../../components/ClientSubnav.astro';
+import { DESKTOP_CLIENTS } from '../../data/clients';
+
+const title = 'Windows / macOS / Linux 电脑端代理客户端下载与配置 (2026) — Mitce 推荐';
+const description = '2026 电脑科学上网最佳客户端指南：Clash Verge Rev 下载、Mihomo TUN 虚拟网卡配置、v2rayN 深度规则、FlClash 极简版与 Mac 苹果芯片（M1/M2/M3/M4）版本选型避坑教程。';
+---
+<Base title={title} description={description}>
+  <div class="clients-page">
+    <header class="page-head">
+      <div class="head-badge">
+        <span class="dot"></span>
+        <span class="mono-s">DESKTOP SUITE · WINDOWS / MACOS / LINUX</span>
+      </div>
+      <h1 class="t-h1 page-title">桌面电脑端代理客户端与配置教程</h1>
+      <p class="t-body-m page-desc">
+        随着原版 Clash for Windows 项目停更，2026 年桌面端生态已全面转向由 <strong>Mihomo (Clash Meta)</strong> 与 <strong>sing-box</strong> 主导的现代化时代。本专题聚焦 Windows、Mac 与 Linux 环境下的主力客户端选型与 TUN 模式防泄露实操。
+      </p>
+
+      <ClientSubnav current="desktop" />
+    </header>
+
+    <!-- Key Insights / Architectural Caveats -->
+    <section class="deep-dive-grid">
+      <div class="dive-card">
+        <h2 class="t-h3 card-h">💻 Windows 环境选型建议</h2>
+        <ul class="dive-list t-body-s">
+          <li><strong>首选方案</strong>：<strong>Clash Verge Rev</strong>。内置最新 Mihomo 内核，界面美观，自带 TUN 虚拟网卡模式，可接管游戏、命令行与所有未走系统代理的软件。</li>
+          <li><strong>协议极客</strong>：<strong>v2rayN</strong>。支持 Xray / sing-box 双内核，直接兼容 VLESS-Reality、Trojan 等各种复杂协议，节点多路复用与真连接批量延迟测速精准。</li>
+          <li><strong>轻量级追求者</strong>：<strong>FlClash</strong>。基于 Flutter 开发，常驻内存仅数十兆，极简启动。</li>
+        </ul>
+      </div>
+
+      <div class="dive-card">
+        <h2 class="t-h3 card-h">🍎 macOS 苹果电脑架构选型注意</h2>
+        <ul class="dive-list t-body-s">
+          <li><strong>芯片架构严格区分</strong>：Apple Silicon (M1/M2/M3/M4 系列芯片) 务必下载 <code>arm64 / aarch64</code> 安装包；Intel 老款 Mac 电脑需下载 <code>x64</code> 安装包，选错会导致 Rosetta 2 转译严重发热掉速。</li>
+          <li><strong>系统权限配置</strong>：初次开启 TUN 模式或增强模式时，macOS 系统设置中需允许安装虚拟网卡扩展（Network Extension）并输入管理员密码。</li>
+          <li><strong>极客抓包神器</strong>：<strong>Surge Mac</strong> 是网络开发者的终极工具，提供最详细的数据包追踪与 DNS 劫持防护。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Step by Step Setup Tutorial -->
+    <section class="tutorial-section">
+      <h2 class="t-h2 sec-h">Clash Verge Rev 核心四步上手指南</h2>
+      <div class="steps-row">
+        <div class="step-card">
+          <span class="step-num mono-s">01</span>
+          <h3 class="mono-m step-t">下载官方安装包</h3>
+          <p class="t-body-s step-desc">访问 GitHub Releases，Windows 用户下载 <code>.exe</code> 安装包或绿色便携版；Mac 用户下载 <code>.dmg</code> 并拖入应用程序。</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num mono-s">02</span>
+          <h3 class="mono-m step-t">导入机场订阅</h3>
+          <p class="t-body-s step-desc">在光速云等机场用户中心复制 Clash 订阅链接，在软件左侧菜单「订阅 (Profiles)」顶部粘贴链接并点击「保存导入」。</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num mono-s">03</span>
+          <h3 class="mono-m step-t">选择节点与模式</h3>
+          <p class="t-body-s step-desc">进入「代理 (Proxies)」页面，选择「Rule (规则模式)」，在香港、日本或新加坡节点组中点击测速并勾选目标节点。</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num mono-s">04</span>
+          <h3 class="mono-m step-t">开启系统代理 / TUN</h3>
+          <p class="t-body-s step-desc">在「设置」中打开「系统代理」开关；若需要接管终端命令行或外贸专属软件，可一键开启「TUN 模式」。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Cards for Desktop -->
+    <section class="desktop-list-section">
+      <h2 class="mono-m sec-title">⚡ 桌面端精选工具矩阵</h2>
+      <div class="clients-grid">
+        {DESKTOP_CLIENTS.map((client) => (
+          <div class="client-card">
+            <div class="card-top">
+              <div class="name-wrap">
+                <h3 class="t-h3 client-name">{client.name}</h3>
+                {client.badge && <span class="tag-badge">{client.badge}</span>}
+              </div>
+              <span class="price-tag">{client.pricing}</span>
+            </div>
+            <div class="platform-tags">
+              {client.platform.map(p => <span class="plat-pill">{p}</span>)}
+            </div>
+            <p class="t-body-s client-features">{client.features}</p>
+            <div class="card-footer">
+              <span class="t-body-s target-text">{client.targetAudience}</span>
+              <a href={client.githubOrSite} target="_blank" rel="noopener noreferrer" class="btn-repo">官网发布 ↗</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .clients-page { max-width: var(--canvas); margin: 0 auto; padding: 40px 20px 100px; }
+  .page-head { max-width: 900px; display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+  .head-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: var(--surface); border: 1px solid var(--grey-20); border-radius: 999px; width: fit-content; color: var(--grey); }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: #38bdf8; box-shadow: 0 0 10px #38bdf8; }
+  .page-title { color: var(--white); font-size: 42px; line-height: 1.15; }
+  .page-desc { color: var(--grey); line-height: 1.6; }
+
+  .deep-dive-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 56px; }
+  .dive-card { padding: 28px; background: rgba(22, 22, 26, 0.7); border: 1px solid var(--grey-20); border-radius: 16px; }
+  .card-h { color: var(--white); font-size: 20px; margin-bottom: 16px; }
+  .dive-list { color: #94a3b8; line-height: 1.7; padding-left: 20px; display: flex; flex-direction: column; gap: 12px; }
+
+  .tutorial-section { margin-bottom: 56px; background: rgba(16, 16, 18, 0.5); padding: 36px; border-radius: 20px; border: 1px solid var(--grey-20); }
+  .sec-h { color: var(--white); font-size: 28px; margin-bottom: 24px; }
+  .steps-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .step-card { display: flex; flex-direction: column; gap: 8px; padding: 18px; background: var(--surface); border-radius: 12px; border: 1px solid var(--grey-20); }
+  .step-num { font-size: 20px; color: #38bdf8; font-weight: 700; }
+  .step-t { color: var(--white); font-size: 15px; font-weight: 600; }
+  .step-desc { color: #94a3b8; line-height: 1.5; font-size: 12px; }
+
+  .desktop-list-section { display: flex; flex-direction: column; gap: 20px; }
+  .sec-title { color: #94a3b8; font-size: 14px; }
+  .clients-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .client-card { background: rgba(20, 20, 24, 0.75); border: 1px solid var(--grey-20); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .name-wrap { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .client-name { color: var(--white); font-size: 18px; margin: 0; font-weight: 700; }
+  .tag-badge { font-family: var(--font-mono); font-size: 11px; padding: 2px 8px; border-radius: 4px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+  .price-tag { font-family: var(--font-mono); font-size: 11px; color: var(--grey); background: var(--surface); padding: 3px 8px; border-radius: 6px; }
+  .platform-tags { display: flex; gap: 6px; }
+  .plat-pill { font-family: var(--font-mono); font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); color: #cbd5e1; }
+  .client-features { color: #94a3b8; font-size: 13px; line-height: 1.5; }
+  .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--grey-20); }
+  .target-text { color: var(--grey); font-size: 12px; flex: 1; }
+  .btn-repo { padding: 8px 14px; border-radius: 8px; background: var(--surface); border: 1px solid var(--grey-20); color: var(--white); font-size: 12px; text-decoration: none; font-family: var(--font-mono); }
+  .btn-repo:hover { background: var(--white); color: var(--black); }
+
+  @media (max-width: 991.98px) {
+    .deep-dive-grid, .steps-row, .clients-grid { grid-template-columns: 1fr; }
+    .page-title { font-size: 32px; }
+  }
+</style>

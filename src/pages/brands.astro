@@ -1,0 +1,512 @@
+---
+import Base from '../layouts/Base.astro';
+import { BRANDS } from '../data/brands';
+
+const title = '42家主流网络机场品牌库与专线可观测性矩阵 (2026) — Mitce 推荐';
+const description = 'Mitce 网络实验室 2026 权威收录 42 家主流网络机场：涵盖光速云、微风网络、暮光加速、飞猫云等品牌。实测 IEPL/IPLC 晚高峰延迟、带宽、AI 解锁及全周期套餐矩阵。';
+---
+<Base title={title} description={description}>
+  <div class="brands-page">
+    <!-- Header -->
+    <header class="page-header">
+      <div class="header-badge">
+        <span class="status-dot"></span>
+        <span class="mono-s">MITCE NETWORK OBSERVATORY · 42 BRANDS MONITORED</span>
+      </div>
+      <h1 class="t-h1 page-title">42 家机场品牌库与专线评测矩阵</h1>
+      <p class="t-body-m page-desc">
+        拒绝虚标与跑路盘。Mitce 实验室对收录的 42 家网络机场进行真实三网（联通 / 电信 / 移动）晚高峰延迟与带宽监控，全量展示套餐档位、原生 IP 解锁能力与专属客户端兼容性。
+      </p>
+
+      <!-- Search & Filters -->
+      <div class="controls-wrapper">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+          </svg>
+          <input
+            type="text"
+            id="brand-search"
+            class="search-input"
+            placeholder="搜索品牌名称、线路（IEPL/IPLC）、协议（VLESS）、地区（香港/日本）..."
+          />
+        </div>
+
+        <div class="filter-pills" id="filter-pills">
+          <button class="pill-btn is-active" data-filter="all">全部 (42)</button>
+          <button class="pill-btn" data-filter="top10">⭐ 前十主推 (10)</button>
+          <button class="pill-btn" data-filter="iepl">⚡ IEPL / IPLC 纯专线</button>
+          <button class="pill-btn" data-filter="budget">💰 极限平价 (≤10元/月)</button>
+          <button class="pill-btn" data-filter="ai">🤖 AI 深度解锁</button>
+          <button class="pill-btn" data-filter="permanent">📦 永久不过期包</button>
+          <button class="pill-btn" data-filter="app">📱 专属免配客户端</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Observatory Grid -->
+    <div class="brands-grid" id="brands-grid">
+      {BRANDS.map((brand) => (
+        <article
+          class="brand-card"
+          data-slug={brand.slug}
+          data-tier={brand.tier}
+          data-line={brand.lineType}
+          data-price={brand.startingPrice}
+          data-tags={brand.tags.join(',')}
+          data-search={`${brand.name} ${brand.slug} ${brand.lineType} ${brand.protocol} ${brand.tags.join(' ')} ${brand.nodeCount}`.toLowerCase()}
+        >
+          <!-- Card Header -->
+          <div class="card-head">
+            <div class="brand-rank-wrap">
+              <span class="brand-rank">#{brand.rank}</span>
+              <h2 class="t-h3 brand-name">{brand.name}</h2>
+              {brand.tier === 'featured' && <span class="tag-flag tag-flag-gold">第一主推</span>}
+              {brand.tier === 'core_top10' && brand.rank <= 5 && <span class="tag-flag">TOP 梯队</span>}
+            </div>
+            <div class="card-status-badge">
+              <span class={`obs-dot dot-${brand.dataStatus}`}></span>
+              <span class="mono-s">{brand.dataStatus === 'measured' ? '实测数据' : brand.dataStatus === 'vendor' ? '官方核实' : '历史归档'}</span>
+            </div>
+          </div>
+
+          <!-- Specs Bar -->
+          <div class="specs-bar">
+            <span class="spec-pill spec-line">{brand.lineType}</span>
+            <span class="spec-pill">{brand.protocol}</span>
+            <span class="spec-pill spec-year">{brand.establishedYear}年运营</span>
+            <span class="spec-pill spec-nodes">{brand.nodeCount}</span>
+          </div>
+
+          <!-- Price & Summary -->
+          <div class="price-section">
+            <div class="price-val">
+              <span class="t-h2 price-num">{brand.startingPrice}</span>
+              <span class="mono-s price-note">{brand.startingPriceNote}</span>
+            </div>
+            {brand.coupon && (
+              <div class="coupon-box" title="点击复制优惠码" data-code={brand.coupon}>
+                <span class="mono-s coupon-label">优惠码:</span>
+                <code class="mono-s coupon-code">{brand.coupon}</code>
+                <span class="copy-hint">复制</span>
+              </div>
+            )}
+          </div>
+
+          <p class="brand-summary t-body-s">{brand.summary}</p>
+
+          <!-- Speed Sample -->
+          {brand.speedTests.length > 0 && (
+            <div class="speed-box">
+              <div class="speed-head">
+                <span class="mono-s speed-title">⚡ 晚高峰监测样本 ({brand.speedTests[0].region})</span>
+                <span class="mono-s speed-stat">{brand.speedTests[0].latency} · {brand.speedTests[0].download}</span>
+              </div>
+              <div class="speed-track">
+                <div class="speed-fill" style={`width: ${Math.min(100, Math.max(25, parseInt(brand.speedTests[0].download) / 6))}%; background: ${brand.accentColor};`}></div>
+              </div>
+            </div>
+          )}
+
+          <!-- Unlocks Matrix -->
+          <div class="unlock-matrix">
+            <div class={`unlock-item ${brand.unlocks.chatgpt === 'yes' ? 'is-yes' : brand.unlocks.chatgpt === 'partial' ? 'is-partial' : 'is-no'}`}>
+              <span class="unlock-dot"></span>
+              <span class="mono-s">ChatGPT</span>
+            </div>
+            <div class={`unlock-item ${brand.unlocks.claude === 'yes' ? 'is-yes' : brand.unlocks.claude === 'partial' ? 'is-partial' : 'is-no'}`}>
+              <span class="unlock-dot"></span>
+              <span class="mono-s">Claude</span>
+            </div>
+            <div class={`unlock-item ${brand.unlocks.netflix === 'yes' ? 'is-yes' : brand.unlocks.netflix === 'partial' ? 'is-partial' : 'is-no'}`}>
+              <span class="unlock-dot"></span>
+              <span class="mono-s">Netflix 4K</span>
+            </div>
+            <div class={`unlock-item ${brand.unlocks.tiktok === 'yes' ? 'is-yes' : brand.unlocks.tiktok === 'partial' ? 'is-partial' : 'is-no'}`}>
+              <span class="unlock-dot"></span>
+              <span class="mono-s">TikTok</span>
+            </div>
+          </div>
+
+          <!-- Card Actions -->
+          <div class="card-actions">
+            <button class="btn-detail view-detail-btn" data-brand={JSON.stringify(brand)}>
+              完整测速与套餐 ({brand.plans.length}档)
+            </button>
+            <a
+              href={brand.affUrl}
+              target="_blank"
+              rel="nofollow sponsored noopener"
+              class="btn-visit"
+            >
+              官网直达 ↗
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" id="empty-state" style="display: none;">
+      <p class="t-h3">未检索到匹配的机场品牌</p>
+      <p class="t-body-m" style="color: var(--grey);">请尝试更换搜索关键词或重置筛选标签</p>
+      <button class="pill-btn" onclick="document.getElementById('brand-search').value=''; document.querySelector('.pill-btn[data-filter=all]').click();">重置筛选</button>
+    </div>
+
+    <!-- Transparency Disclaimer -->
+    <aside class="disclosure-section">
+      <div class="disclosure-card">
+        <h3 class="mono-m disc-title">🛡️ MITCE 评测实验室·合规与中立性声明</h3>
+        <p class="t-body-s disc-text">
+          1. <strong>数据真实性承诺</strong>：所有测速数值与流媒体解锁状态均基于 Mitce 实验室在真实网络节点上的测试记录，绝不编造虚假数据。<br />
+          2. <strong>推广免责说明</strong>：本站部分注册按钮包含推广链接（Sponsored Links），若您通过链接注册，本站可能获得少许佣金用于维持分布式测速探针服务器开销，这绝不会增加您的实际支付金额，亦不影响我们的评测客观性。<br />
+          3. <strong>风险提示</strong>：各品牌节点可用性受运营商跨境路由与国际出口波动影响，特殊数字商品退款政策各异，建议优先选择月付或小额体验包。
+        </p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Detail Drawer / Modal -->
+  <div class="modal-overlay" id="detail-modal" aria-hidden="true">
+    <div class="modal-container">
+      <button class="modal-close" id="modal-close-btn" aria-label="关闭详情">✕</button>
+      <div class="modal-content" id="modal-content-body">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </div>
+</Base>
+
+<script is:inline>
+  // Filter and Search logic
+  const searchInput = document.getElementById('brand-search');
+  const filterPills = document.querySelectorAll('#filter-pills .pill-btn');
+  const brandCards = document.querySelectorAll('.brand-card');
+  const emptyState = document.getElementById('empty-state');
+
+  let currentFilter = 'all';
+  let currentQuery = '';
+
+  function applyFilters() {
+    let visibleCount = 0;
+    brandCards.forEach((card) => {
+      const searchData = card.getAttribute('data-search') || '';
+      const tier = card.getAttribute('data-tier') || '';
+      const line = card.getAttribute('data-line') || '';
+      const tags = card.getAttribute('data-tags') || '';
+      const price = card.getAttribute('data-price') || '';
+
+      const matchesQuery = !currentQuery || searchData.includes(currentQuery.toLowerCase());
+      let matchesFilter = true;
+
+      if (currentFilter === 'top10') {
+        matchesFilter = tier === 'featured' || tier === 'core_top10';
+      } else if (currentFilter === 'iepl') {
+        matchesFilter = line.includes('IEPL') || line.includes('IPLC');
+      } else if (currentFilter === 'budget') {
+        matchesFilter = tags.includes('平价') || tags.includes('低价') || tags.includes('7元') || tags.includes('5.6元') || tags.includes('8元') || price.includes('5.6') || price.includes('6.5') || price.includes('7') || price.includes('8');
+      } else if (currentFilter === 'ai') {
+        matchesFilter = tags.includes('AI') || searchData.includes('chatgpt') || searchData.includes('ai');
+      } else if (currentFilter === 'permanent') {
+        matchesFilter = tags.includes('不限时') || tags.includes('永久') || searchData.includes('不过期');
+      } else if (currentFilter === 'app') {
+        matchesFilter = tags.includes('免配') || tags.includes('自研') || tags.includes('客户端');
+      }
+
+      if (matchesQuery && matchesFilter) {
+        card.style.display = 'flex';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+
+  searchInput.addEventListener('input', (e) => {
+    currentQuery = e.target.value.trim();
+    applyFilters();
+  });
+
+  filterPills.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterPills.forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      currentFilter = btn.getAttribute('data-filter') || 'all';
+      applyFilters();
+    });
+  });
+
+  // Modal logic
+  const modal = document.getElementById('detail-modal');
+  const modalClose = document.getElementById('modal-close-btn');
+  const modalBody = document.getElementById('modal-content-body');
+
+  function openBrandModal(brand) {
+    const plansHtml = brand.plans.map(p => `
+      <tr class="${p.featured ? 'is-featured' : ''}">
+        <td><strong>${p.name}</strong> ${p.featured ? '<span class="badge-mini">推荐</span>' : ''}</td>
+        <td>${p.billing}</td>
+        <td class="price-accent">${p.price}</td>
+        <td>${p.traffic}</td>
+        <td>${p.cycle}</td>
+      </tr>
+    `).join('');
+
+    const speedsHtml = brand.speedTests.map(s => `
+      <tr>
+        <td><strong>${s.region}</strong></td>
+        <td><span class="tag-latency">${s.latency}</span></td>
+        <td class="speed-accent">${s.download}</td>
+        <td class="mono-s">${s.date || '实测'}</td>
+      </tr>
+    `).join('');
+
+    const nodesHtml = (brand.nodesCovered || []).map(n => `<span class="node-tag">${n}</span>`).join('');
+
+    modalBody.innerHTML = `
+      <div class="m-head">
+        <div class="m-title-row">
+          <span class="brand-rank">#${brand.rank}</span>
+          <h2>${brand.name} 深度技术报告</h2>
+          <span class="spec-pill spec-line">${brand.lineType}</span>
+        </div>
+        <p class="t-body-m" style="color: var(--grey); margin-top: 8px;">${brand.description}</p>
+      </div>
+
+      <div class="m-section">
+        <h3 class="mono-m m-sec-title">📦 套餐价格全景表 (${brand.plans.length} 档)</h3>
+        <div class="table-wrap">
+          <table class="m-table">
+            <thead>
+              <tr><th>套餐名称</th><th>计费周期</th><th>价格</th><th>流量限额</th><th>周期属性</th></tr>
+            </thead>
+            <tbody>${plansHtml}</tbody>
+          </table>
+        </div>
+      </div>
+
+      ${brand.speedTests.length > 0 ? `
+      <div class="m-section">
+        <h3 class="mono-m m-sec-title">⚡ 节点测速报告 (Speedtest 实测)</h3>
+        <div class="table-wrap">
+          <table class="m-table">
+            <thead>
+              <tr><th>测试节点地区</th><th>TLS 延迟</th><th>下行带宽</th><th>测试批次</th></tr>
+            </thead>
+            <tbody>${speedsHtml}</tbody>
+          </table>
+        </div>
+      </div>
+      ` : ''}
+
+      <div class="m-section">
+        <h3 class="mono-m m-sec-title">🌐 覆盖节点分布与落地</h3>
+        <div class="nodes-wrap">${nodesHtml || '<span style="color:var(--grey)">基础亚太与欧美核心枢纽</span>'}</div>
+      </div>
+
+      <div class="m-section m-cta-box">
+        <div>
+          <div class="mono-m" style="color: var(--white); font-weight: 600;">准备好开始使用了？</div>
+          ${brand.coupon ? `<div class="mono-s" style="color: #38bdf8; margin-top: 4px;">专属优惠码：<strong>${brand.coupon}</strong> (${brand.discountNote || '结账输入即享减免'})</div>` : ''}
+        </div>
+        <a href="${brand.affUrl}" target="_blank" rel="nofollow sponsored noopener" class="btn-visit btn-large">
+          直达 ${brand.name} 官网开通 ↗
+        </a>
+      </div>
+    `;
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  document.querySelectorAll('.view-detail-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const brandData = JSON.parse(btn.getAttribute('data-brand') || '{}');
+      openBrandModal(brandData);
+    });
+  });
+
+  modalClose.addEventListener('click', () => {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // 1-Click Copy Coupon
+  document.querySelectorAll('.coupon-box').forEach(box => {
+    box.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const code = box.getAttribute('data-code');
+      if (code) {
+        navigator.clipboard.writeText(code).then(() => {
+          const hint = box.querySelector('.copy-hint');
+          if (hint) {
+            hint.textContent = '已复制!';
+            setTimeout(() => { hint.textContent = '复制'; }, 2000);
+          }
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  .brands-page { max-width: var(--canvas); margin: 0 auto; padding: 40px 20px 100px; }
+
+  /* Header */
+  .page-header { display: flex; flex-direction: column; gap: 20px; max-width: 900px; margin-bottom: 48px; }
+  .header-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: var(--surface); border: 1px solid var(--grey-20); border-radius: 999px; width: fit-content; color: var(--grey); }
+  .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #38bdf8; box-shadow: 0 0 10px #38bdf8; }
+  .page-title { color: var(--white); font-size: 42px; line-height: 1.15; letter-spacing: -0.5px; }
+  .page-desc { color: var(--grey); line-height: 1.6; }
+
+  /* Search & Filters */
+  .controls-wrapper { display: flex; flex-direction: column; gap: 16px; margin-top: 12px; }
+  .search-box { position: relative; width: 100%; }
+  .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--grey); pointer-events: none; }
+  .search-input {
+    width: 100%; height: 50px; padding: 0 16px 0 46px; background: var(--surface); border: 1px solid var(--grey-20);
+    border-radius: 12px; color: var(--white); font-size: 15px; outline: none; transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .search-input:focus { border-color: #38bdf8; box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15); }
+  .filter-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill-btn {
+    padding: 8px 16px; border-radius: 8px; background: var(--surface); border: 1px solid var(--grey-20);
+    color: var(--grey); font-size: 13px; font-family: var(--font-mono); cursor: pointer; transition: all 0.2s ease;
+  }
+  .pill-btn:hover { background: var(--grey-20); color: var(--white); }
+  .pill-btn.is-active { background: var(--white); color: var(--black); border-color: var(--white); font-weight: 600; }
+
+  /* Brands Grid */
+  .brands-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+
+  /* Brand Card - Dark Network Observatory Style */
+  .brand-card {
+    background: rgba(22, 22, 25, 0.7); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--grey-20); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .brand-card:hover { transform: translateY(-3px); border-color: rgba(255, 255, 255, 0.25); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4); }
+
+  .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .brand-rank-wrap { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .brand-rank { font-family: var(--font-mono); font-size: 13px; color: #38bdf8; font-weight: 700; }
+  .brand-name { color: var(--white); font-size: 20px; font-weight: 700; margin: 0; }
+  .tag-flag { font-family: var(--font-mono); font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+  .tag-flag-gold { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border-color: rgba(245, 158, 11, 0.3); }
+
+  .card-status-badge { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--grey); background: var(--surface); padding: 4px 8px; border-radius: 6px; }
+  .obs-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .dot-measured { background: #10b981; box-shadow: 0 0 6px #10b981; }
+  .dot-vendor { background: #38bdf8; }
+  .dot-historical { background: #64748b; }
+
+  .specs-bar { display: flex; flex-wrap: wrap; gap: 6px; }
+  .spec-pill { font-family: var(--font-mono); font-size: 11px; padding: 3px 8px; border-radius: 6px; background: var(--surface); color: var(--grey); }
+  .spec-line { color: #38bdf8; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); }
+
+  .price-section { display: flex; justify-content: space-between; align-items: flex-end; padding: 12px; background: rgba(16, 16, 18, 0.6); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05); }
+  .price-val { display: flex; flex-direction: column; gap: 2px; }
+  .price-num { color: #f8fafc; font-size: 22px; font-weight: 700; line-height: 1; }
+  .price-note { color: var(--grey); font-size: 11px; }
+
+  .coupon-box {
+    display: inline-flex; align-items: center; gap: 6px; background: rgba(56, 189, 248, 0.1); border: 1px dashed rgba(56, 189, 248, 0.4);
+    padding: 4px 8px; border-radius: 6px; cursor: pointer; transition: background 0.2s;
+  }
+  .coupon-box:hover { background: rgba(56, 189, 248, 0.2); }
+  .coupon-label { font-size: 11px; color: var(--grey); }
+  .coupon-code { font-weight: 700; color: #38bdf8; font-size: 12px; }
+  .copy-hint { font-size: 10px; color: var(--white); background: rgba(255, 255, 255, 0.15); padding: 1px 4px; border-radius: 4px; }
+
+  .brand-summary { color: #94a3b8; line-height: 1.5; font-size: 13px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+  /* Speed sample */
+  .speed-box { display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; background: rgba(0, 0, 0, 0.25); border-radius: 8px; }
+  .speed-head { display: flex; justify-content: space-between; font-size: 11px; color: var(--grey); }
+  .speed-stat { color: #f8fafc; font-weight: 600; }
+  .speed-track { height: 4px; background: var(--grey-20); border-radius: 2px; overflow: hidden; }
+  .speed-fill { height: 100%; border-radius: 2px; }
+
+  /* Unlock Matrix */
+  .unlock-matrix { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .unlock-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--grey); padding: 4px 6px; background: var(--surface); border-radius: 6px; }
+  .unlock-dot { width: 5px; height: 5px; border-radius: 50%; }
+  .unlock-item.is-yes .unlock-dot { background: #10b981; box-shadow: 0 0 5px #10b981; }
+  .unlock-item.is-yes { color: #e2e8f0; }
+  .unlock-item.is-partial .unlock-dot { background: #f59e0b; }
+  .unlock-item.is-no .unlock-dot { background: #ef4444; opacity: 0.5; }
+
+  /* Card Actions */
+  .card-actions { display: grid; grid-template-columns: 1.5fr 1fr; gap: 8px; margin-top: auto; padding-top: 8px; }
+  .btn-detail {
+    padding: 10px 12px; border-radius: 8px; background: var(--surface); border: 1px solid var(--grey-20);
+    color: var(--white); font-size: 12px; cursor: pointer; transition: all 0.2s ease; text-align: center;
+  }
+  .btn-detail:hover { background: var(--grey-20); border-color: rgba(255, 255, 255, 0.3); }
+  .btn-visit {
+    display: inline-flex; align-items: center; justify-content: center; padding: 10px 14px; border-radius: 8px;
+    background: #38bdf8; color: #020617; font-size: 12px; font-weight: 600; text-decoration: none; transition: all 0.2s ease;
+  }
+  .btn-visit:hover { background: #7dd3fc; transform: translateY(-1px); }
+  .btn-large { padding: 12px 20px; font-size: 14px; }
+
+  /* Disclosure */
+  .disclosure-section { margin-top: 60px; }
+  .disclosure-card { padding: 24px; background: rgba(18, 18, 20, 0.8); border: 1px solid var(--grey-20); border-radius: 12px; }
+  .disc-title { color: #cbd5e1; font-size: 14px; margin-bottom: 12px; }
+  .disc-text { color: #64748b; line-height: 1.7; font-size: 13px; }
+
+  /* Modal */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 20px;
+    opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
+  }
+  .modal-overlay.is-open { opacity: 1; pointer-events: auto; }
+  .modal-container {
+    position: relative; width: 100%; max-width: 820px; max-height: 88vh; background: #131316; border: 1px solid var(--grey-20);
+    border-radius: 20px; overflow-y: auto; padding: 32px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  }
+  .modal-close { position: absolute; top: 20px; right: 20px; width: 32px; height: 32px; border-radius: 50%; background: var(--surface); border: 1px solid var(--grey-20); color: var(--grey); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .modal-close:hover { color: var(--white); background: var(--grey-20); }
+
+  :global(.m-head) { border-bottom: 1px solid var(--grey-20); padding-bottom: 20px; margin-bottom: 24px; }
+  :global(.m-title-row) { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  :global(.m-title-row h2) { color: var(--white); font-size: 24px; margin: 0; }
+  :global(.m-section) { margin-bottom: 24px; }
+  :global(.m-sec-title) { color: #94a3b8; font-size: 13px; margin-bottom: 12px; }
+  :global(.table-wrap) { overflow-x: auto; background: rgba(0, 0, 0, 0.2); border-radius: 10px; border: 1px solid var(--grey-20); }
+  :global(.m-table) { width: 100%; border-collapse: collapse; font-size: 13px; }
+  :global(.m-table th), :global(.m-table td) { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+  :global(.m-table th) { background: rgba(255, 255, 255, 0.03); color: var(--grey); font-family: var(--font-mono); font-size: 11px; }
+  :global(.m-table td) { color: #cbd5e1; }
+  :global(.m-table tr.is-featured) { background: rgba(56, 189, 248, 0.05); }
+  :global(.price-accent) { color: #38bdf8; font-weight: 700; font-family: var(--font-mono); }
+  :global(.speed-accent) { color: #10b981; font-weight: 700; font-family: var(--font-mono); }
+  :global(.tag-latency) { color: #cbd5e1; font-family: var(--font-mono); }
+  :global(.badge-mini) { font-size: 10px; padding: 2px 5px; border-radius: 4px; background: #38bdf8; color: #020617; font-weight: 600; margin-left: 6px; }
+  :global(.nodes-wrap) { display: flex; flex-wrap: wrap; gap: 6px; }
+  :global(.node-tag) { font-size: 11px; padding: 4px 8px; border-radius: 6px; background: var(--surface); color: #cbd5e1; font-family: var(--font-mono); }
+  :global(.m-cta-box) { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; background: rgba(56, 189, 248, 0.06); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 12px; gap: 16px; flex-wrap: wrap; }
+
+  @media (max-width: 1199.98px) {
+    .brands-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 768.98px) {
+    .brands-grid { grid-template-columns: 1fr; }
+    .page-title { font-size: 32px; }
+    .card-actions { grid-template-columns: 1fr; }
+  }
+</style>

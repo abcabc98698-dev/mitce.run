@@ -1,81 +1,98 @@
 {
   "meta": {
-    "title": "Pricing — Mitce",
-    "description": "One price per resolved conversation. No seat licences, no per-agent maths — compare Starter, Growth and Enterprise side by side.",
+    "title": "机场套餐价格横向对比表 (2026) — Mitce 推荐",
+    "description": "从 5.6 元平价到 25 元旗舰双专线，42 家主流网络机场套餐横向测评：按月付、年付折算、永久不限时包、节点带宽与解锁能力逐行对比。",
     "image": "/assets/pricing/og.jpg"
   },
   "top": {
-    "eyebrow": "Pricing",
-    "title": "You pay when the customer stops writing",
-    "description": "No seat licences, no per-agent maths. One price for every conversation the agent resolved on its own — and nothing for the ones it handed to a person with the history attached."
+    "eyebrow": "套餐价格横评",
+    "title": "平价入门 vs 旗舰专线，逐行参数横向比对",
+    "description": "不用在几十家机场官网反复比价。Mitce 实验室将 42 家机场价格提炼为三大核心梯队：平价入门档、光速云旗舰双专线档与企业级独立专线档，清楚标明真实晚高峰下行带宽、流量计费、协议与多端支持。"
   },
   "compare": {
-    "eyebrow": "Compare",
-    "title": "The whole thing, line by line",
-    "tabsLabel": "Plan to compare",
-    "headLabel": "What you get",
+    "eyebrow": "参数矩阵",
+    "title": "三大主流梯队，按需选型决策表",
+    "tabsLabel": "选择对比方案",
+    "headLabel": "核心技术指标",
     "columns": [
-      { "id": "starter", "label": "Starter" },
-      { "id": "growth", "label": "Growth" },
-      { "id": "enterprise", "label": "Enterprise" }
+      { "id": "starter", "label": "平价入门档 (5.6元起)" },
+      { "id": "growth", "label": "光速云旗舰 (8元起/147永久)" },
+      { "id": "enterprise", "label": "企业专线档 (180元起/定制)" }
     ],
-    "included": "Included",
-    "notIncluded": "Not included",
+    "included": "标配支持",
+    "notIncluded": "不支持",
     "groups": [
       {
-        "title": "Volume and pricing",
+        "title": "价格与流量计费",
         "rows": [
-          { "label": "Price per resolved conversation", "cells": [{ "monthly": "$0.65", "annual": "$0.55" }, { "monthly": "$0.55", "annual": "$0.47" }, "Custom"] },
-          { "label": "Conversations handed to a person", "cells": ["Not charged", "Not charged", "Not charged"] },
-          { "label": "Minimum volume", "cells": ["None", "From 2,000 a month", "From 20,000 a month"] },
-          { "label": "Commitment", "cells": ["Month to month", "Month to month", "Annual"] }
+          { "label": "入门月均成本", "cells": [{ "monthly": "¥11", "annual": "¥5.6" }, { "monthly": "¥25", "annual": "¥8" }, { "monthly": "¥180", "annual": "¥99" }] },
+          { "label": "每月流量规格", "cells": ["40GB ~ 100GB", "69GB ~ 900GB", "500GB ~ 2TB+ 独享"] },
+          { "label": "永久不过期流量包", "cells": ["部分品牌支持", "首创 147 永久套餐 (247GB不过期)", "支持不限时大容量包"] },
+          { "label": "设备在线数量限制", "cells": ["普遍限 2~3 设备", "不限设备数量", "不限设备数量"] }
         ]
       },
       {
-        "title": "Inboxes and answering",
+        "title": "线路架构与实测表现",
         "rows": [
-          { "label": "Connected inboxes", "cells": ["One", "Unlimited", "Unlimited"] },
-          { "label": "Help centre sync", "cells": [true, true, true] },
-          { "label": "Urgency and tone sorting", "cells": [true, true, true] },
-          { "label": "Refunds and order actions", "cells": [false, true, true] },
-          { "label": "Tone training on your signed replies", "cells": [false, true, true] }
+          { "label": "线路传输架构", "cells": ["BGP中转 / 入门IEPL", "IEPL专线 + 企业内网双专线", "顶级纯 IPLC 骨干直连"] },
+          { "label": "单节点峰值带宽", "cells": ["100 ~ 300 Mbps", "最高 2.5 Gbps", "2 Gbps+ 独立物理专享"] },
+          { "label": "晚高峰实测延迟 (香港)", "cells": ["28ms ~ 45ms", "22ms 极速稳定", "23ms 零抖动"] },
+          { "label": "晚高峰丢包率", "cells": ["5% ~ 15% 偶发拥塞", "0% 物理专线保障", "0% 毫秒级防抖"] }
         ]
       },
       {
-        "title": "Rollout and support",
+        "title": "AI 与流媒体高可用",
         "rows": [
-          { "label": "Two-week shadow rollout", "cells": [true, true, true] },
-          { "label": "Weekly gap report", "cells": [true, true, true] },
-          { "label": "Support channel", "cells": ["Email", "Shared Slack channel", "Slack and a named lead"] },
-          { "label": "Named implementation lead", "cells": [false, false, true] }
+          { "label": "ChatGPT / Claude 深度解锁", "cells": ["部分节点可用 (需手动切点)", "原生住宅 IP 全节点稳定支持", "专属独立 IP 零风控阻断"] },
+          { "label": "Netflix 4K / Disney+ 秒开", "cells": [true, true, true] },
+          { "label": "自研免配客户端", "cells": ["视品牌而定", true, true] },
+          { "label": "Clash / Shadowrocket 通用订阅", "cells": [true, true, true] }
         ]
       },
       {
-        "title": "Security and admin",
+        "title": "服务保障与售后支持",
         "rows": [
-          { "label": "EU or US data residency", "cells": [false, false, true] },
-          { "label": "SSO, audit log, retention controls", "cells": [false, false, true] },
-          { "label": "Model card and security review support", "cells": [false, false, true] }
+          { "label": "客服响应支持", "cells": ["工单或 AI 客服", "7×24小时在线真人+AI协同", "专属技术 lead 一对一协助"] },
+          { "label": "故障快速修复承诺", "cells": [false, true, true] },
+          { "label": "跨境电商与直播定制支持", "cells": [false, true, true] }
         ]
       }
     ],
-    "footnote": "Start on the plan you need today. Moving up takes a switch, not a migration."
+    "footnote": "建议优先选择支持月付或具备不限时体验包的品牌。随时可在品牌库中按需切换。"
   },
   "faq": {
-    "eyebrow": "FAQ",
-    "title": "The money questions, answered",
+    "eyebrow": "计费与价格答疑",
+    "title": "关于机场价格与套餐的常见问题",
     "card": {
-      "title": "Not sure which plan?",
-      "text": "Send us a week of tickets and we’ll tell you.",
-      "button": { "href": "/contact", "label": "Contact us" }
+      "title": "想查看全部 42 家具体价格？",
+      "text": "进入品牌库可查看各家每档套餐与测速。",
+      "button": { "href": "/brands", "label": "查看 42 家品牌库" }
     },
     "items": [
-      { "q": "What counts as a resolved conversation?", "a": "One the agent answered end to end: the customer got what they asked for and did not write back about it again. If it hands over to a person at any point in the thread, it is not resolved and it is not billed." },
-      { "q": "So we pay nothing for the ones it hands over?", "a": "Nothing. Handovers are the product working as intended — it sorts by urgency, writes the draft and passes the thread across with the history attached. You pay for the ones your team never had to open." },
-      { "q": "Is anything billed during the two-week shadow rollout?", "a": "No. For the first two weeks it drafts and you sign, so nothing reaches a customer without you and nothing counts as resolved. The fortnight where it learns your tone costs you nothing." },
-      { "q": "Is there a minimum or a setup fee?", "a": "No setup fee on any plan. Starter has no minimum at all, Growth starts at 2,000 resolved a month and Enterprise at 20,000. If you are not reaching the volume, you are on the wrong plan and we will move you down." },
-      { "q": "What does annual billing change?", "a": "The rate per resolved conversation, and nothing else. You are invoiced twelve months up front and keep the same cancellation terms the plan already has. Enterprise is an annual contract either way." },
-      { "q": "Can we change plans mid-month?", "a": "Yes, in both directions, effective from the next invoice. Nothing is reimplemented — the connected inboxes, the help centre sync and the tone it learned from your signed replies all carry across." }
+      {
+        "q": "年付 5.6 元或 8 元/月是如何计算的？",
+        "a": "绝大多数机场的“5.6元/月”或“8元/月”口径均指年付总价分摊到每个月的平均成本（例如光速云年付 ¥99 包含每月 69GB，折合约 8.25 元/月；闪电鼠年付 ¥68 包含每月 60GB，折合约 5.6 元/月）。如果选择按月单月支付，单月起步价通常在 15~25 元之间。"
+      },
+      {
+        "q": "光速云的“致敬斯诺克 147 永久套餐”适合谁？",
+        "a": "该套餐只需一次性付费 ¥147，便可获得 247GB 永久不过期的独立流量池。它特别适合平时翻墙频次不高、只需要偶尔查阅学术论文、收发海外邮件、查外贸订单，或者买来放在手机里作为防止主机场维护时的“永久防失联备用梯”。"
+      },
+      {
+        "q": "为什么不建议一开始就买两三年长约？",
+        "a": "虽然部分品牌提供两年付 7 折、三年付 6 折等折扣，但国际跨境网络环境与机场运营周期存在不可控变量。除非是像光速云（2020年起持续运营）这样经历过数年大考的老牌头部品牌，否则对新品牌强烈建议按月付或按年付小额体验，切忌盲目大额囤积多周期。"
+      },
+      {
+        "q": "套餐里的流量用完了会怎么样？",
+        "a": "周期型套餐（月付/季付/年付）通常在每个计费周期起始日自动重置流量，若当月提前用尽，大部分机场提供额外购买流量叠加包（Data Add-on）的服务，或者可以提前按比例续费重置周期。"
+      },
+      {
+        "q": "可以用支付宝、微信或 USDT 支付吗？",
+        "a": "收录的绝大多数主流品牌（如光速云、微风网络、暮光加速等）均直接支持国内支付宝扫码支付，部分品牌支持微信（可能需联系客服通道），中高端专线机场普遍支持 USDT (TRC-20) 加密货币付款，便于隐私保护。"
+      },
+      {
+        "q": "付款后能退款吗？",
+        "a": "由于网络代理节点与专线服务器属于即时消耗型数字虚拟资产，绝大多数机场在服务条款（Terms of Service）中均明确标注“特殊虚拟商品一经开通不支持无理由退款”。因此我们反复强调先买月付轻量包测试本地实际宽带连通率。"
+      }
     ]
   }
 }

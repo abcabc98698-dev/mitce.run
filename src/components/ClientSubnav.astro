@@ -1,0 +1,30 @@
+---
+interface Props {
+  current: 'all' | 'desktop' | 'mobile' | 'router';
+}
+const { current } = Astro.props;
+---
+<nav class="client-subnav" aria-label="客户端分类导航">
+  <a href="/clients" class={`subnav-pill ${current === 'all' ? 'is-active' : ''}`}>
+    ⚡ 全平台总览
+  </a>
+  <a href="/clients/desktop" class={`subnav-pill ${current === 'desktop' ? 'is-active' : ''}`}>
+    💻 桌面端 (Windows / Mac / Linux)
+  </a>
+  <a href="/clients/mobile" class={`subnav-pill ${current === 'mobile' ? 'is-active' : ''}`}>
+    📱 移动端 (iOS / Android)
+  </a>
+  <a href="/clients/router" class={`subnav-pill ${current === 'router' ? 'is-active' : ''}`}>
+    🌐 软路由 (OpenWrt / 网关)
+  </a>
+</nav>
+
+<style>
+  .client-subnav { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 36px; }
+  .subnav-pill {
+    padding: 10px 18px; border-radius: 10px; background: var(--surface); border: 1px solid var(--grey-20);
+    color: var(--grey); font-size: 13px; font-family: var(--font-mono); text-decoration: none; transition: all 0.2s ease;
+  }
+  .subnav-pill:hover { background: var(--grey-20); color: var(--white); }
+  .subnav-pill.is-active { background: var(--white); color: var(--black); border-color: var(--white); font-weight: 600; }
+</style>

@@ -1,71 +1,65 @@
 ---
-title: "Say it is an agent. Every team that hid it lost CSAT"
-category: Practice
-date: 2026-09-05
-readTime: "4 min read"
-excerpt: "Three teams tried the polite ambiguity. All three watched satisfaction fall before a single complaint ever mentioned the agent."
+title: "IEPL 与 IPLC 物理专线深度科普：为什么普通公网中转晚高峰必卡？"
+category: "硬核技术"
+date: 2026-10-18
+readTime: "6 分钟硬核科普"
+excerpt: "为什么每天晚上八点半看视频总缓冲？深入国际网络基础设施底层，详解公网中转 QoS 限速机制与 IEPL/IPLC 跨境物理光缆的本质区别。"
 featured: false
 cover: /assets/blog/say-it-is-an-agent.webp
-coverAlt: "Closely spaced vertical pleats fading from lit on the left into darkness on the right"
+coverAlt: "国际跨境物理光缆与专线数据包传输示意图"
 author:
-  name: "Hana Park"
-  role: "Customer research, Mitce"
+  name: "Priya Raman"
+  role: "分布式探针系统工程师, Mitce"
   avatar: /assets/blog/avatar-hana-park.webp
-  avatarAlt: "Portrait of Hana Park"
+  avatarAlt: "Priya Raman 肖像"
 ---
-Three of the teams we work with wanted to leave the disclosure out. The argument is always the same and it is not a stupid one: say it is a machine and people will disengage before they have read the answer.
+许多初次接触科学上网的用户常常有一个困惑：明明白天测速能跑满 500Mbps 甚至千兆宽带，为什么一到晚上八点半，网页就开始转圈，4K 视频直接降速到模糊的 480p？
 
-All three put it back within a month.
+问题的根源并不在你的本地路由器，而在跨境骨干网的**“传输架构”**。
 
-## What actually happened
+## 一、普通公网中转的致命缺陷：QoS 与 GFW
 
-Satisfaction did not fall when customers were told. It fell a week or two later, when somebody worked it out on their own — usually from a reply that arrived at 03:14 on a Sunday, or from the fourth message in a row that answered the question they had not asked.
+市面上很多极低价的“万人骑”机场，采用的是成本极其低廉的**“公网中转”**或**“普通直连”**方案。
 
-In two of the three cases we can date it fairly precisely, because both teams ran a public forum. In each one the decline begins within days of the first post where a customer says, in their own words, that they think they are talking to a bot. Nobody in those threads is angry about the automation itself. They are annoyed at having been allowed to assume otherwise.
+其传输链路为：
+`用户设备 ➔ 国内普通公网服务器 ➔ 公共国际海底光缆 (经 GFW) ➔ 海外机房`
 
-The size of the fall was consistent enough to be worth stating plainly: between four and seven points of CSAT in each of the three teams, sustained for the rest of the measurement window, against no detectable movement in the weeks when disclosure was added.
+### 为什么晚高峰必然卡顿？
+1. **国际公网出口带宽超载**：每天 20:30~22:30 是国内网民跨境访问的高峰期。三大运营商对国际公网出口执行严格的 **QoS (Quality of Service) 流量整形**。在带宽饱和时，优先级较低的普通民用出国流量会被主动丢包（丢包率经常高达 20%~40%）。
+2. **深度数据包检测 (DPI)**：公共出口链路布设了严密的防火墙，即使用现代加密算法伪装，高频大流量传输也极易触发行为特征分析，导致临时阻断或长连接被强行切断。
 
-Being told costs you nothing. Being caught costs you the benefit of the doubt on every reply after it, including the ones a person wrote.
+---
 
-> **What we measured**
->
-> CSAT on resolved conversations, weekly, for the eight weeks either side of each disclosure change. Same agent, same routing rules, same team. Escalated conversations were excluded, because escalation changes who is answering and we wanted the comparison to stay honest.
+## 二、什么是 IEPL 与 IPLC 物理专线？
 
-## The wording matters less than you would think
+与公网中转完全不同，高端机场（如**光速云**、**微风网络**、**唯兔云**）采用的是企业级内网专线：
 
-We have watched teams spend a fortnight on the sentence. In the data it barely registers. “You’re chatting with our support assistant”, “This is an automated reply”, and a plain “I’m an assistant, not a person” all land within noise of each other.
+- **IPLC (International Private Leased Circuit)**：国际私有租用线路。通过两地运营商直接拉通点对点的海底光缆或跨境陆缆，在物理层面上建立内网通道。
+- **IEPL (International Ethernet Private Line)**：国际以太网专线。采用二层以太网技术互联，具备更高的带宽调度弹性与抗干扰性。
 
-Two things do register. The first is where it sits: at the top of the first reply, above the answer, not in a footer under the signature. The second is what follows it — one obvious way to reach a person.
+### 专线的核心杀手锏：
+1. **全程不走公网出口**：流量在国内 BGP 入口打包后，直接进入运营商的封闭内网专线跨境，**物理级绕过 GFW 公网拦截点**。
+2. **0% 丢包率与极低时延**：专线带宽属于预分配的专用物理通道，不受公网骨干拥塞影响。无论白天还是大年三十晚高峰，香港节点延迟始终恒定在 20ms~25ms，丢包率趋近于 0。
+3. **单节点高吞吐保障**：像光速云采用的 IEPL+企业级内网双专线架构，单节点能够承载高达 2.5Gbps 的瞬时突发，支撑 4K 60帧、8K 杜比视界秒级拖拽。
 
-Teams that disclose and then bury the handover do worse than teams that never disclosed at all. That is the only result in this whole exercise that genuinely surprised us, and it is the one we now lead with. A disclosure without an exit reads as a warning that nobody is coming.
+---
 
-## The teams that never told anyone
+## 三、双专线架构为什么更可靠？
 
-The obvious question is what happens if you simply never disclose and never get caught. We have two inboxes in the sample that ran that way for most of a year, and the honest answer is that the second half of that sentence does not hold for long.
+哪怕是昂贵的物理专线，在极端天气（如台风导致海底地震光缆断裂）或市政施工时，也可能面临单点故障。
 
-Both were found out — once through a customer pasting two replies side by side and noting they shared a sentence, once through a journalist. In both cases the recovery took longer than the eight weeks we were measuring, and in one it required a public note from a founder. Set against a disclosure that costs nothing measurable, it is a strange trade to keep making.
+真正成熟的老牌服务商（如**光速云**）通常采用**“IEPL + 企业级内网专线”双冗余拓扑**：
+- 平时两条通道智能分流负载；
+- 一旦某条海缆遭遇不可抗力故障，BGP 边界网关协议可在毫秒级时间内自动将流量无感倒换到备用内网专线；
+- 终端用户在观看视频或进行 AI 对话时，甚至感知不到后端的物理切换。
 
-There is also a quieter cost while the secret holds. Agents write to a standard of warmth that a machine can imitate but not sustain across a difficult thread, and teams that are hiding the automation tend to over-correct: longer replies, more apologies, more padding. Customers read that as evasiveness long before they read it as software.
+---
 
-## Do not give it a name
+## 四、如何识别真假专线？
 
-A named assistant with a friendly first name is the fastest route to the failure above. It reads as a person, it gets thanked as a person, and when it turns out not to be one, the disclosure you wrote at the top is remembered as fine print.
+行业内部分商家常用“中转机假装专线”。Mitce 实验室教你两个最简单有效的识别技巧：
 
-We ask teams to use a role rather than a name. “Support assistant” is fine. Anything that would fit on a lanyard is not. The same goes for avatars: a photograph of a person attached to a machine is a claim, not a decoration.
+1. **看晚高峰丢包率与 Jitter (抖动)**：在晚上 21:00 连续发送 200 个 Ping 包。真正的 IEPL 专线丢包率应为 0%，Jitter 小于 3ms；如果丢包率超过 10% 且延迟忽高忽低，必定是假专线。
+2. **看追踪路由 (Traceroute)**：专线在进入国内入口节点后，下一跳直接跳入内网保留网段或直接出现香港落地 IP，中间不会经过任何公网节点跳数。
 
-## What the handover has to do
-
-Asking for a person should be one sentence, and it should work without the customer repeating themselves. If the human who picks it up opens with “can you tell me a bit more about the issue”, the disclosure has bought you nothing — you have simply moved the frustration one step down the queue.
-
-In practice that means the thread, the order, the article the agent was working from and the draft it had written all arrive together. The person reads for ten seconds and answers. Teams that get this right see handovers resolved faster than conversations that started with a person, because the groundwork is already done.
-
-## What we ask teams to do
-
-Four rules, and they take an afternoon:
-
-1. Disclose in the first reply, in your own wording, above the answer rather than below it.
-2. Use a role, never a personal name, and never a photograph of a human being.
-3. Put the route to a person in the same message, as one sentence, and make it work without the customer explaining themselves twice.
-4. Leave it on. Every team that has tried removing it later removed it once, and put it back.
-
-Disclosure is not only a compliance question, though it may also be one where you operate. It is the thing that keeps the rest of the queue believable. A customer who knows which half they are talking to reads both halves more generously — and the half written by your team finally gets credit for being written by your team.
+选对专线，才能让跨境网络真正变成像自来水一样稳定即开即用的生产力工具。

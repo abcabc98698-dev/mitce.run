@@ -1,0 +1,122 @@
+---
+import Base from '../../layouts/Base.astro';
+import ClientSubnav from '../../components/ClientSubnav.astro';
+import { MOBILE_CLIENTS } from '../../data/clients';
+
+const title = 'iPhone / iPad (iOS) & Android 手机端代理客户端配置指南 (2026) — Mitce 推荐';
+const description = '移动端科学上网装机权威指南：Shadowrocket 小火箭美区购买与节点订阅导入、v2rayNG 安卓配置与分应用代理、Stash 策略组进阶及移动端电池续航优化策略。';
+---
+<Base title={title} description={description}>
+  <div class="clients-page">
+    <header class="page-head">
+      <div class="head-badge">
+        <span class="dot"></span>
+        <span class="mono-s">MOBILE RUNTIME · IOS & ANDROID</span>
+      </div>
+      <h1 class="t-h1 page-title">移动端 (iOS & 安卓) 客户端指南</h1>
+      <p class="t-body-m page-desc">
+        手机是日常科学上网最频繁的终端。iOS 平台受 App Store 区域策略限制，推荐使用非国区账号购买下载 <strong>Shadowrocket（小火箭）</strong>；安卓平台则首选完全免费开源的 <strong>v2rayNG</strong> 与新一代 <strong>FlClash</strong>。
+      </p>
+
+      <ClientSubnav current="mobile" />
+    </header>
+
+    <!-- Platform Guide Split -->
+    <section class="deep-dive-grid">
+      <div class="dive-card">
+        <h2 class="t-h3 card-h">🍏 iPhone / iPad (iOS) 配置全流程</h2>
+        <div class="dive-content t-body-s">
+          <p><strong>1. 账号准备</strong>：由于国区 App Store 无法上架代理软件，请准备一个美国或香港等海外地区的 Apple ID（无需信用卡，可使用礼品卡充值约 $2.99）。</p>
+          <p><strong>2. 下载软件</strong>：在 App Store 搜索「Shadowrocket」（开发者为 Pan Guo Ping，认准四色发射火箭图标，切勿下载山寨仿冒版）。</p>
+          <p><strong>3. 订阅导入</strong>：在光速云等机场复制专用订阅链接，打开 Shadowrocket 点击右上角「+」，类型选择「Subscribe」，粘贴 URL 并在「备注」输入机场名称，保存后自动加载所有节点。</p>
+          <p><strong>4. 路由模式</strong>：全局路由务必保持为「配置 (Config)」模式，切勿设置成「全局 (Proxy)」，确保访问国内百度、微信走直连，海外访问走专线代理。</p>
+        </div>
+      </div>
+
+      <div class="dive-card">
+        <h2 class="t-h3 card-h">🤖 Android 安卓端避坑与后台保活</h2>
+        <div class="dive-content t-body-s">
+          <p><strong>1. 首选推荐</strong>：直接下载 <strong>v2rayNG</strong> 或 <strong>FlClash</strong>。认准 GitHub 官方发布页或正规开源镜像，切勿在来路不明的应用市场下载被二次打包带木马的客户端。</p>
+          <p><strong>2. 分应用代理 (Split Tunneling)</strong>：进入客户端设置开启「分应用代理」，勾选仅允许 Chrome、Twitter、YouTube、ChatGPT 等软件走代理，国内微信、银行 App 走直连。</p>
+          <p><strong>3. 系统电池优化白名单</strong>：国内厂商（小米 MIUI/澎湃、华为 HarmonyOS、vivo/OPPO）默认后台杀进程较激进。请长按软件图标 -> 应用信息 -> 电池管理 -> 设置为「无限制 / 允许后台高耗电」，防止锁屏后自动断开连接。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mobile Client Cards -->
+    <section class="mobile-list-section">
+      <h2 class="mono-m sec-title">⚡ 移动端主流客户端选型矩阵</h2>
+      <div class="clients-grid">
+        {MOBILE_CLIENTS.map((client) => (
+          <div class="client-card">
+            <div class="card-top">
+              <div class="name-wrap">
+                <h3 class="t-h3 client-name">{client.name}</h3>
+                {client.badge && <span class="tag-badge">{client.badge}</span>}
+              </div>
+              <span class="price-tag">{client.pricing}</span>
+            </div>
+            <div class="platform-tags">
+              {client.platform.map(p => <span class="plat-pill">{p}</span>)}
+            </div>
+            <div class="core-info">
+              <span class="mono-s core-label">内核:</span>
+              <span class="mono-s core-val">{client.core}</span>
+            </div>
+            <p class="t-body-s client-features">{client.features}</p>
+            <div class="guide-box">
+              <span class="mono-s guide-title">💡 导入速查:</span>
+              <p class="mono-s guide-text">{client.setupGuideSummary}</p>
+            </div>
+            <div class="card-footer">
+              <span class="t-body-s target-text">{client.targetAudience}</span>
+              <a href={client.githubOrSite} target="_blank" rel="noopener noreferrer" class="btn-repo">获取软件 ↗</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .clients-page { max-width: var(--canvas); margin: 0 auto; padding: 40px 20px 100px; }
+  .page-head { max-width: 900px; display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+  .head-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: var(--surface); border: 1px solid var(--grey-20); border-radius: 999px; width: fit-content; color: var(--grey); }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: #38bdf8; box-shadow: 0 0 10px #38bdf8; }
+  .page-title { color: var(--white); font-size: 42px; line-height: 1.15; }
+  .page-desc { color: var(--grey); line-height: 1.6; }
+
+  .deep-dive-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 56px; }
+  .dive-card { padding: 28px; background: rgba(22, 22, 26, 0.7); border: 1px solid var(--grey-20); border-radius: 16px; }
+  .card-h { color: var(--white); font-size: 20px; margin-bottom: 16px; }
+  .dive-content { color: #94a3b8; line-height: 1.7; display: flex; flex-direction: column; gap: 12px; }
+
+  .mobile-list-section { display: flex; flex-direction: column; gap: 20px; }
+  .sec-title { color: #94a3b8; font-size: 14px; }
+  .clients-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .client-card { background: rgba(20, 20, 24, 0.75); border: 1px solid var(--grey-20); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .name-wrap { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .client-name { color: var(--white); font-size: 18px; margin: 0; font-weight: 700; }
+  .tag-badge { font-family: var(--font-mono); font-size: 11px; padding: 2px 8px; border-radius: 4px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+  .price-tag { font-family: var(--font-mono); font-size: 11px; color: var(--grey); background: var(--surface); padding: 3px 8px; border-radius: 6px; }
+  .platform-tags { display: flex; gap: 6px; }
+  .plat-pill { font-family: var(--font-mono); font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); color: #cbd5e1; }
+  .core-info { display: flex; gap: 8px; align-items: center; font-size: 12px; background: rgba(0, 0, 0, 0.3); padding: 6px 10px; border-radius: 6px; }
+  .core-label { color: var(--grey); }
+  .core-val { color: #38bdf8; font-weight: 600; }
+  .client-features { color: #94a3b8; font-size: 13px; line-height: 1.5; }
+  .guide-box { background: rgba(16, 16, 18, 0.6); padding: 12px; border-radius: 8px; border-left: 3px solid #38bdf8; }
+  .guide-title { color: #f8fafc; font-size: 11px; font-weight: 600; display: block; margin-bottom: 4px; }
+  .guide-text { color: #64748b; font-size: 11px; line-height: 1.5; }
+  .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--grey-20); }
+  .target-text { color: var(--grey); font-size: 12px; flex: 1; }
+  .btn-repo { padding: 8px 14px; border-radius: 8px; background: var(--surface); border: 1px solid var(--grey-20); color: var(--white); font-size: 12px; text-decoration: none; font-family: var(--font-mono); }
+  .btn-repo:hover { background: var(--white); color: var(--black); }
+
+  @media (max-width: 991.98px) {
+    .deep-dive-grid, .clients-grid { grid-template-columns: 1fr; }
+    .page-title { font-size: 32px; }
+  }
+</style>

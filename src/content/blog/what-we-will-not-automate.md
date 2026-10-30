@@ -1,71 +1,90 @@
 ---
-title: "We keep a list of what we will not automate, and it gets longer"
-category: Product
-date: 2026-07-11
-readTime: "4 min read"
-excerpt: "Refunds over a threshold, anything involving grief, and the first message from an angry customer. The list is the product."
+title: "新手买机场避坑五大军规：看清年付陷阱与“不限时流量包”真实门道"
+category: "选型避坑"
+date: 2026-10-28
+readTime: "6 分钟经验总结"
+excerpt: "从九块九包年到跑路失联，从三倍率节点偷跑流量到公网中转冒充内网专线。全面拆解新手买机场最容易踩中的五大深坑，算清不限时流量包的真实性价比与适用场景。"
 featured: false
 cover: /assets/blog/what-we-will-not-automate.webp
-coverAlt: "Dark pleated fabric in vertical folds, a band of fine ribbing catching the light across the middle"
+coverAlt: "网络服务账单周期对比与服务可用性评估模型"
 author:
-  name: "Sana Rahimi"
-  role: "Policy and trust, Mitce"
-  avatar: /assets/blog/avatar-sana-rahimi.webp
-  avatarAlt: "Portrait of Sana Rahimi"
+  name: "Marcus Oyelaran"
+  role: "网络架构研究员, Mitce"
+  avatar: /assets/blog/avatar-tobi-adeyemi.webp
+  avatarAlt: "Marcus Oyelaran 肖像"
 ---
-Every conversation about automation eventually turns into a list of what the agent can do. Ours is shorter, more useful and considerably more revealing the other way round: the list of what it will never be allowed to do, and why.
+每年在各大社交平台和技术论坛里，总能看到大量新手发帖诉苦：明明白天买的时候还挺快，怎么刚用了一个月就进不去管理面板了？或者充了一百块钱年付会员，群组突然禁言解散，老板卷款人间蒸发。
 
-It started as four lines on a whiteboard. It is now the longest document we maintain, and it grows most months.
+在科学上网这个高度非标准化的灰色市场里，缺乏辨别能力的新人几乎就是待宰的羔羊。
 
-## What is on it
+为了让大家少花冤枉钱、避开无良商家的套路，我们实验室根据长期的全网监测数据，整理出了这套价值千金的新手避坑五大军规。
 
-Refunds above a threshold the customer sets themselves. Anything that mentions bereavement, illness or hardship. The first message from someone who is clearly angry. Anything touching a legal or regulatory complaint. Account closure. Disputes where money has already moved. Requests that arrive from a lawyer, a regulator or a journalist.
+---
 
-None of these are technically out of reach. Several of them are easier than the questions the agent answers a thousand times a day. They are on the list because being wrong in those places is expensive in a way that an apology does not repair.
+## 军规一：警惕超低价年付与“终身会员”跑路陷阱
 
-> **The rule we use**
->
-> If getting it wrong would cost trust that a corrected reply cannot buy back, it does not get automated. Speed is never the argument for crossing that line, and neither is volume. The only thing that moves an item off the list is evidence that the failure mode is recoverable.
+你在某些群聊或贴吧里，一定见过类似这样的宣传广告：“9.9 元包年 1000G”、“68 元买断终身 VIP”。
 
-## Why the list keeps growing
+如果你对跨境网络的物理成本稍有了解，就会明白这完全是反物理规律的庞氏骗局。
 
-Because we keep finding cases, and because the cases are never the ones anyone predicted in a planning meeting.
+正规运营商的国际带宽成本是刚性的。无论是购买合规的跨境企业专线，还是租用海外机房的高防物理服务器，每个月都有数以万计的真金白银支出。
 
-A customer writing about a delivery that was meant to arrive before a funeral. A cancellation that turned out to be a complaint about a member of staff. An order change from someone who mentioned, in passing and in the third paragraph, that they were in hospital. Each of those got added afterwards, which is the uncomfortable part: the list is written in retrospect, by the conversations that went wrong.
+那些标榜 9.9 元包年的“传销型机场”，其商业逻辑根本不是提供长期服务，而是在短期内通过超低价收割一批冲动消费的用户。当收上来的资金池无法覆盖下个月的服务器租金，或者遭遇一次通报封锁时，运营者会毫不犹豫地拉闸跑路，然后换个域名和马甲重新上线收割下一批新人。
 
-We have stopped treating that as a failure of foresight. A support queue is a sample of everything happening in your customers’ lives, and no workshop is going to enumerate that in advance. What you can do is make the additions cheap, and make them stick.
+牢记一条黄金法则：**任何声称能提供几十元买断“终身无限流量”的商家，其真实寿命通常很难熬过三个月。**
 
-## How something gets added
+---
 
-Deliberately unglamorously. Anyone on the team can propose an entry with a single conversation attached. It goes on within the day, provisionally, and it is reviewed a month later with whatever volume has accumulated behind it.
+## 军规二：警惕节点倍率刺客，算清真实到手流量
 
-1. Somebody flags a conversation that the agent should not have taken. No committee, no threshold.
-2. The category goes on the list the same day, wide rather than precise. Narrow it later.
-3. A month on, look at how much volume it caught and what else it swept up with it.
-4. Keep, narrow, or in rare cases remove — and write down which conversation made the decision.
+有些机场在套餐首页醒目地标着“每月 500G 超大流量只要 10 元”，看起来性价比极高。但当你真正用起来时，会发现流量消耗速度快得不可思议，随便看两部高清电影，几十个 G 就没了。
 
-The last step is the one that matters. A restriction without the case that caused it becomes folklore within a quarter, and folklore is impossible to argue with or revise.
+这往往是因为你撞上了**“倍率刺客”**。
 
-## What it costs
+在客户端的节点列表里，很多商家会在节点名称后面用极其微小的字样标注 `[3.0x]` 或 `[5.0x]`。
+- **1.0x 倍率**：你实际消耗了 1GB 流量，系统后台就扣减 1GB。
+- **3.0x 倍率**：你实际只看完了 1GB 的视频，后台计费系统会按照 3GB 甚至更高直接翻倍扣除。
 
-Less than teams expect. Across the inboxes we run, the exclusions account for a low single-digit percentage of volume — the topics are serious, not frequent. The cost is not in the messages themselves; it is in the routing, because a restriction is only as good as the handover behind it.
+更恶劣的套路是：商家把 0.1x 或者 1.0x 的低倍率节点分配给极慢、天天断流的垃圾直连线路；而凡是真正能顺畅看视频的高速节点，全部偷偷打上 3x 到 8x 的高倍率标签。这样算下来，你花钱买到的 500G 套餐，实际可用额度其实连 100G 都不到。
 
-And the benefit is not really about those conversations either. It is about the other ninety-odd percent. A team that knows what the agent will refuse to touch will let it touch everything else. Without the list, every new category becomes an argument, and the safe answer to an argument is always to do nothing.
+购买套餐后，第一时间要在节点列表里核对倍率系数，不要只看账面上的总额数字。
 
-## The three things that came off it
+---
 
-The list is not a ratchet, and it would be dishonest to imply it only grows. Three entries have come off, and all three came off for the same reason: the failure turned out to be visible and reversible, which is a different category of risk from the one we were protecting against.
+## 军规三：分清月付与“不限时流量包”的真实性价比
 
-Password and access problems were the first. They felt sensitive and they are high volume, but a wrong answer produces an immediate, obvious complaint rather than a slow loss of trust — the customer is still standing at the door, and they tell you. Delivery address changes before dispatch were the second, once the carrier integrations made the cut-off explicit rather than a matter of judgement.
+很多用户的翻墙需求并不是每天持续发生。有的人只是每个月偶尔查两次外文文献，或者周末临时追一集美剧。
 
-The third was returns eligibility, and that one took a year. It came off only after the policy itself was rewritten to be decidable — dates and conditions rather than “at our discretion”. That is the pattern worth noticing: the item did not become safe because the agent improved. It became safe because somebody finally wrote the policy down properly.
+对于这种低频用户而言，按月续费的订阅制其实是一种隐性浪费：每个月付了 20 元钱，月底 100G 流量清零重置时，实际才用了不到 5G。
 
-Which is the argument for keeping the list in the first place. It is the only artefact we have that reliably turns “the agent cannot handle this” into a specific, answerable question about what your own documentation does not say.
+这种场景下，**“永久不限时流量包”**才是最具性价比的解法。
 
-## Writing your own
+以知名品牌**光速云**为例，其推出的“147元/247GB 永久不限时包”，不限制使用周期，流量永不过期清零，并且直接拉通其核心的 IEPL 企业级双专线。
+- 对于轻度用户或出差备用党，这 247GB 专线流量足以踏踏实实用上一到两年，折算下来每个月仅需几块钱。
+- 相比每个月被动扣费却用不完的月付套餐，不限时包彻底免去了断费续费的焦虑，非常适合作为手机或备用设备上的永不失联底牌。
 
-If you are starting one, do not begin with policy. Begin with the last twenty conversations your team escalated by instinct, and ask what they had in common. In our experience it is almost never the topic. It is the presence of something irreversible: money that has moved, a deadline that has passed, a relationship that is already strained.
+但如果你的工作是每天高强度远程桌面、全天挂着海外直播或经常下载数十 GB 的工程数据集，那么大容量的常规月付套餐依然是单价更划算的选择。
 
-Then write the list as categories a person can apply in three seconds, not as rules a system can evaluate perfectly. It will be imprecise. Imprecise and used beats exact and ignored, and you will narrow it with real cases soon enough.
+---
 
-A support agent that will not say no is not a product. It is a liability with a good tone of voice, and the list is how you tell the difference.
+## 军规四：坚持“先月付后季付”的试水原则
+
+无论一个机场在评测博客里被吹得多么天花乱坠，在真正掏钱包之前，务必坚持**先月付试水**的底线。
+
+因为网络的稳定性受非常多本地因素影响：
+- 你家里的宽带是电信、联通还是移动？不同运营商去往机场国内入口的内网抖动千差万别。
+- 你平时的上网时间段是不是正好卡在晚上八点到十一点的骨干网拥堵期？
+
+很多机场白天测试时速度飞快，可到了晚高峰就会严重丢包甚至失联。花十几块钱买一个月的基础套餐，在晚上高峰期实测体验一周。如果晚间看视频毫无卡顿、日常客服工单响应及时，下个月再考虑升级为季付或年付。千万不要在进站第一天就盲目充值两三年。
+
+---
+
+## 军规五：分清“普通中转”与“企业级内网物理专线”
+
+在机场的宣传文案中，各种高大上的技术名词层出不穷，很多商家喜欢用“全专线加速”来混淆视听。
+
+买之前一定要看清楚节点背后的物理协议：
+- **公网中转**：只是在国内买了一台普通云服务器做端口转发，跨境依然跑的是公共海底光缆，不仅受防火墙严格检测，晚高峰还会遭遇严重的 QoS 限速丢包。
+- **IEPL / IPLC 物理专线**：两端机房直接通过海底光缆或跨境陆缆在二层内网打通，全程不经过公网防火墙，时延恒定、零丢包。
+
+像光速云、微风网络、唯兔云等一线品牌，会在后台明确列出每个节点的专线落地机房与测速报告。在预算充足的情况下，坚决认准带有独立专线标识的产品，把钱真正花在刀刃上。

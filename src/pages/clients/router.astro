@@ -1,0 +1,148 @@
+---
+import Base from '../../layouts/Base.astro';
+import ClientSubnav from '../../components/ClientSubnav.astro';
+import { ROUTER_CLIENTS } from '../../data/clients';
+
+const title = 'OpenWrt 软路由与网关科学上网配置指南 (2026) — Mitce 推荐';
+const description = '软路由与 NAS 旁路由透明代理实战教程：OpenClash 安装与 Fake-IP 模式防 DNS 污染、PassWall2 多协议分流、Nikki (OpenWrt 24.10+) 原生轻量插件与全屋智能电视、PS5/Xbox 游戏主机免客户端代理方案。';
+---
+<Base title={title} description={description}>
+  <div class="clients-page">
+    <header class="page-head">
+      <div class="head-badge">
+        <span class="dot"></span>
+        <span class="mono-s">ROUTER & GATEWAY TRANSPARENT PROXY</span>
+      </div>
+      <h1 class="t-h1 page-title">软路由与局域网透明代理指南</h1>
+      <p class="t-body-m page-desc">
+        对于拥有多台苹果设备、智能电视（Apple TV / 索尼电视播放 Netflix 4K）、游戏主机（PS5 / Switch / Xbox）或家庭 NAS 的用户，在软路由部署透明代理是最省心的一劳永逸方案。全屋局域网设备接入 WiFi 即享专线加速，无需任何设备端客户端。
+      </p>
+
+      <ClientSubnav current="router" />
+    </header>
+
+    <!-- Router Architecture Diagram -->
+    <section class="router-arch-card">
+      <h2 class="t-h3 arch-title">🗺️ 软路由透明代理数据流转拓扑</h2>
+      <div class="arch-box">
+        <pre class="topo-pre mono-s">
+[家庭终端设备] (iPhone / Mac / PC / Apple TV 4K / PS5)
+      │  (无需安装任何客户端，自动获取局域网网关 IP)
+      ▼
+[OpenWrt 软路由 / 旁路由网关]
+      │
+      ├─▶ [DNS 智能分流]  ── 国内域名 ──▶ 阿里 DNS / 腾讯 119.29 (直连秒开)
+      │                    ── 海外域名 ──▶ Fake-IP (TUN) 避免本地 DNS 污染
+      │
+      ├─▶ [IP 规则路由分流] ── 大陆 IP ──▶ 国内宽带物理出口直连
+      │
+      ▼ (加密 VLESS / Trojan 专线传输)
+[IEPL / IPLC 跨境物理专线入口] (如：光速云 / 微风网络)
+      │  (不经公网 GFW 过滤，0 丢包直达海外落地)
+      ▼
+[海外原生落地机房] ──▶ Netflix 4K / Disney+ / YouTube / ChatGPT
+        </pre>
+      </div>
+    </section>
+
+    <!-- Key Plugins In-Depth -->
+    <section class="deep-dive-grid">
+      <div class="dive-card">
+        <h2 class="t-h3 card-h">🛠️ OpenClash (装机量最高之选)</h2>
+        <div class="dive-content t-body-s">
+          <p><strong>内核版本</strong>：基于 Mihomo (Clash Meta) 内核，支持完整 Clash 语法与策略组分流。</p>
+          <p><strong>运行模式建议</strong>：建议选择 <strong>Fake-IP (TUN 模式)</strong>。此模式下路由器直接给终端下发虚拟 IP，避免海外域名在本地递归查询遭遇 DNS 投毒，显著提升海外网页与流媒体首包渲染速度。</p>
+          <p><strong>DNS 劫持防范</strong>：开启「Dnsmasq 转发」并勾选「绕过大陆 IP」，确保家庭国内银行、视频网站完全不耗损专线流量。</p>
+        </div>
+      </div>
+
+      <div class="dive-card">
+        <h2 class="t-h3 card-h">🚀 Nikki & PassWall2 (现代极简与故障倒换)</h2>
+        <div class="dive-content t-body-s">
+          <p><strong>Nikki (OpenWrt 24.10+)</strong>：针对现代 OpenWrt 新版本打造，基于轻量级 nftables 防火墙，彻底告别旧版 iptables 臃肿冲突，内存占用仅需数十兆。</p>
+          <p><strong>PassWall2</strong>：适合需要配置「主节点 + 自动故障倒换备用节点」的用户。一旦香港专线遭遇偶发维护，秒级自动倒换至日本或新加坡节点，保障家庭网络不中断。</p>
+          <p><strong>硬件配置要求</strong>：常规 J1900 / N4100 / N100 软路由即可轻松跑满 1000Mbps 千兆宽带。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Router Plugin Cards -->
+    <section class="router-list-section">
+      <h2 class="mono-m sec-title">⚡ 软路由主流插件概览</h2>
+      <div class="clients-grid">
+        {ROUTER_CLIENTS.map((client) => (
+          <div class="client-card">
+            <div class="card-top">
+              <div class="name-wrap">
+                <h3 class="t-h3 client-name">{client.name}</h3>
+                {client.badge && <span class="tag-badge">{client.badge}</span>}
+              </div>
+              <span class="price-tag">{client.pricing}</span>
+            </div>
+            <div class="core-info">
+              <span class="mono-s core-label">适配平台:</span>
+              <span class="mono-s core-val">OpenWrt / iStoreOS / ImmortalWrt</span>
+            </div>
+            <p class="t-body-s client-features">{client.features}</p>
+            <div class="guide-box">
+              <span class="mono-s guide-title">💡 部署建议:</span>
+              <p class="mono-s guide-text">{client.setupGuideSummary}</p>
+            </div>
+            <div class="card-footer">
+              <span class="t-body-s target-text">{client.targetAudience}</span>
+              <a href={client.githubOrSite} target="_blank" rel="noopener noreferrer" class="btn-repo">项目仓库 ↗</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .clients-page { max-width: var(--canvas); margin: 0 auto; padding: 40px 20px 100px; }
+  .page-head { max-width: 900px; display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+  .head-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: var(--surface); border: 1px solid var(--grey-20); border-radius: 999px; width: fit-content; color: var(--grey); }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: #38bdf8; box-shadow: 0 0 10px #38bdf8; }
+  .page-title { color: var(--white); font-size: 42px; line-height: 1.15; }
+  .page-desc { color: var(--grey); line-height: 1.6; }
+
+  .router-arch-card { margin-bottom: 48px; padding: 28px; background: rgba(18, 18, 22, 0.7); border: 1px solid var(--grey-20); border-radius: 16px; }
+  .arch-title { color: var(--white); font-size: 18px; margin-bottom: 16px; }
+  .arch-box { background: rgba(0, 0, 0, 0.4); padding: 20px; border-radius: 10px; overflow-x: auto; border: 1px solid rgba(255, 255, 255, 0.05); }
+  .topo-pre { color: #38bdf8; line-height: 1.6; margin: 0; font-size: 12px; }
+
+  .deep-dive-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 56px; }
+  .dive-card { padding: 28px; background: rgba(22, 22, 26, 0.7); border: 1px solid var(--grey-20); border-radius: 16px; }
+  .card-h { color: var(--white); font-size: 20px; margin-bottom: 16px; }
+  .dive-content { color: #94a3b8; line-height: 1.7; display: flex; flex-direction: column; gap: 12px; }
+
+  .router-list-section { display: flex; flex-direction: column; gap: 20px; }
+  .sec-title { color: #94a3b8; font-size: 14px; }
+  .clients-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .client-card { background: rgba(20, 20, 24, 0.75); border: 1px solid var(--grey-20); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .name-wrap { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .client-name { color: var(--white); font-size: 18px; margin: 0; font-weight: 700; }
+  .tag-badge { font-family: var(--font-mono); font-size: 11px; padding: 2px 8px; border-radius: 4px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+  .price-tag { font-family: var(--font-mono); font-size: 11px; color: var(--grey); background: var(--surface); padding: 3px 8px; border-radius: 6px; }
+  .core-info { display: flex; gap: 8px; align-items: center; font-size: 12px; background: rgba(0, 0, 0, 0.3); padding: 6px 10px; border-radius: 6px; }
+  .core-label { color: var(--grey); }
+  .core-val { color: #38bdf8; font-weight: 600; }
+  .client-features { color: #94a3b8; font-size: 13px; line-height: 1.5; }
+  .guide-box { background: rgba(16, 16, 18, 0.6); padding: 12px; border-radius: 8px; border-left: 3px solid #38bdf8; }
+  .guide-title { color: #f8fafc; font-size: 11px; font-weight: 600; display: block; margin-bottom: 4px; }
+  .guide-text { color: #64748b; font-size: 11px; line-height: 1.5; }
+  .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--grey-20); flex-wrap: wrap; gap: 8px; }
+  .target-text { color: var(--grey); font-size: 12px; flex: 1; }
+  .btn-repo { padding: 8px 14px; border-radius: 8px; background: var(--surface); border: 1px solid var(--grey-20); color: var(--white); font-size: 12px; text-decoration: none; font-family: var(--font-mono); }
+  .btn-repo:hover { background: var(--white); color: var(--black); }
+
+  @media (max-width: 1199.98px) {
+    .clients-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 991.98px) {
+    .deep-dive-grid, .clients-grid { grid-template-columns: 1fr; }
+    .page-title { font-size: 32px; }
+  }
+</style>

@@ -1,57 +1,71 @@
 {
   "brand": "Mitce",
+  "tagline": "2026 高可用网络专线与 AI 生产力基础设施评测实验室",
   "nav": {
     "links": [
-      { "href": "/about", "label": "About" },
-      { "href": "/pricing", "label": "Pricing" },
-      { "href": "/contact", "label": "Contact" },
-      { "href": "/blog", "label": "Blog" }
+      { "href": "/brands", "label": "42家品牌库" },
+      {
+        "href": "/clients",
+        "label": "客户端指南",
+        "children": [
+          { "href": "/clients/desktop", "label": "桌面端 (Win / Mac)" },
+          { "href": "/clients/mobile", "label": "移动端 (iOS / Android)" },
+          { "href": "/clients/router", "label": "软路由 (OpenWrt)" }
+        ]
+      },
+      { "href": "/pricing", "label": "套餐横评" },
+      { "href": "/blog", "label": "专线评测专栏" },
+      { "href": "/about", "label": "评测标准" }
     ],
-    "login": { "href": "/contact", "label": "Login" },
-    "demo": { "href": "/contact", "label": "Request a demo" }
+    "login": { "href": "https://sahude.gsyvipaff.com/#/?code=keqgvT5Y", "label": "主推：光速云", "external": true },
+    "demo": { "href": "/brands", "label": "挑选机场" }
   },
   "cta": {
-    "headingMuted": "Answer our customers ",
-    "heading": "while they are still at the keyboard",
-    "description": "Two weeks in shadow mode. Nothing sends without you.",
-    "button": { "href": "/contact", "label": "Request a demo" },
+    "headingMuted": "拒绝晚高峰断联，",
+    "heading": "把时间留给真正核心的业务与创作",
+    "description": "基于 42 家主流机场的持续网络观测数据。涵盖 IEPL/IPLC 双专线、永久不过期流量包、多端客户端一键导入。",
+    "button": { "href": "/brands", "label": "探索 42 家机场品牌库" },
     "image": "/assets/site/handshake-particles.webp",
-    "imageAlt": "Two figures made of light particles shaking hands over a particle field"
+    "imageAlt": "Mitce 网络实验室分布式监测探针与专线拓扑可视化数据粒子"
   },
   "footer": {
     "columns": [
       {
-        "label": "Explore",
+        "label": "机场矩阵",
         "links": [
-          { "href": "/about", "label": "About" },
-          { "href": "/pricing", "label": "Pricing" },
-          { "href": "/contact", "label": "Contact" },
-          { "href": "/blog", "label": "Blog" }
+          { "href": "/brands", "label": "42家机场品牌库" },
+          { "href": "https://sahude.gsyvipaff.com/#/?code=keqgvT5Y", "label": "第一主推：光速云", "external": true },
+          { "href": "/pricing", "label": "高性价比平价榜" },
+          { "href": "/pricing", "label": "企业级纯专线榜" }
         ]
       },
       {
-        "label": "Contact",
+        "label": "客户端落地",
+        "links": [
+          { "href": "/clients", "label": "客户端配置大全" },
+          { "href": "/clients/desktop", "label": "Clash Verge / v2rayN" },
+          { "href": "/clients/mobile", "label": "小火箭 / v2rayNG" },
+          { "href": "/clients/router", "label": "OpenClash / 软路由" }
+        ]
+      },
+      {
+        "label": "评测与知识",
+        "links": [
+          { "href": "/blog", "label": "专线深度横评" },
+          { "href": "/about", "label": "三网实测实验室" },
+          { "href": "/privacy", "label": "中立与推广合规声明" },
+          { "href": "/terms", "label": "数据核验条款" }
+        ]
+      },
+      {
+        "label": "网络实验室",
         "links": [
           { "href": "mailto:contact@mitce.run", "label": "contact@mitce.run" },
-          { "href": "tel:+15555550123", "label": "+1 555 555 0123" }
-        ]
-      },
-      {
-        "label": "Legal",
-        "links": [
-          { "href": "/privacy", "label": "Privacy policy" },
-          { "href": "/terms", "label": "Terms & Conditions" }
-        ]
-      },
-      {
-        "label": "Social",
-        "links": [
-          { "href": "https://x.com", "label": "Twitter (X)", "external": true },
-          { "href": "https://www.linkedin.com", "label": "LinkedIn", "external": true }
+          { "href": "/rss.xml", "label": "RSS 评测订阅" }
         ]
       }
     ],
-    "copyright": "© 2026 Mitce.",
-    "note": "Replies retain their source article."
+    "copyright": "© 2026 Mitce (mitce.run) · 网络基础设施观测实验室",
+    "note": "本站所有测速与解锁数据均源自独立环境实测与官方工单核验。含赞助推广链接，不影响用户实付价格与测速评测中立性。"
   }
 }

@@ -1,24 +1,25 @@
 {
   "meta": {
-    "title": "Blog — Mitce",
-    "description": "What we have learned reading other people’s inboxes. We publish what we can measure and what we got wrong, once a month.",
-    "postTitleSuffix": " — Mitce"
+    "title": "专线评测与网络可观测性专栏 — Mitce 推荐",
+    "description": "深入专线底层架构与实测数据：42 家机场深度横评、IEPL 与 IPLC 物理专线对比、AI 生产力防封锁指南与全平台客户端 TUN 模式避坑教程。",
+    "postTitleSuffix": " — Mitce 推荐"
   },
   "hero": {
-    "eyebrow": "Blog",
-    "heading": "What we have learned reading other people’s inboxes",
-    "blurb": "We publish what we can measure and what we got wrong. Once a month.",
-    "read": "Read"
+    "eyebrow": "网络实验室专栏",
+    "heading": "用真实可观测数据，还原 42 家机场的真实技术底色",
+    "blurb": "每月更新三网晚高峰真实测速样本、专线物理拓扑拆解与 AI/流媒体解锁风控实操记录。",
+    "read": "阅读完整评测"
   },
   "tabs": [
-    { "label": "All", "value": "" },
-    { "label": "Data", "value": "Data" },
-    { "label": "Practice", "value": "Practice" },
-    { "label": "Product", "value": "Product" },
-    { "label": "Operations", "value": "Operations" }
+    { "label": "全部", "value": "" },
+    { "label": "专线评测", "value": "专线评测" },
+    { "label": "硬核技术", "value": "硬核技术" },
+    { "label": "AI加固", "value": "AI加固" },
+    { "label": "客户端", "value": "客户端" },
+    { "label": "选型避坑", "value": "选型避坑" }
   ],
-  "tabsLabel": "Filter posts by category",
-  "empty": "Nothing filed under this one yet.",
-  "metaSeparator": "*",
-  "related": "Related reading"
+  "tabsLabel": "按分类筛选评测文章",
+  "empty": "该分类暂未录入新的评测报告。",
+  "metaSeparator": "·",
+  "related": "相关推荐阅读"
 }
