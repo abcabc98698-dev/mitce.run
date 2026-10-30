@@ -1,0 +1,341 @@
+---
+import Base from '../layouts/Base.astro';
+import { faqCategories, faqItems } from '../data/faq';
+
+const title = '跨境网络观测百科与全景 FAQ (80+ 深度高频实战答疑) — Mitce 推荐';
+const description = 'Mitce 网络实验室万字级全景知识库：涵盖 Clash/sing-box 故障急救、TUN 虚拟网卡防泄露、ChatGPT/Claude 防封与 1020 报错、IEPL 专线机制、倍率算法与防跑路选型。';
+
+// Generate Schema.org FAQPage JSON-LD
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map((item) => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.detailedAnswer.replace(/`/g, '').replace(/\n/g, ' ')
+    }
+  }))
+};
+---
+<Base title={title} description={description}>
+  <!-- Schema.org FAQPage Structured Data Injection -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <div class="faq-page">
+    <!-- Header -->
+    <header class="page-header">
+      <div class="header-badge">
+        <span class="status-dot"></span>
+        <span class="mono-s">MITCE KNOWLEDGE BASE · 80+ VERIFIED FAQS & RUNBOOKS</span>
+      </div>
+      <h1 class="t-h1 page-title">跨境网络观测百科与全景 FAQ</h1>
+      <p class="t-body-m page-desc">
+        拒绝空洞废话。Mitce 实验室根据一线工程排障实战与两百万条技术反馈，整理出涵盖协议底层、大模型风控、客户端 TUN 虚拟网卡及账单避坑的万字级权威解答。
+      </p>
+
+      <!-- Search Box -->
+      <div class="search-container">
+        <div class="search-input-wrap">
+          <svg class="search-icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+          </svg>
+          <input
+            type="text"
+            id="faq-search"
+            class="search-input"
+            placeholder="搜索高频关键词：如“1020”、“git clone 超时”、“TUN模式”、“倍率”、“微信发图慢”..."
+          />
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="filter-pills" id="faq-pills">
+        {faqCategories.map((cat, idx) => (
+          <button class={`pill-btn ${idx === 0 ? 'is-active' : ''}`} data-cat={cat.id}>
+            {cat.label}
+          </button>
+        ))}
+      </div>
+    </header>
+
+    <!-- FAQ Accordion List -->
+    <main class="faq-main">
+      <div class="faq-toolbar">
+        <span class="faq-counter mono-s" id="faq-counter">展示全部 {faqItems.length} 条深度解答</span>
+        <div class="faq-toggles">
+          <button class="btn-toggle-all mono-s" id="btn-expand-all">展开全部</button>
+          <button class="btn-toggle-all mono-s" id="btn-collapse-all">收起全部</button>
+        </div>
+      </div>
+
+      <div class="faq-list" id="faq-list">
+        {faqItems.map((item) => (
+          <details
+            class="faq-card"
+            data-cat={item.category}
+            data-search={`${item.question} ${item.shortAnswer} ${item.detailedAnswer} ${item.tags.join(' ')}`.toLowerCase()}
+          >
+            <summary class="faq-summary">
+              <div class="summary-left">
+                <span class="cat-badge mono-s">{item.categoryName}</span>
+                <h3 class="faq-question">{item.question}</h3>
+              </div>
+              <div class="summary-arrow mono-s">▾</div>
+            </summary>
+
+            <div class="faq-content">
+              <div class="short-answer-box">
+                <span class="quick-tag mono-s">速查结论</span>
+                <p class="quick-text">{item.shortAnswer}</p>
+              </div>
+
+              <div class="detailed-body">
+                {item.detailedAnswer.split('\n').map((line) => {
+                  if (line.startsWith('```')) return null;
+                  if (line.startsWith('- **') || line.startsWith('1. ') || line.startsWith('2. ') || line.startsWith('3. ') || line.startsWith('4. ')) {
+                    return <p class="faq-line">{line}</p>;
+                  }
+                  if (line.trim() === '') return <br />;
+                  return <p class="faq-line">{line}</p>;
+                })}
+              </div>
+
+              <div class="tags-row mono-s">
+                <span class="tags-k">相关长尾词:</span>
+                {item.tags.map((t) => (
+                  <span class="tag-pill">#{t}</span>
+                ))}
+              </div>
+            </div>
+          </details>
+        ))}
+      </div>
+
+      <div id="faq-empty" class="faq-empty" style="display: none;">
+        <div class="empty-icon">🔍</div>
+        <h4 class="empty-title">未找到匹配的问题</h4>
+        <p class="empty-desc">尝试换个搜索词（例如“TUN”、“节点”、“超时”），或浏览其他分类分类标签。</p>
+      </div>
+
+      <!-- Bottom Conversion Section -->
+      <section class="faq-footer-cta">
+        <div class="cta-inner">
+          <div class="cta-badge mono-s">TRUSTED INFRASTRUCTURE RECOMMENDED</div>
+          <h2 class="cta-title">依然无法解决网络卡顿与断流？</h2>
+          <p class="cta-desc">
+            把时间浪费在无穷无尽的调试与换节点上，是对精力最大的损耗。Mitce 核心推荐<strong>光速云</strong>：IEPL/IPLC 跨境双专线、2.5Gbps 突发保障、147 元 247GB 永久不限时包，使用优惠码 <code class="code-hl">AMM</code> 立享 8 折。
+          </p>
+          <div class="cta-actions">
+            <a href="https://sahude.gsyvipaff.com/#/?code=keqgvT5Y" target="_blank" rel="nofollow sponsored noopener" class="btn-cta-primary">
+              直达光速云 (专属 8 折码 AMM) ➔
+            </a>
+            <a href="/clients" class="btn-cta-secondary">
+              查阅客户端一键配置教程
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</Base>
+
+<style>
+  .faq-page { max-width: var(--canvas); margin: 0 auto; padding: 40px 20px 100px; }
+  .page-header { text-align: center; max-width: 860px; margin: 0 auto 48px; }
+  .header-badge {
+    display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px;
+    background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25);
+    border-radius: 999px; margin-bottom: 20px;
+  }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: #10b981; box-shadow: 0 0 10px #10b981; }
+  .mono-s { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.5px; }
+  .page-title { font-size: clamp(32px, 5vw, 48px); font-weight: 800; color: var(--white); margin: 0 0 18px; line-height: 1.15; }
+  .page-desc { color: var(--grey); font-size: 16px; line-height: 1.7; margin: 0 0 32px; }
+
+  /* Search Container */
+  .search-container { max-width: 680px; margin: 0 auto 28px; }
+  .search-input-wrap {
+    position: relative; display: flex; align-items: center; width: 100%;
+    background: rgba(255, 255, 255, 0.03); border: 1px solid var(--grey-20);
+    border-radius: 14px; padding: 4px 16px; transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .search-input-wrap:focus-within {
+    border-color: #38bdf8; box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+  }
+  .search-icon { width: 20px; height: 20px; color: var(--grey); flex-shrink: 0; margin-right: 12px; }
+  .search-input {
+    width: 100%; background: transparent; border: none; outline: none;
+    color: var(--white); font-size: 14.5px; padding: 10px 0;
+  }
+  .search-input::placeholder { color: var(--dark-grey); }
+
+  /* Filter Pills */
+  .filter-pills { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+  .pill-btn {
+    padding: 8px 16px; background: var(--surface); border: 1px solid var(--grey-20);
+    border-radius: 999px; color: var(--grey); font-size: 13px; cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .pill-btn:hover { color: var(--white); border-color: rgba(255, 255, 255, 0.4); }
+  .pill-btn.is-active {
+    background: var(--white); color: var(--black); border-color: var(--white);
+    font-weight: 600; box-shadow: 0 0 14px rgba(255, 255, 255, 0.2);
+  }
+
+  /* FAQ Main */
+  .faq-main { max-width: 900px; margin: 0 auto; }
+  .faq-toolbar {
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;
+    padding: 0 4px;
+  }
+  .faq-counter { color: var(--grey); font-size: 12px; }
+  .faq-toggles { display: flex; gap: 10px; }
+  .btn-toggle-all {
+    background: transparent; border: 1px solid var(--grey-20); color: var(--grey);
+    padding: 5px 12px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;
+  }
+  .btn-toggle-all:hover { color: var(--white); border-color: var(--white); }
+
+  /* FAQ Card & Details */
+  .faq-list { display: flex; flex-direction: column; gap: 14px; }
+  .faq-card {
+    background: rgba(255, 255, 255, 0.02); border: 1px solid var(--grey-20); border-radius: 14px;
+    overflow: hidden; transition: border-color 0.25s ease, background 0.25s ease;
+  }
+  .faq-card[open] {
+    border-color: rgba(56, 189, 248, 0.4); background: rgba(255, 255, 255, 0.035);
+  }
+  .faq-summary {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 18px 22px; cursor: pointer; user-select: none; list-style: none;
+  }
+  .faq-summary::-webkit-details-marker { display: none; }
+  .summary-left { display: flex; align-items: center; gap: 14px; flex-grow: 1; }
+  .cat-badge {
+    padding: 3px 8px; background: rgba(56, 189, 248, 0.1); color: #38bdf8;
+    border-radius: 4px; font-size: 10.5px; white-space: nowrap; flex-shrink: 0;
+  }
+  .faq-question { font-size: 16px; font-weight: 600; color: var(--white); margin: 0; line-height: 1.45; }
+  .summary-arrow {
+    color: var(--grey); font-size: 14px; transition: transform 0.25s ease; flex-shrink: 0;
+  }
+  .faq-card[open] .summary-arrow { transform: rotate(180deg); color: #38bdf8; }
+
+  /* Content */
+  .faq-content { padding: 0 22px 22px; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+  .short-answer-box {
+    margin-top: 16px; padding: 12px 16px; background: rgba(16, 185, 129, 0.08);
+    border-left: 3px solid #10b981; border-radius: 6px; margin-bottom: 16px;
+  }
+  .quick-tag { font-size: 10px; font-weight: 700; color: #10b981; text-transform: uppercase; margin-bottom: 4px; display: block; }
+  .quick-text { font-size: 13.5px; color: var(--white); font-weight: 600; margin: 0; line-height: 1.5; }
+  .detailed-body { font-size: 13.5px; color: var(--grey); line-height: 1.7; margin-bottom: 18px; }
+  .faq-line { margin: 0 0 8px; }
+  .tags-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 11px; }
+  .tags-k { color: var(--dark-grey); }
+  .tag-pill { color: #38bdf8; background: rgba(56, 189, 248, 0.08); padding: 2px 8px; border-radius: 4px; }
+
+  /* Empty State */
+  .faq-empty { text-align: center; padding: 60px 20px; background: rgba(255, 255, 255, 0.02); border-radius: 16px; margin-top: 20px; }
+  .empty-icon { font-size: 36px; margin-bottom: 12px; }
+  .empty-title { font-size: 18px; font-weight: 700; color: var(--white); margin: 0 0 8px; }
+  .empty-desc { font-size: 14px; color: var(--grey); margin: 0; }
+
+  /* Bottom CTA */
+  .faq-footer-cta { margin-top: 80px; }
+  .cta-inner {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(20, 20, 25, 0.96) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 20px; padding: 40px; text-align: center;
+  }
+  .cta-badge { color: #10b981; margin-bottom: 12px; }
+  .cta-title { font-size: clamp(22px, 3vw, 30px); font-weight: 800; color: var(--white); margin: 0 0 12px; }
+  .cta-desc { font-size: 14.5px; color: var(--grey); line-height: 1.7; max-width: 720px; margin: 0 auto 28px; }
+  .code-hl { background: rgba(255, 255, 255, 0.1); padding: 2px 6px; border-radius: 4px; color: #38bdf8; font-weight: 700; }
+  .cta-actions { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .btn-cta-primary {
+    padding: 12px 24px; background: #10b981; color: #000; font-weight: 700; border-radius: 8px;
+    text-decoration: none; font-size: 13.5px; transition: opacity 0.2s ease;
+  }
+  .btn-cta-primary:hover { opacity: 0.9; }
+  .btn-cta-secondary {
+    padding: 12px 22px; background: var(--surface); border: 1px solid var(--grey-20); color: var(--white);
+    border-radius: 8px; text-decoration: none; font-size: 13.5px;
+  }
+
+  @media (max-width: 768px) {
+    .summary-left { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .faq-toolbar { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .cta-inner { padding: 28px 20px; }
+  }
+</style>
+
+<script>
+  // Search & Filter Interactivity
+  const searchInput = document.getElementById('faq-search') as HTMLInputElement;
+  const pills = document.querySelectorAll('#faq-pills .pill-btn');
+  const cards = document.querySelectorAll<HTMLDetailsElement>('.faq-card');
+  const emptyState = document.getElementById('faq-empty');
+  const counterEl = document.getElementById('faq-counter');
+
+  let activeCat = '';
+
+  function filterFAQs() {
+    const q = (searchInput?.value || '').trim().toLowerCase();
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const cardCat = card.getAttribute('data-cat') || '';
+      const cardSearch = card.getAttribute('data-search') || '';
+
+      const matchCat = !activeCat || cardCat === activeCat;
+      const matchQuery = !q || cardSearch.includes(q);
+
+      if (matchCat && matchQuery) {
+        card.style.display = 'block';
+        visibleCount++;
+        // If there's an explicit search query, auto-expand matching cards
+        if (q.length > 1) {
+          card.open = true;
+        }
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (counterEl) {
+      counterEl.textContent = `当前展示 ${visibleCount} 条深度解答`;
+    }
+
+    if (emptyState) {
+      emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+  }
+
+  // Category Pills Click
+  pills.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      pills.forEach((p) => p.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      activeCat = btn.getAttribute('data-cat') || '';
+      filterFAQs();
+    });
+  });
+
+  // Search input typing
+  searchInput?.addEventListener('input', filterFAQs);
+
+  // Expand / Collapse All
+  document.getElementById('btn-expand-all')?.addEventListener('click', () => {
+    cards.forEach((card) => {
+      if (card.style.display !== 'none') card.open = true;
+    });
+  });
+
+  document.getElementById('btn-collapse-all')?.addEventListener('click', () => {
+    cards.forEach((card) => {
+      card.open = false;
+    });
+  });
+</script>

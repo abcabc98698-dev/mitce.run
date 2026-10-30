@@ -1,0 +1,590 @@
+---
+import Base from '../layouts/Base.astro';
+import { riskLevels, deadpoolArchive, riskQuizItems, redFlagSigns } from '../data/radar';
+
+const title = '机场跑路预警雷达与阵亡档案馆 (5级风险预警/体检自测) — Mitce 推荐';
+const description = 'Mitce 网络实验室实时风险雷达：发布 5 级机场跑路预警机制、收录 28+ 家历史知名机场崩盘公墓案例、提供 5 分钟跑路风险体检计算器与受害者止损安全港协议。';
+---
+<Base title={title} description={description}>
+  <div class="radar-page">
+    <!-- Header -->
+    <header class="page-header">
+      <div class="header-badge">
+        <span class="status-dot"></span>
+        <span class="mono-s">MITCE RISK RADAR · AIRPORT DEADPOOL & EARLY WARNING</span>
+      </div>
+      <h1 class="t-h1 page-title">机场跑路预警雷达与阵亡档案馆</h1>
+      <p class="t-body-m page-desc">
+        在充满非标与灰产的市场中，掌握第一手风控预警。Mitce 实验室对全网主流机场实施动态生命周期监测，拆解历史暴雷案致命征兆，助你在断网跑路前全身而退。
+      </p>
+
+      <!-- Risk Meter Bar -->
+      <div class="radar-stats-bar">
+        <div class="stat-cell">
+          <span class="cell-num mono-s text-blue">42 家</span>
+          <span class="cell-label">活跃监测样本</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-cell">
+          <span class="cell-num mono-s text-green">36 家</span>
+          <span class="cell-label">Level 1 正常观测</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-cell">
+          <span class="cell-num mono-s text-yellow">4 家</span>
+          <span class="cell-label">Level 2~3 异动关注</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-cell">
+          <span class="cell-num mono-s text-red">2 家</span>
+          <span class="cell-label">Level 4 失联预警</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-cell">
+          <span class="cell-num mono-s text-slate">28+ 家</span>
+          <span class="cell-label">公墓归档阵亡</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content-body">
+      <!-- Section 1: 5-Level Risk Warning Scale -->
+      <section class="radar-section">
+        <div class="section-title-wrap">
+          <div class="sec-badge mono-s">RISK CLASSIFICATION SCALE</div>
+          <h2 class="t-h2 sec-title">跑路 5 级风险预警天梯模型</h2>
+          <p class="t-body-s sec-desc">
+            根据服务器丢包率、工单响应速度、官方社群管控状态及套餐价格偏离度，划分严格的 5 级风险状态。
+          </p>
+        </div>
+
+        <div class="levels-grid">
+          {riskLevels.map((lvl) => (
+            <div class="level-card" style={`--lvl-color: ${lvl.color}; --lvl-bg: ${lvl.bgColor};`}>
+              <div class="lvl-head">
+                <span class="lvl-badge mono-s">{lvl.badge}</span>
+                <span class="lvl-number mono-s">Level 0{lvl.level}</span>
+              </div>
+              <h3 class="lvl-name">{lvl.name}</h3>
+              <p class="lvl-def">{lvl.definition}</p>
+
+              <div class="lvl-criteria">
+                <div class="criteria-label mono-s">判定标准:</div>
+                <ul class="criteria-list">
+                  {lvl.criteria.map((c) => (
+                    <li>{c}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div class="lvl-action mono-s">
+                <span class="action-tag">应对指引</span>
+                <span>{lvl.actionRecommendation}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Section 2: Interactive 5-Minute Risk Calculator -->
+      <section class="radar-section">
+        <div class="section-title-wrap">
+          <div class="sec-badge mono-s">INTERACTIVE RISK SELF-CHECK</div>
+          <h2 class="t-h2 sec-title">5 分钟机场跑路风险体检计算器</h2>
+          <p class="t-body-s sec-desc">
+            勾选你当前使用的机场所表现出的具体特征，系统将基于历史数千起跑路样本的权重算法，秒级评估跑路概率。
+          </p>
+        </div>
+
+        <div class="calculator-card">
+          <div class="calc-grid">
+            <!-- Quiz Options Form -->
+            <div class="calc-form">
+              <h3 class="calc-form-title">体检诊断问卷 (勾选匹配项)</h3>
+              <div class="quiz-items" id="quiz-items">
+                {riskQuizItems.map((q) => (
+                  <label class="quiz-label" data-points={q.points}>
+                    <input type="checkbox" class="quiz-check" />
+                    <div class="quiz-info">
+                      <div class="quiz-q">{q.question}</div>
+                      <div class="quiz-why mono-s">
+                        <span class="weight-badge">+{q.points} 分</span>
+                        <span>{q.rationale}</span>
+                      </div>
+                    </div>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <!-- Result Scorecard Panel -->
+            <div class="calc-result">
+              <div class="result-box">
+                <div class="score-header mono-s">DIAGNOSTIC VERDICT · 综合体检评分</div>
+                <div class="score-display">
+                  <span class="score-num mono-s" id="calc-score">0</span>
+                  <span class="score-total mono-s">/ 100 分</span>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="score-bar-track">
+                  <div class="score-bar-fill" id="calc-bar" style="width: 0%;"></div>
+                </div>
+
+                <div class="verdict-status" id="calc-verdict">
+                  <div class="verdict-title mono-s" id="verdict-title">极低风险 · 状态健康</div>
+                  <p class="verdict-desc" id="verdict-desc">
+                    未命中任何跑路特征指标。当前服务表现良好，可继续安心使用。
+                  </p>
+                </div>
+
+                <div class="verdict-checklist" id="verdict-checklist">
+                  <div class="ck-label mono-s">推荐避险动作:</div>
+                  <ul class="ck-list" id="verdict-actions">
+                    <li>保持常规使用，建议优先选择月付或大厂永久不限时包。</li>
+                    <li>定期备份订阅链接至本地密码管理器。</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Red Flags -->
+      <section class="radar-section">
+        <div class="section-title-wrap">
+          <div class="sec-badge mono-s">FATAL SIGNALS INVESTIGATION</div>
+          <h2 class="t-h2 sec-title">六大跑路前夕致命危险信号深度拆解</h2>
+          <p class="t-body-s sec-desc">
+            无一例外。所有跑路失联的恶性案件在拔网线前 7~15 天，都会在运营端释放出高度一致的危险行为信号。
+          </p>
+        </div>
+
+        <div class="redflags-grid">
+          {redFlagSigns.map((rf) => (
+            <div class="redflag-card">
+              <div class="rf-head">
+                <span class="rf-severity mono-s">{rf.severity}</span>
+                <span class="rf-sub mono-s">{rf.subtitle}</span>
+              </div>
+              <h3 class="rf-title">{rf.title}</h3>
+              <p class="rf-desc">{rf.explanation}</p>
+
+              <div class="rf-detect-box mono-s">
+                <span class="detect-k">如何识别:</span>
+                <span class="detect-v">{rf.detectionMethod}</span>
+              </div>
+
+              <div class="rf-case-box">
+                <span class="case-icon">⚠️</span>
+                <span class="case-text"><strong>惨痛先例:</strong> {rf.historicalExample}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Section 4: Airport Deadpool Archive -->
+      <section class="radar-section">
+        <div class="section-title-wrap">
+          <div class="sec-badge mono-s">AIRPORT DEADPOOL ARCHIVE</div>
+          <h2 class="t-h2 sec-title">中文互联网机场历史阵亡公墓</h2>
+          <p class="t-body-s sec-desc">
+            铭记历史教训。全面收录近年来行业内震撼全网的重大跑路与暴雷事件，还原真实崩盘死因与资金受损复盘。
+          </p>
+        </div>
+
+        <div class="deadpool-grid">
+          {deadpoolArchive.map((item) => (
+            <div class="deadpool-card">
+              <div class="dp-head">
+                <div>
+                  <h3 class="dp-name">{item.name}</h3>
+                  <div class="dp-aliases mono-s">别名: {item.aliases.join(', ')}</div>
+                </div>
+                <div class="dp-type-pill mono-s">{item.collapseType}</div>
+              </div>
+
+              <div class="dp-meta-row mono-s">
+                <div class="dp-meta-cell">
+                  <span class="meta-k">阵亡时间</span>
+                  <span class="meta-v text-red">{item.collapseDate}</span>
+                </div>
+                <div class="dp-meta-cell">
+                  <span class="meta-k">存活周期</span>
+                  <span class="meta-v">{item.lifespan}</span>
+                </div>
+                <div class="dp-meta-cell">
+                  <span class="meta-k">受害规模</span>
+                  <span class="meta-v">{item.peakUsers}</span>
+                </div>
+                <div class="dp-meta-cell">
+                  <span class="meta-k">资金受损</span>
+                  <span class="meta-v text-yellow">{item.estLoss}</span>
+                </div>
+              </div>
+
+              <div class="dp-body">
+                <div class="dp-signs-title mono-s">暴雷前核心异动:</div>
+                <ul class="dp-signs-list">
+                  {item.fatalSigns.map((sign) => (
+                    <li>{sign}</li>
+                  ))}
+                </ul>
+
+                <p class="dp-postmortem">{item.detailedPostMortem}</p>
+
+                <div class="dp-lesson-box">
+                  <span class="lesson-k mono-s">🩸 惨痛警示:</span>
+                  <span class="lesson-v">{item.lesson}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Section 5: Safe Harbor Protocol -->
+      <section class="safe-harbor-section">
+        <div class="harbor-card">
+          <div class="harbor-badge mono-s">SAFE HARBOR PROTOCOL · 止损安全港</div>
+          <h2 class="harbor-title">不幸遭遇机场跑路？三步止损自救指南</h2>
+          <p class="harbor-desc">
+            若你当前使用的机场已经全员禁言或节点全红，请保持冷静，立即执行以下三步安全港止损程序：
+          </p>
+
+          <div class="harbor-steps">
+            <div class="harbor-step">
+              <div class="h-step-num mono-s">STEP 1</div>
+              <h3 class="h-step-title">发起支付争议与拒付申诉</h3>
+              <p class="h-step-text">
+                若在过去 60 天内使用信用卡 (Visa/Mastercard) 或 PayPal 支付，立即致电发卡行发起 <strong>Chargeback（未收到商品/服务不符拒付）</strong>，提供官网无法打开的截图与节点断开日志，拒付成功率可达 80% 以上。
+              </p>
+            </div>
+
+            <div class="harbor-step">
+              <div class="h-step-num mono-s">STEP 2</div>
+              <h3 class="h-step-title">立即删除客户端本地订阅密钥</h3>
+              <p class="h-step-text">
+                跑路机场的域名可能已被恶意黑客注销接管。客户端若保持自动同步刷新，极可能被下发恶意嗅探节点造成 DNS 劫持。请在 Clash 或小火箭中立即将该订阅完全删除。
+              </p>
+            </div>
+
+            <div class="harbor-step">
+              <div class="h-step-num mono-s">STEP 3</div>
+              <h3 class="h-step-title">平稳迁移至高信誉老牌物理专线</h3>
+              <p class="h-step-text">
+                切勿病急乱投医再次上车 9.9 包年灵车。建议优先接入经过 Mitce 实验室三网晚高峰严格质检的<strong>光速云</strong>：IEPL 双专线架构、8 元月付试水、147 元 247GB 永久不限时包，使用优惠码 <code class="code-hl">AMM</code> 立享 8 折。
+              </p>
+            </div>
+          </div>
+
+          <div class="harbor-cta">
+            <a href="https://sahude.gsyvipaff.com/#/?code=keqgvT5Y" target="_blank" rel="nofollow sponsored noopener" class="btn-harbor-primary">
+              直达光速云安全港通道 (8折专属码 AMM) ➔
+            </a>
+            <a href="/brands" class="btn-harbor-secondary">
+              查阅 42 家合规品牌横评大盘
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</Base>
+
+<style>
+  .radar-page { max-width: var(--canvas); margin: 0 auto; padding: 40px 20px 100px; }
+  .page-header { text-align: center; max-width: 860px; margin: 0 auto 56px; }
+  .header-badge {
+    display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px;
+    background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.25);
+    border-radius: 999px; margin-bottom: 20px;
+  }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: #ef4444; box-shadow: 0 0 10px #ef4444; }
+  .mono-s { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.5px; }
+  .page-title { font-size: clamp(32px, 5vw, 48px); font-weight: 800; color: var(--white); margin: 0 0 18px; line-height: 1.15; }
+  .page-desc { color: var(--grey); font-size: 16px; line-height: 1.7; margin: 0 0 32px; }
+
+  /* Radar Stats Bar */
+  .radar-stats-bar {
+    display: flex; align-items: center; justify-content: center; gap: 20px; padding: 18px 24px;
+    background: var(--surface); border: 1px solid var(--grey-20); border-radius: 16px;
+    flex-wrap: wrap;
+  }
+  .stat-cell { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .cell-num { font-size: 18px; font-weight: 700; }
+  .cell-label { font-size: 11.5px; color: var(--grey); }
+  .stat-sep { width: 1px; height: 30px; background: var(--grey-20); }
+  .text-blue { color: #38bdf8; }
+  .text-green { color: #10b981; }
+  .text-yellow { color: #f59e0b; }
+  .text-red { color: #ef4444; }
+  .text-slate { color: #94a3b8; }
+
+  /* Section Common */
+  .radar-section { margin-bottom: 80px; }
+  .section-title-wrap { margin-bottom: 32px; }
+  .sec-badge { color: #ef4444; margin-bottom: 8px; font-size: 11px; }
+  .sec-title { font-size: 26px; font-weight: 700; color: var(--white); margin: 0 0 10px; }
+  .sec-desc { color: var(--grey); line-height: 1.6; max-width: 760px; }
+
+  /* Section 1: Levels Grid */
+  .levels-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+  .level-card {
+    background: rgba(255, 255, 255, 0.02); border: 1px solid var(--grey-20); border-top: 3px solid var(--lvl-color);
+    border-radius: 14px; padding: 20px; display: flex; flex-direction: column;
+  }
+  .lvl-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .lvl-badge { padding: 3px 8px; background: var(--lvl-bg); color: var(--lvl-color); border-radius: 4px; font-weight: 700; font-size: 10px; }
+  .lvl-number { color: var(--grey); font-size: 11px; }
+  .lvl-name { font-size: 17px; font-weight: 700; color: var(--white); margin: 0 0 8px; }
+  .lvl-def { font-size: 12.5px; color: var(--grey); line-height: 1.5; margin: 0 0 14px; flex-grow: 1; }
+  .lvl-criteria {
+    background: rgba(0, 0, 0, 0.25); padding: 10px 12px; border-radius: 8px; margin-bottom: 14px;
+  }
+  .criteria-label { font-size: 10px; color: var(--dark-grey); margin-bottom: 6px; }
+  .criteria-list { margin: 0; padding-left: 14px; font-size: 11.5px; color: var(--grey); line-height: 1.5; }
+  .criteria-list li { margin-bottom: 4px; }
+  .lvl-action {
+    display: flex; flex-direction: column; gap: 4px; font-size: 11.5px; color: var(--lvl-color);
+    background: var(--lvl-bg); padding: 8px 10px; border-radius: 6px; margin-top: auto;
+  }
+  .action-tag { font-weight: 700; font-size: 10px; text-transform: uppercase; }
+
+  /* Section 2: Interactive Calculator */
+  .calculator-card {
+    background: rgba(255, 255, 255, 0.02); border: 1px solid var(--grey-20); border-radius: 20px;
+    padding: 32px;
+  }
+  .calc-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 36px; }
+  .calc-form-title { font-size: 18px; font-weight: 700; color: var(--white); margin: 0 0 20px; }
+  .quiz-items { display: flex; flex-direction: column; gap: 12px; }
+  .quiz-label {
+    display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.02); border: 1px solid var(--grey-20); border-radius: 12px;
+    cursor: pointer; transition: all 0.2s ease;
+  }
+  .quiz-label:hover { border-color: rgba(255, 255, 255, 0.4); background: rgba(255, 255, 255, 0.04); }
+  .quiz-check { width: 18px; height: 18px; margin-top: 2px; accent-color: #ef4444; cursor: pointer; flex-shrink: 0; }
+  .quiz-info { display: flex; flex-direction: column; gap: 4px; }
+  .quiz-q { font-size: 13.5px; font-weight: 600; color: var(--white); line-height: 1.45; }
+  .quiz-why { font-size: 11px; color: var(--grey); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .weight-badge { color: #f59e0b; font-weight: 700; background: rgba(245, 158, 11, 0.1); padding: 1px 6px; border-radius: 4px; }
+
+  /* Calculator Result Side */
+  .result-box {
+    background: rgba(0, 0, 0, 0.4); border: 1px solid var(--grey-20); border-radius: 16px;
+    padding: 28px; position: sticky; top: 110px;
+  }
+  .score-header { font-size: 10px; color: var(--dark-grey); margin-bottom: 12px; }
+  .score-display { display: flex; align-items: baseline; gap: 8px; margin-bottom: 16px; }
+  .score-num { font-size: 48px; font-weight: 900; color: #10b981; line-height: 1; transition: color 0.3s ease; }
+  .score-total { font-size: 14px; color: var(--grey); }
+  .score-bar-track { width: 100%; height: 8px; background: rgba(255, 255, 255, 0.06); border-radius: 999px; overflow: hidden; margin-bottom: 24px; }
+  .score-bar-fill { height: 100%; width: 0%; background: #10b981; transition: width 0.4s ease, background 0.3s ease; }
+  .verdict-status {
+    padding: 16px; border-radius: 12px; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2);
+    margin-bottom: 20px; transition: all 0.3s ease;
+  }
+  .verdict-title { font-size: 14px; font-weight: 700; color: #10b981; margin-bottom: 6px; }
+  .verdict-desc { font-size: 12.5px; color: var(--grey); line-height: 1.6; margin: 0; }
+  .verdict-checklist { background: rgba(255, 255, 255, 0.02); padding: 14px; border-radius: 10px; }
+  .ck-label { font-size: 11px; color: var(--dark-grey); margin-bottom: 8px; }
+  .ck-list { margin: 0; padding-left: 16px; font-size: 12px; color: var(--white); line-height: 1.6; }
+
+  /* Section 3: Red Flags */
+  .redflags-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 20px; }
+  .redflag-card {
+    background: rgba(255, 255, 255, 0.02); border: 1px solid var(--grey-20); border-radius: 16px;
+    padding: 24px; display: flex; flex-direction: column;
+  }
+  .rf-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .rf-severity { padding: 3px 8px; background: rgba(239, 68, 68, 0.15); color: #ef4444; border-radius: 4px; font-weight: 700; font-size: 10.5px; }
+  .rf-sub { color: #f59e0b; font-size: 11px; }
+  .rf-title { font-size: 18px; font-weight: 700; color: var(--white); margin: 0 0 10px; }
+  .rf-desc { font-size: 13.5px; color: var(--grey); line-height: 1.6; margin: 0 0 16px; flex-grow: 1; }
+  .rf-detect-box {
+    background: rgba(0, 0, 0, 0.25); padding: 8px 12px; border-radius: 6px; font-size: 11px; margin-bottom: 12px;
+  }
+  .detect-k { color: var(--dark-grey); margin-right: 6px; }
+  .detect-v { color: #38bdf8; }
+  .rf-case-box { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: #fca5a5; }
+
+  /* Section 4: Deadpool Archive */
+  .deadpool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 22px; }
+  .deadpool-card {
+    background: rgba(255, 255, 255, 0.02); border: 1px solid var(--grey-20); border-radius: 16px;
+    padding: 24px; display: flex; flex-direction: column;
+  }
+  .dp-head { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; }
+  .dp-name { font-size: 20px; font-weight: 700; color: var(--white); margin: 0 0 4px; }
+  .dp-aliases { font-size: 11px; color: var(--dark-grey); }
+  .dp-type-pill { padding: 4px 10px; background: rgba(239, 68, 68, 0.12); color: #ef4444; border-radius: 6px; font-size: 11px; font-weight: 600; }
+  .dp-meta-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;
+    background: rgba(0, 0, 0, 0.3); padding: 10px; border-radius: 8px; margin-bottom: 16px;
+  }
+  .dp-meta-cell { display: flex; flex-direction: column; gap: 3px; }
+  .meta-k { font-size: 10px; color: var(--dark-grey); }
+  .meta-v { font-size: 11.5px; font-weight: 600; }
+  .dp-signs-title { font-size: 11px; color: #f59e0b; margin-bottom: 6px; }
+  .dp-signs-list { margin: 0 0 14px; padding-left: 16px; font-size: 12px; color: var(--grey); line-height: 1.5; }
+  .dp-signs-list li { margin-bottom: 4px; }
+  .dp-postmortem { font-size: 13px; color: var(--grey); line-height: 1.6; margin: 0 0 16px; }
+  .dp-lesson-box {
+    background: rgba(239, 68, 68, 0.06); border-left: 3px solid #ef4444; padding: 10px 12px;
+    border-radius: 4px; font-size: 12px; color: var(--white); line-height: 1.5; margin-top: auto;
+  }
+  .lesson-k { color: #ef4444; font-weight: 700; display: block; margin-bottom: 2px; }
+
+  /* Section 5: Safe Harbor */
+  .safe-harbor-section { margin-top: 40px; }
+  .harbor-card {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(20, 20, 25, 0.96) 100%);
+    border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 24px; padding: 44px; text-align: center;
+  }
+  .harbor-badge { color: #ef4444; margin-bottom: 12px; }
+  .harbor-title { font-size: clamp(24px, 3.5vw, 34px); font-weight: 800; color: var(--white); margin: 0 0 14px; }
+  .harbor-desc { font-size: 15px; color: var(--grey); line-height: 1.7; max-width: 720px; margin: 0 auto 36px; }
+  .harbor-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 36px; text-align: left; }
+  .harbor-step { background: rgba(0, 0, 0, 0.3); border: 1px solid var(--grey-20); border-radius: 14px; padding: 22px; }
+  .h-step-num { font-size: 11px; font-weight: 700; color: #ef4444; margin-bottom: 8px; }
+  .h-step-title { font-size: 16px; font-weight: 700; color: var(--white); margin: 0 0 8px; }
+  .h-step-text { font-size: 13px; color: var(--grey); line-height: 1.6; margin: 0; }
+  .code-hl { background: rgba(255, 255, 255, 0.1); padding: 2px 6px; border-radius: 4px; color: #38bdf8; font-weight: 700; }
+  .harbor-cta { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .btn-harbor-primary {
+    padding: 13px 26px; background: #ef4444; color: #fff; font-weight: 700; border-radius: 10px;
+    text-decoration: none; font-size: 14px; transition: opacity 0.2s ease;
+  }
+  .btn-harbor-primary:hover { opacity: 0.9; }
+  .btn-harbor-secondary {
+    padding: 13px 24px; background: var(--surface); border: 1px solid var(--grey-20); color: var(--white);
+    border-radius: 10px; text-decoration: none; font-size: 14px;
+  }
+
+  @media (max-width: 992px) {
+    .calc-grid { grid-template-columns: 1fr; }
+    .result-box { position: static; }
+    .harbor-steps { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .levels-grid, .redflags-grid, .deadpool-grid { grid-template-columns: 1fr; }
+    .radar-stats-bar { gap: 12px; }
+    .stat-sep { display: none; }
+    .harbor-card { padding: 28px 20px; }
+  }
+</style>
+
+<script>
+  // Calculator interactivity
+  const checkboxes = document.querySelectorAll('.quiz-check');
+  const scoreEl = document.getElementById('calc-score');
+  const barEl = document.getElementById('calc-bar');
+  const verdictStatus = document.getElementById('calc-verdict');
+  const verdictTitle = document.getElementById('verdict-title');
+  const verdictDesc = document.getElementById('verdict-desc');
+  const verdictActions = document.getElementById('verdict-actions');
+
+  function updateScore() {
+    let total = 0;
+    checkboxes.forEach((cb) => {
+      const input = cb as HTMLInputElement;
+      if (input.checked) {
+        const parent = input.closest('.quiz-label');
+        const points = parseInt(parent?.getAttribute('data-points') || '0', 10);
+        total += points;
+      }
+    });
+
+    // Cap at 100
+    if (total > 100) total = 100;
+
+    if (scoreEl) scoreEl.textContent = total.toString();
+    if (barEl) {
+      barEl.style.width = `${total}%`;
+    }
+
+    // Update verdict
+    if (total <= 20) {
+      if (scoreEl) scoreEl.style.color = '#10b981';
+      if (barEl) barEl.style.background = '#10b981';
+      if (verdictStatus) {
+        verdictStatus.style.background = 'rgba(16, 185, 129, 0.08)';
+        verdictStatus.style.borderColor = 'rgba(16, 185, 129, 0.2)';
+      }
+      if (verdictTitle) {
+        verdictTitle.textContent = '极低风险 · 状态健康 (0~20分)';
+        verdictTitle.style.color = '#10b981';
+      }
+      if (verdictDesc) verdictDesc.textContent = '未命中任何严重跑路特征指标。当前服务表现良好，可继续安心使用。';
+      if (verdictActions) {
+        verdictActions.innerHTML = `
+          <li>保持常规使用，优先选择月付或大厂永久不限时包。</li>
+          <li>定期备份订阅链接至本地密码管理器。</li>
+        `;
+      }
+    } else if (total <= 45) {
+      if (scoreEl) scoreEl.style.color = '#38bdf8';
+      if (barEl) barEl.style.background = '#38bdf8';
+      if (verdictStatus) {
+        verdictStatus.style.background = 'rgba(56, 189, 248, 0.08)';
+        verdictStatus.style.borderColor = 'rgba(56, 189, 248, 0.2)';
+      }
+      if (verdictTitle) {
+        verdictTitle.textContent = '低危关注 · 轻度异动 (21~45分)';
+        verdictTitle.style.color = '#38bdf8';
+      }
+      if (verdictDesc) verdictDesc.textContent = '存在偶发工单延迟或域名变动。暂无资金断链迹象，但需提高警惕。';
+      if (verdictActions) {
+        verdictActions.innerHTML = `
+          <li>暂缓进行半年付或年付等长周期大额充值。</li>
+          <li>关注 Telegram 官方频道公告，核验最新入口域名。</li>
+        `;
+      }
+    } else if (total <= 70) {
+      if (scoreEl) scoreEl.style.color = '#f59e0b';
+      if (barEl) barEl.style.background = '#f59e0b';
+      if (verdictStatus) {
+        verdictStatus.style.background = 'rgba(245, 158, 11, 0.08)';
+        verdictStatus.style.borderColor = 'rgba(245, 158, 11, 0.3)';
+      }
+      if (verdictTitle) {
+        verdictTitle.textContent = '中危预警 · 高度戒备 (46~70分)';
+        verdictTitle.style.color = '#f59e0b';
+      }
+      if (verdictDesc) verdictDesc.textContent = '命中多项典型跑路前兆（如反常大促销、节点大面积断流）。资金链断裂风险极高！';
+      if (verdictActions) {
+        verdictActions.innerHTML = `
+          <li>立即停止所有续费操作，将剩余可用流量用尽。</li>
+          <li>在电脑和手机上准备备用机场，以防业务突发中断。</li>
+          <li>若通过信用卡付款，提前截屏保留工单与故障凭证。</li>
+        `;
+      }
+    } else {
+      if (scoreEl) scoreEl.style.color = '#ef4444';
+      if (barEl) barEl.style.background = '#ef4444';
+      if (verdictStatus) {
+        verdictStatus.style.background = 'rgba(239, 68, 68, 0.12)';
+        verdictStatus.style.borderColor = 'rgba(239, 68, 68, 0.35)';
+      }
+      if (verdictTitle) {
+        verdictTitle.textContent = '极度濒危 · 跑路倒计时 (71~100分)';
+        verdictTitle.style.color = '#ef4444';
+      }
+      if (verdictDesc) verdictDesc.textContent = '已命中“全员禁言”、“个人收款码”等绝对确定性的暴雷信号！管理团队已放弃履约，跑路在即！';
+      if (verdictActions) {
+        verdictActions.innerHTML = `
+          <li>立即致电发卡行发起信用卡 Chargeback 拒付或 PayPal 纠纷申诉！</li>
+          <li>从客户端彻底删除该机场订阅，防止域名被接管后遭遇 DNS 劫持。</li>
+          <li>平稳迁移至光速云双专线等正规老牌安全港。</li>
+        `;
+      }
+    }
+  }
+
+  checkboxes.forEach((cb) => cb.addEventListener('change', updateScore));
+</script>

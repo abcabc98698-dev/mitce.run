@@ -1,0 +1,545 @@
+---
+import Base from '../layouts/Base.astro';
+import { mirrorClients, securityTools, emergencyNodes, freeTutorials } from '../data/resources';
+
+const title = '免费资源中心与网络安全工具箱 (官方镜像/应急节点/安全检测) — Mitce 推荐';
+const description = 'Mitce 网络实验室免费资源枢纽：汇总 Clash Verge Rev / sing-box / v2rayN 官方纯净 GitHub 镜像加速直链、应急测速节点沙盒、WebRTC/DNS 泄漏在线检测工具与零成本保活教程。';
+---
+<Base title={title} description={description}>
+  <div class="resources-page">
+    <!-- Header -->
+    <header class="page-header">
+      <div class="header-badge">
+        <span class="status-dot"></span>
+        <span class="mono-s">MITCE RESOURCE VAULT · FREE ACCELERATION & TOOLBOX</span>
+      </div>
+      <h1 class="t-h1 page-title">免费资源中心与网络安全工具箱</h1>
+      <p class="t-body-m page-desc">
+        拒绝第三方盗版木马网盘。Mitce 实验室提供官方源码 Release 的国内高速加速镜像、经探针安全清洗的应急救急节点、权威在线防泄漏诊断工具与零成本免流教程。
+      </p>
+
+      <!-- Key Value Metrics Bar -->
+      <div class="stats-row">
+        <div class="stat-item">
+          <span class="stat-num mono-s">100%</span>
+          <span class="stat-label">开源官方镜像校验</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num mono-s">6 大</span>
+          <span class="stat-label">主流操作系统覆盖</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num mono-s">&lt; 15</span>
+          <span class="stat-label">大模型欺诈纯净分</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num mono-s">24h</span>
+          <span class="stat-label">探针健康动态自检</span>
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="filter-pills" id="resource-pills">
+        <button class="pill-btn is-active" data-tab="all">全部资源与工具</button>
+        <button class="pill-btn" data-tab="mirrors">⚡ 官方客户端镜像 (6)</button>
+        <button class="pill-btn" data-tab="tools">🛡️ 在线安全检测工具 (6)</button>
+        <button class="pill-btn" data-tab="nodes">🌐 应急测试节点沙盒 (4)</button>
+        <button class="pill-btn" data-tab="tutorials">📖 零成本白嫖教程 (3)</button>
+      </div>
+    </header>
+
+    <!-- Content Sections -->
+    <main class="content-body">
+      <!-- Section 1: Official Client Mirrors -->
+      <section class="resource-section" id="sec-mirrors" data-section="mirrors">
+        <div class="section-title-wrap">
+          <div class="sec-badge mono-s">OFFICIAL RELEASES ACCELERATION</div>
+          <h2 class="t-h2 sec-title">官方客户端纯净 GitHub 加速镜像</h2>
+          <p class="t-body-s sec-desc">
+            直接拉取官方 GitHub Releases 编译原包，杜绝恶意篡改与暗桩注入。配合专用加速节点直连下载。
+          </p>
+        </div>
+
+        <div class="mirrors-grid">
+          {mirrorClients.map((client) => (
+            <div class="mirror-card">
+              <div class="mirror-head">
+                <div class="mirror-tags">
+                  <span class="platform-tag mono-s">{client.platform}</span>
+                  <span class="badge-tag mono-s">{client.badge}</span>
+                </div>
+                <div class="version-tag mono-s">{client.version}</div>
+              </div>
+
+              <h3 class="mirror-name">{client.name}</h3>
+              <p class="mirror-desc">{client.description}</p>
+
+              <div class="mirror-specs mono-s">
+                <div class="spec-row">
+                  <span class="spec-k">内核核心:</span>
+                  <span class="spec-v">{client.core}</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-k">更新日期:</span>
+                  <span class="spec-v">{client.updateDate}</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-k">校验状态:</span>
+                  <span class="spec-v text-green">SHA-256 官方同步</span>
+                </div>
+              </div>
+
+              <div class="feature-bullets">
+                {client.features.map((feat) => (
+                  <span class="feat-pill mono-s">✓ {feat}</span>
+                ))}
+              </div>
+
+              <div class="mirror-actions">
+                <a href={client.acceleratedUrl} target="_blank" rel="noopener noreferrer" class="btn-accelerate">
+                  🚀 国内加速高速下载
+                </a>
+                <a href={client.githubUrl} target="_blank" rel="noopener noreferrer" class="btn-github mono-s">
+                  GitHub 官方源
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Section 2: Online Security Diagnostic Tools -->
+      <section class="resource-section" id="sec-tools" data-section="tools">
+        <div class="section-title-wrap">
+          <div class="sec-badge mono-s">NETWORK DIAGNOSTICS & AUDIT</div>
+          <h2 class="t-h2 sec-title">在线网络安全与防泄漏排查工具箱</h2>
+          <p class="t-body-s sec-desc">
+            精选权威的第三方网络检测平台，随时核验你的本地代理环境是否存在 WebRTC 暴露、DNS 投毒或欺诈分超标。
+          </p>
+        </div>
+
+        <div class="tools-grid">
+          {securityTools.map((tool) => (
+            <div class="tool-card">
+              <div class="tool-head">
+                <span class="tool-cat-pill mono-s">{tool.categoryLabel}</span>
+                <a href={tool.url} target="_blank" rel="noopener noreferrer" class="tool-link-icon" title="直达工具">
+                  <span class="mono-s">打开测试 ↗</span>
+                </a>
+              </div>
+              <h3 class="tool-name">{tool.name}</h3>
+              <p class="tool-desc">{tool.description}</p>
+
+              <div class="tool-metric-box">
+                <div class="metric-label mono-s">重点核验指标:</div>
+                <div class="metric-val mono-s">{tool.keyMetric}</div>
+              </div>
+
+              <div class="tool-advice">
+                <span class="advice-icon">💡</span>
+                <span class="advice-text">{tool.recommendation}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Section 3: Clean Emergency Test Nodes -->
+      <section class="resource-section" id="sec-nodes" data-section="nodes">
+        <div class="section-title-wrap">
+          <div class="sec-badge mono-s">SANDBOX EMERGENCY TUNNELS</div>
+          <h2 class="t-h2 sec-title">经探针安全清洗的应急测试节点沙盒</h2>
+          <p class="t-body-s sec-desc">
+            专为排障、下载客户端及查阅海外紧急文档提供的轻量测试通道。由 Mitce 探针每日定时巡检与轮换。
+          </p>
+        </div>
+
+        <!-- Strict Warning Callout -->
+        <div class="alert-box">
+          <div class="alert-icon">⚠️</div>
+          <div class="alert-content">
+            <h4 class="alert-title">应急节点使用边界与严正声明</h4>
+            <p class="alert-text">
+              1. 应急通道仅用于<strong>下载客户端安装包、更新 GitHub 依赖代码及临时查阅学术文献</strong>。<br />
+              2. <strong>严禁在公共应急节点上登录网银、支付软件及企业重要资产账号</strong>，谨防第三方网络风险。<br />
+              3. 应急通道不承诺晚高峰大吞吐 SLA。若有 4K/8K 视频播放、AI 生产力大批量调用需求，请使用经过 SLA 认证的<a href="/pricing" class="link-inline">商业物理专线</a>。
+            </p>
+          </div>
+        </div>
+
+        <div class="nodes-grid">
+          {emergencyNodes.map((node) => (
+            <div class="node-card">
+              <div class="node-head">
+                <div class="node-title-box">
+                  <span class="node-flag">{node.flag}</span>
+                  <div>
+                    <h3 class="node-name">{node.name}</h3>
+                    <div class="node-loc mono-s">{node.location}</div>
+                  </div>
+                </div>
+                <div class={`node-status-badge mono-s ${node.status === 'ONLINE' ? 'is-online' : 'is-standby'}`}>
+                  ● {node.status}
+                </div>
+              </div>
+
+              <div class="node-data-row mono-s">
+                <div class="data-block">
+                  <span class="data-k">协议类型</span>
+                  <span class="data-v text-white">{node.protocol}</span>
+                </div>
+                <div class="data-block">
+                  <span class="data-k">实测时延</span>
+                  <span class="data-v text-blue">{node.latency}</span>
+                </div>
+                <div class="data-block">
+                  <span class="data-k">晚高峰丢包</span>
+                  <span class="data-v text-green">{node.packetLoss}</span>
+                </div>
+                <div class="data-block">
+                  <span class="data-k">加密机制</span>
+                  <span class="data-v">{node.encryption}</span>
+                </div>
+              </div>
+
+              <p class="node-notes">{node.notes}</p>
+
+              <div class="node-code-box">
+                <div class="code-preview mono-s">{node.rawConfig.substring(0, 52)}...</div>
+                <button class="btn-copy-node mono-s" data-raw={node.rawConfig}>一键复制节点配置</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Section 4: Zero-Cost DIY Tutorials -->
+      <section class="resource-section" id="sec-tutorials" data-section="tutorials">
+        <div class="section-title-wrap">
+          <div class="sec-badge mono-s">ZERO-COST INFRASTRUCTURE PLAYBOOK</div>
+          <h2 class="t-h2 sec-title">零成本技术教程与白嫖指南</h2>
+          <p class="t-body-s sec-desc">
+            拒绝当冤大头。手把手教你利用全球主流云厂商免费配额与开源工具，搭建合规、轻量的个人私有中继。
+          </p>
+        </div>
+
+        <div class="tutorials-stack">
+          {freeTutorials.map((tut) => (
+            <div class="tutorial-card">
+              <div class="tut-header">
+                <div class="tut-meta">
+                  <span class="tut-tag mono-s">{tut.tag}</span>
+                  <span class="tut-time mono-s">⏱️ {tut.readingTime}</span>
+                  <span class="tut-diff mono-s">难度: {tut.difficulty}</span>
+                </div>
+                <h3 class="tut-title">{tut.title}</h3>
+                <p class="tut-summary">{tut.summary}</p>
+              </div>
+
+              <div class="tut-steps">
+                {tut.steps.map((st, idx) => (
+                  <div class="step-item">
+                    <div class="step-num mono-s">0{idx + 1}</div>
+                    <div class="step-body">
+                      <h4 class="step-title">{st.title}</h4>
+                      <p class="step-content">{st.content}</p>
+                      {st.code && (
+                        <pre class="step-code mono-s"><code>{st.code}</code></pre>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div class="tut-warning-box mono-s">
+                <span class="tut-warn-badge">风控提醒</span>
+                <span>{tut.warning}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Section 5: High-Performance Alternative Banner -->
+      <section class="upgrade-banner">
+        <div class="banner-content">
+          <div class="banner-badge mono-s">NEED ENTERPRISE STABILITY?</div>
+          <h2 class="banner-title">应急免费节点不够用？晚高峰告别卡顿与排障焦虑</h2>
+          <p class="banner-desc">
+            免费资源适合临时查阅文献，生产力开发离不开高可用物理专线。Mitce 核心推荐<strong>光速云</strong>：IEPL/IPLC 双专线、2.5Gbps 物理冗余、147 元 247GB 永久不限时包，使用优惠码 <code class="code-hl">AMM</code> 立享 8 折。
+          </p>
+          <div class="banner-actions">
+            <a href="https://sahude.gsyvipaff.com/#/?code=keqgvT5Y" target="_blank" rel="nofollow sponsored noopener" class="btn-banner-primary">
+              获取光速云 8 折专属优惠 ➔
+            </a>
+            <a href="/pricing" class="btn-banner-secondary">
+              对比全网 42 家套餐梯队
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Copy Toast -->
+    <div id="copy-toast" class="copy-toast">已复制节点配置至剪贴板！</div>
+  </div>
+</Base>
+
+<style>
+  .resources-page { max-width: var(--canvas); margin: 0 auto; padding: 40px 20px 100px; }
+  .page-header { text-align: center; max-width: 860px; margin: 0 auto 56px; }
+  .header-badge {
+    display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px;
+    background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 999px; margin-bottom: 20px;
+  }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: #38bdf8; box-shadow: 0 0 10px #38bdf8; }
+  .mono-s { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.5px; }
+  .page-title { font-size: clamp(32px, 5vw, 48px); font-weight: 800; color: var(--white); margin: 0 0 18px; line-height: 1.15; }
+  .page-desc { color: var(--grey); font-size: 16px; line-height: 1.7; margin: 0 0 32px; }
+
+  /* Stats Row */
+  .stats-row {
+    display: flex; align-items: center; justify-content: center; gap: 24px; padding: 18px 28px;
+    background: var(--surface); border: 1px solid var(--grey-20); border-radius: 16px;
+    margin-bottom: 36px; flex-wrap: wrap;
+  }
+  .stat-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .stat-num { font-size: 20px; font-weight: 700; color: #38bdf8; }
+  .stat-label { font-size: 12px; color: var(--grey); }
+  .stat-divider { width: 1px; height: 32px; background: var(--grey-20); }
+
+  /* Filter Pills */
+  .filter-pills { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+  .pill-btn {
+    padding: 9px 18px; background: var(--surface); border: 1px solid var(--grey-20);
+    border-radius: 999px; color: var(--grey); font-size: 13.5px; cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .pill-btn:hover { color: var(--white); border-color: rgba(255, 255, 255, 0.4); }
+  .pill-btn.is-active {
+    background: var(--white); color: var(--black); border-color: var(--white);
+    font-weight: 600; box-shadow: 0 0 16px rgba(255, 255, 255, 0.2);
+  }
+
+  /* Section Common */
+  .resource-section { margin-bottom: 80px; }
+  .section-title-wrap { margin-bottom: 32px; }
+  .sec-badge { color: #38bdf8; margin-bottom: 8px; font-size: 11px; }
+  .sec-title { font-size: 26px; font-weight: 700; color: var(--white); margin: 0 0 10px; }
+  .sec-desc { color: var(--grey); line-height: 1.6; max-width: 720px; }
+
+  /* Section 1: Mirrors Grid */
+  .mirrors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 20px; }
+  .mirror-card {
+    background: rgba(255, 255, 255, 0.02); border: 1px solid var(--grey-20); border-radius: 16px;
+    padding: 24px; display: flex; flex-direction: column; transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .mirror-card:hover { transform: translateY(-3px); border-color: rgba(56, 189, 248, 0.4); }
+  .mirror-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .mirror-tags { display: flex; align-items: center; gap: 8px; }
+  .platform-tag { padding: 4px 8px; background: rgba(255, 255, 255, 0.06); border-radius: 6px; color: var(--grey); }
+  .badge-tag { padding: 4px 8px; background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-radius: 6px; }
+  .version-tag { color: var(--grey); }
+  .mirror-name { font-size: 20px; font-weight: 700; color: var(--white); margin: 0 0 10px; }
+  .mirror-desc { font-size: 13.5px; color: var(--grey); line-height: 1.6; margin: 0 0 18px; flex-grow: 1; }
+  .mirror-specs {
+    background: rgba(0, 0, 0, 0.25); border-radius: 10px; padding: 12px 14px;
+    display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px;
+  }
+  .spec-row { display: flex; justify-content: space-between; font-size: 11.5px; }
+  .spec-k { color: var(--dark-grey); }
+  .spec-v { color: var(--white); }
+  .text-green { color: #10b981; }
+  .text-blue { color: #38bdf8; }
+  .text-white { color: var(--white); }
+  .feature-bullets { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+  .feat-pill { font-size: 11px; padding: 3px 8px; background: rgba(255, 255, 255, 0.04); border-radius: 4px; color: var(--grey); }
+  .mirror-actions { display: grid; grid-template-columns: 1.4fr 1fr; gap: 10px; margin-top: auto; }
+  .btn-accelerate {
+    display: flex; align-items: center; justify-content: center; padding: 10px 14px;
+    background: #38bdf8; color: #000; font-weight: 600; font-size: 13px; border-radius: 8px;
+    text-decoration: none; transition: opacity 0.2s ease; text-align: center;
+  }
+  .btn-accelerate:hover { opacity: 0.9; }
+  .btn-github {
+    display: flex; align-items: center; justify-content: center; padding: 10px 14px;
+    background: var(--surface); border: 1px solid var(--grey-20); color: var(--white);
+    border-radius: 8px; text-decoration: none; font-size: 12px; transition: border-color 0.2s ease;
+  }
+  .btn-github:hover { border-color: var(--white); }
+
+  /* Section 2: Tools Grid */
+  .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px; }
+  .tool-card {
+    background: rgba(255, 255, 255, 0.02); border: 1px solid var(--grey-20); border-radius: 16px;
+    padding: 24px; display: flex; flex-direction: column;
+  }
+  .tool-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .tool-cat-pill { padding: 4px 10px; background: rgba(16, 185, 129, 0.1); color: #10b981; border-radius: 6px; }
+  .tool-link-icon { color: #38bdf8; text-decoration: none; font-size: 12px; }
+  .tool-name { font-size: 19px; font-weight: 700; color: var(--white); margin: 0 0 10px; }
+  .tool-desc { font-size: 13.5px; color: var(--grey); line-height: 1.6; margin: 0 0 16px; flex-grow: 1; }
+  .tool-metric-box {
+    background: rgba(0, 0, 0, 0.3); border-left: 3px solid #38bdf8; padding: 10px 14px;
+    border-radius: 4px; margin-bottom: 14px;
+  }
+  .metric-label { font-size: 11px; color: var(--dark-grey); margin-bottom: 3px; }
+  .metric-val { font-size: 12px; color: var(--white); }
+  .tool-advice { display: flex; align-items: flex-start; gap: 8px; font-size: 12.5px; color: var(--grey); line-height: 1.5; }
+
+  /* Section 3: Emergency Sandbox */
+  .alert-box {
+    display: flex; gap: 16px; padding: 20px; background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 14px; margin-bottom: 24px;
+  }
+  .alert-icon { font-size: 24px; }
+  .alert-title { font-size: 15px; font-weight: 700; color: #f59e0b; margin: 0 0 6px; }
+  .alert-text { font-size: 13.5px; color: var(--grey); line-height: 1.65; margin: 0; }
+  .link-inline { color: #38bdf8; text-decoration: underline; }
+
+  .nodes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 20px; }
+  .node-card {
+    background: rgba(255, 255, 255, 0.02); border: 1px solid var(--grey-20); border-radius: 16px;
+    padding: 22px; display: flex; flex-direction: column;
+  }
+  .node-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .node-title-box { display: flex; align-items: center; gap: 12px; }
+  .node-flag { font-size: 24px; }
+  .node-name { font-size: 16px; font-weight: 700; color: var(--white); margin: 0 0 2px; }
+  .node-loc { font-size: 11px; color: var(--grey); }
+  .node-status-badge { padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 700; }
+  .node-status-badge.is-online { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+  .node-status-badge.is-standby { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+  .node-data-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+    background: rgba(0, 0, 0, 0.25); padding: 12px; border-radius: 10px; margin-bottom: 14px;
+  }
+  .data-block { display: flex; flex-direction: column; gap: 4px; }
+  .data-k { font-size: 10px; color: var(--dark-grey); }
+  .data-v { font-size: 12px; font-weight: 600; }
+  .node-notes { font-size: 12.5px; color: var(--grey); line-height: 1.5; margin: 0 0 16px; }
+  .node-code-box { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
+  .code-preview {
+    font-size: 10.5px; color: var(--dark-grey); background: rgba(0, 0, 0, 0.4);
+    padding: 8px 10px; border-radius: 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .btn-copy-node {
+    padding: 10px; background: var(--surface); border: 1px solid var(--grey-20); color: var(--white);
+    border-radius: 8px; font-size: 12px; cursor: pointer; transition: all 0.2s ease;
+  }
+  .btn-copy-node:hover { background: var(--white); color: #000; font-weight: 600; }
+
+  /* Section 4: Tutorials */
+  .tutorials-stack { display: flex; flex-direction: column; gap: 24px; }
+  .tutorial-card {
+    background: rgba(255, 255, 255, 0.02); border: 1px solid var(--grey-20); border-radius: 18px;
+    padding: 30px;
+  }
+  .tut-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+  .tut-tag { padding: 4px 10px; background: rgba(56, 189, 248, 0.1); color: #38bdf8; border-radius: 6px; }
+  .tut-time, .tut-diff { color: var(--grey); font-size: 12px; }
+  .tut-title { font-size: 22px; font-weight: 700; color: var(--white); margin: 0 0 10px; }
+  .tut-summary { font-size: 14px; color: var(--grey); line-height: 1.6; margin: 0 0 24px; max-width: 860px; }
+  .tut-steps { display: flex; flex-direction: column; gap: 18px; margin-bottom: 24px; }
+  .step-item { display: flex; gap: 18px; }
+  .step-num {
+    font-size: 14px; font-weight: 700; color: #38bdf8; background: rgba(56, 189, 248, 0.1);
+    width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body { flex-grow: 1; }
+  .step-title { font-size: 15px; font-weight: 600; color: var(--white); margin: 4px 0 6px; }
+  .step-content { font-size: 13.5px; color: var(--grey); line-height: 1.6; margin: 0 0 8px; }
+  .step-code {
+    background: #09090b; border: 1px solid var(--grey-20); border-radius: 8px; padding: 12px 16px;
+    font-size: 12px; color: #38bdf8; overflow-x: auto; margin: 8px 0 0;
+  }
+  .tut-warning-box {
+    display: flex; align-items: center; gap: 10px; padding: 12px 16px;
+    background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 10px; font-size: 12px; color: #fca5a5;
+  }
+  .tut-warn-badge { padding: 2px 6px; background: rgba(239, 68, 68, 0.2); border-radius: 4px; font-weight: 700; color: #ef4444; }
+
+  /* Section 5: Upgrade Banner */
+  .upgrade-banner {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(20, 20, 25, 0.95) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 20px; padding: 44px; text-align: center;
+  }
+  .banner-content { max-width: 760px; margin: 0 auto; }
+  .banner-badge { color: #38bdf8; margin-bottom: 12px; }
+  .banner-title { font-size: clamp(24px, 3.5vw, 32px); font-weight: 800; color: var(--white); margin: 0 0 14px; }
+  .banner-desc { font-size: 15px; color: var(--grey); line-height: 1.7; margin: 0 0 28px; }
+  .code-hl { background: rgba(255, 255, 255, 0.1); padding: 2px 8px; border-radius: 4px; color: #38bdf8; font-weight: 700; }
+  .banner-actions { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .btn-banner-primary {
+    padding: 13px 26px; background: #38bdf8; color: #000; font-weight: 700; border-radius: 10px;
+    text-decoration: none; font-size: 14px; transition: opacity 0.2s ease;
+  }
+  .btn-banner-primary:hover { opacity: 0.9; }
+  .btn-banner-secondary {
+    padding: 13px 24px; background: var(--surface); border: 1px solid var(--grey-20); color: var(--white);
+    border-radius: 10px; text-decoration: none; font-size: 14px;
+  }
+
+  /* Toast */
+  .copy-toast {
+    position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(100px);
+    background: #10b981; color: #000; font-weight: 700; font-size: 13px;
+    padding: 10px 22px; border-radius: 999px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    opacity: 0; pointer-events: none; transition: transform 0.3s ease, opacity 0.3s ease; z-index: 1000;
+  }
+  .copy-toast.is-show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+  @media (max-width: 768px) {
+    .mirrors-grid, .tools-grid, .nodes-grid { grid-template-columns: 1fr; }
+    .mirror-actions { grid-template-columns: 1fr; }
+    .upgrade-banner { padding: 28px 20px; }
+  }
+</style>
+
+<script>
+  // Tab filtering
+  const pills = document.querySelectorAll('#resource-pills .pill-btn');
+  const sections = document.querySelectorAll('.resource-section');
+
+  pills.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      pills.forEach((p) => p.classList.remove('is-active'));
+      btn.classList.add('is-active');
+
+      const targetTab = btn.getAttribute('data-tab');
+      sections.forEach((sec) => {
+        const secType = sec.getAttribute('data-section');
+        if (targetTab === 'all' || targetTab === secType) {
+          (sec as HTMLElement).style.display = 'block';
+        } else {
+          (sec as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Copy node config
+  const copyButtons = document.querySelectorAll('.btn-copy-node');
+  const toast = document.getElementById('copy-toast');
+
+  copyButtons.forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const raw = btn.getAttribute('data-raw') || '';
+      try {
+        await navigator.clipboard.writeText(raw);
+        if (toast) {
+          toast.classList.add('is-show');
+          setTimeout(() => toast.classList.remove('is-show'), 2200);
+        }
+      } catch (err) {
+        prompt('请手动复制节点配置:', raw);
+      }
+    });
+  });
+</script>

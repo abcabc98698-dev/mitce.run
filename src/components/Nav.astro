@@ -13,7 +13,7 @@ const { nav } = site;
           {nav.links.map((l: any) => (
             l.children ? (
               <div class="nav-item has-dropdown">
-                <a class="t-body-m link link-parent" href={l.href}>
+                <a class="t-body-s link link-parent" href={l.href}>
                   {l.label}
                   <span class="dropdown-chevron" aria-hidden="true">▾</span>
                 </a>
@@ -27,7 +27,7 @@ const { nav } = site;
                 </div>
               </div>
             ) : (
-              <a class="t-body-m link" href={l.href}>{l.label}</a>
+              <a class="t-body-s link" href={l.href}>{l.label}</a>
             )
           ))}
         </div>
@@ -64,28 +64,28 @@ const { nav } = site;
 </div>
 <style>
   .topbar { position: sticky; top: 0; z-index: 50; width: 100%; max-width: var(--canvas); margin: 0 auto; }
-  .nav { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 20px; height: 91px; }
+  .nav { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; height: 89px; }
   .bar { display: flex; align-items: center; justify-content: space-between; }
   .capsule, .buttons { background: var(--surface); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-radius: 16px; border: 1px solid var(--grey-20); }
   .capsule {
-    display: flex; align-items: center; justify-content: center; gap: 48px; padding: 12px 24px;
+    display: flex; align-items: center; justify-content: center; gap: 28px; padding: 10px 22px;
     transition: gap 0.45s cubic-bezier(0.2, 0.715, 0.205, 0.99);
   }
   .logo { font-size: 16px; text-align: center; color: var(--white); text-decoration: none; font-weight: 700; letter-spacing: 0.5px; }
   .links {
-    display: flex; align-items: center; gap: 20px; max-width: 560px;
+    display: flex; align-items: center; gap: 16px; max-width: 780px;
     transition: opacity 0.45s cubic-bezier(0.2, 0.715, 0.205, 0.99), max-width 0.45s cubic-bezier(0.2, 0.715, 0.205, 0.99);
   }
-  .link { color: var(--grey); text-decoration: none; white-space: nowrap; user-select: none; transition: color 0.2s ease; }
+  .link { color: var(--grey); text-decoration: none; white-space: nowrap; user-select: none; transition: color 0.2s ease; font-size: 13.5px; }
   .link:hover { color: var(--white); }
   .nav-toggle { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 8px; color: var(--grey); cursor: default; background: transparent; border: none; }
   .nav-toggle :global(.i-close) { display: none; }
-  .buttons { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 7px; }
+  .buttons { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 6px; }
 
   /* Dropdown Styles */
   .nav-item.has-dropdown { position: relative; display: inline-flex; align-items: center; height: 100%; }
-  .link-parent { display: inline-flex; align-items: center; gap: 4px; }
-  .dropdown-chevron { font-size: 11px; opacity: 0.7; transition: transform 0.25s ease; }
+  .link-parent { display: inline-flex; align-items: center; gap: 3px; }
+  .dropdown-chevron { font-size: 10px; opacity: 0.7; transition: transform 0.25s ease; }
   .nav-item.has-dropdown:hover .dropdown-chevron { transform: rotate(180deg); }
   .dropdown-pane {
     position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(8px);
@@ -96,27 +96,27 @@ const { nav } = site;
   }
   .nav-item.has-dropdown:hover .dropdown-pane { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
   .dropdown-item {
-    display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px;
+    display: flex; align-items: center; gap: 10px; padding: 9px 13px; border-radius: 8px;
     color: var(--grey); text-decoration: none; transition: background 0.2s ease, color 0.2s ease;
   }
   .dropdown-item:hover { background: var(--surface); color: var(--white); }
   .dropdown-dot { width: 5px; height: 5px; border-radius: 50%; background: #38bdf8; opacity: 0.7; }
 
   /* Collapsed topbar */
-  .topbar.is-collapsed .capsule { gap: 36px; }
+  .topbar.is-collapsed .capsule { gap: 24px; }
   .topbar.is-collapsed .links { opacity: 0; max-width: 0; pointer-events: none; }
 
   /* Mobile menu */
   .menu {
-    position: absolute; left: 16px; right: 16px; top: 72px; display: flex; flex-direction: column; gap: 20px; padding: 20px;
+    position: absolute; left: 16px; right: 16px; top: 72px; display: flex; flex-direction: column; gap: 16px; padding: 20px;
     background: rgba(16, 16, 18, 0.96); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-radius: 16px; border: 1px solid var(--grey-20);
-    opacity: 0; pointer-events: none; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0; pointer-events: none; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1); max-height: 80vh; overflow-y: auto;
   }
-  .menu-links { display: flex; flex-direction: column; gap: 16px; }
-  .menu-link { color: var(--white); text-decoration: none; }
-  .menu-group { display: flex; flex-direction: column; gap: 8px; }
+  .menu-links { display: flex; flex-direction: column; gap: 14px; }
+  .menu-link { color: var(--white); text-decoration: none; font-size: 15px; }
+  .menu-group { display: flex; flex-direction: column; gap: 6px; }
   .mobile-sublinks { display: flex; flex-direction: column; gap: 8px; padding-left: 12px; border-left: 1px solid var(--grey-20); margin-top: 4px; }
-  .mobile-sublink { color: var(--grey); text-decoration: none; }
+  .mobile-sublink { color: var(--grey); text-decoration: none; font-size: 13.5px; }
   .mobile-sublink:hover { color: var(--white); }
 
   @media (max-width: 1199.98px) {
