@@ -1,76 +1,40 @@
 {
   "meta": {
-    "title": "Privacy Policy — Mitce",
-    "description": "What Mitce holds, where it is stored, who can reach it, and what we never do with the conversations in your inbox."
+    "title": "隐私权保护政策与数据安全声明 — Mitce 推荐",
+    "description": "Mitce 网络实验室隐私安全承诺：本站不收集任何用户代理凭据、不保留订阅 Token 历史、绝无第三方跨站追踪器，严格保障极客与工程师隐私权益。"
   },
-  "eyebrow": "Legal",
-  "title": "Privacy Policy",
-  "updated": "Last updated 22 September 2026",
-  "intro": "We read support inboxes for a living, so we owe you a straight account of what we hold, where it sits and who can reach it. This is that account.",
+  "eyebrow": "隐私与安全",
+  "title": "隐私权保护政策",
+  "updated": "最近核验：2026年10月",
+  "intro": "网络隐私与数据安全是 Mitce 实验室立足的基石。作为网络技术研究者，我们向全体访问者郑重承诺本站的数据处理边界与零隐私侵犯原则。",
   "sections": [
     {
-      "title": "Who we are",
-      "body": "Mitce builds a support agent that drafts replies inside your inbox. For this website we decide what is collected and why. For everything inside a connected inbox we act on your instructions, and you remain the one answerable to your customers."
+      "title": "一、 我们收集什么与绝对不收集什么",
+      "body": "本站为纯静态内容网站 (SSG)，不设立任何强制用户注册入口。我们绝对不收集、不解析、不存储任何用户的真实姓名、银行卡信息、代理订阅链接、账号密码或节点访问日志。"
     },
     {
-      "title": "What this policy covers",
-      "body": "The website, an account on Mitce, and the data we handle while the agent runs. Where we have signed a data processing agreement with you, that agreement wins wherever the two disagree."
+      "title": "二、 订阅链接与访问 Token 的零存储机制",
+      "body": "本站提供的所有工具箱及教程，均指导用户在本地离线或私有 Docker 容器中执行配置转换。我们绝不架设抓取用户 Token 的公共订阅转换 API，彻底杜绝中间人劫持与订阅密钥泄露隐患。"
     },
     {
-      "title": "What we collect",
-      "body": "Account and contact details, billing records, the content of the inboxes and help centre articles you connect, the drafts the agent produces and what your team did with them, product usage and error logs, and basic site analytics."
+      "title": "三、 零第三方商业追踪器承诺 (No Cross-Site Trackers)",
+      "body": "为消除对访问者浏览指纹的侵扰，Mitce 全站彻底移除了 Google Analytics (GA4)、Facebook Pixel、百度统计等所有跨站点追踪脚本。您的设备指纹、Canvas 数据与 IP 地址绝不会被转售给任何第三方广告联盟。"
     },
     {
-      "title": "How we use it",
-      "body": "To run the service, to draft and sort conversations, to keep an audit trail of what the agent did, to bill you, to answer support requests, and to find and fix faults."
+      "title": "四、 本地计算与自测工具的本地存储保护",
+      "body": "跑路预警雷达中的 5 分钟体检计算器及百科 FAQ 的实时搜索过滤，100% 运行在您本机的浏览器内存中（前端纯 JavaScript 执行），不会将您的勾选答案或搜索关键词回传至任何后端服务器。"
     },
     {
-      "title": "Legal bases",
-      "body": "Performing our contract with you, our legitimate interest in keeping the service secure and working, your consent for optional cookies, and compliance where the law requires us to keep something."
+      "title": "五、 分布式测试探针的数据脱敏与匿名化",
+      "body": "实验室公开的晚高峰延迟测试、丢包率大盘及 BGP 路由拓扑，均来自实验室自建的自动化无头探针服务器集群，其中不包含任何实际终端用户的流量数据或私有通讯记录。"
     },
     {
-      "title": "Training on your replies",
-      "body": "Tone training uses the replies your team signed, and it stays inside your workspace. We do not use one customer’s conversations to improve another customer’s agent, and we do not hand your content to a model provider for their training."
+      "title": "六、 外部链接与第三方机房跳转声明",
+      "body": "当您点击离开本站进入外部商家网站或开源项目 GitHub Releases 时，对应服务商的隐私政策将生效。我们建议您在任何第三方平台注册时，开启双重身份验证 (2FA) 并保持安全上网习惯。"
     },
     {
-      "title": "Who we share it with",
-      "body": "A short list of sub-processors: infrastructure hosting, the model provider that runs inference, and the tools we use to bill and to support you. Each is under contract and bound to the same standard. The current list is available on request."
-    },
-    {
-      "title": "Where your data lives",
-      "body": "Hosting is in the region attached to your workspace. Enterprise plans can pin processing to the EU or the US. Support access may come from outside that region under the safeguards in our processing agreement."
-    },
-    {
-      "title": "How long we keep it",
-      "body": "For as long as your account is open, and then for the retention window you set. Enterprise plans can shorten it. Billing records are kept for the period tax law requires, regardless of the rest."
-    },
-    {
-      "title": "Security",
-      "body": "Encryption in transit and at rest, access on a least-privilege basis, and an audit log of what the agent and your team did. Enterprise plans add single sign-on and retention controls."
-    },
-    {
-      "title": "Your rights",
-      "body": "You can ask for a copy of what we hold, correct it, delete it, take it elsewhere, or object to a use. Write to hello@example.com and we will answer inside a month. You can also complain to your data protection authority."
-    },
-    {
-      "title": "If you wrote to a company that uses Mitce",
-      "body": "Your message sits in their inbox and they decide what happens to it. Contact them first. If you contact us we will pass the request to them and help them answer it."
-    },
-    {
-      "title": "Cookies and analytics",
-      "body": "The site uses what it needs to work, plus analytics that tell us which pages get read. Optional cookies wait for your consent and you can withdraw it at any time."
-    },
-    {
-      "title": "Children",
-      "body": "The service is sold to companies and is not meant for anyone under sixteen."
-    },
-    {
-      "title": "Changes to this policy",
-      "body": "If we change something that matters we will say so on this page and, where it affects your account, by email."
-    },
-    {
-      "title": "Contacting us",
-      "body": "Write to hello@example.com. PLACEHOLDER — add the registered company name, postal address and, if one is required, the data protection officer or EU representative before publishing."
+      "title": "七、 隐私权联络与数据权利",
+      "body": "如果您对本站的隐私处理或内容有任何疑问，或希望就网络安全漏洞与我们进行加密技术沟通，请通过官方加密联系邮箱 contact@mitce.run 与实验室安全审计团队取得联系。"
     }
   ]
 }

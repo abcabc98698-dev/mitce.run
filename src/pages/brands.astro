@@ -4,8 +4,22 @@ import { BRANDS } from '../data/brands';
 
 const title = '42家主流网络机场品牌库与专线可观测性矩阵 (2026) — Mitce 推荐';
 const description = 'Mitce 网络实验室 2026 权威收录 42 家主流网络机场：涵盖光速云、微风网络、暮光加速、飞猫云等品牌。实测 IEPL/IPLC 晚高峰延迟、带宽、AI 解锁及全周期套餐矩阵。';
+const brandsSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "42家主流网络机场品牌库与专线可观测性矩阵 (2026)",
+  "description": description,
+  "numberOfItems": BRANDS.length,
+  "itemListElement": BRANDS.map((b, idx) => ({
+    "@type": "ListItem",
+    "position": idx + 1,
+    "name": b.name,
+    "description": `${b.lineType} · ${b.nodeCount} 节点 · 晚高峰实测 ${b.speedTest} · 起步价 ${b.startingPrice}`
+  }))
+};
 ---
 <Base title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(brandsSchema)} />
   <div class="brands-page">
     <!-- Header -->
     <header class="page-header">

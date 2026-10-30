@@ -24,7 +24,7 @@ const { cta, footer } = site;
         <div class="col">
           <p class="t-body-s col-label">{col.label}</p>
           {col.links.map((l) => (
-            <p class="t-body-s"><a class="col-link" href={l.href} {...(l.external ? { target: '_blank', rel: 'noreferrer' } : {})}>{l.label}</a></p>
+            <p class="t-body-s"><a class="col-link" href={l.href} {...(l.external ? { target: '_blank', rel: 'nofollow sponsored noopener' } : {})}>{l.label}</a></p>
           ))}
         </div>
       ))}

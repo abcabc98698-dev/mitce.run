@@ -70,7 +70,7 @@ const { toggle } = plans;
             </li>
           ))}
         </ul>
-        <Button href={plan.button.href} variant={plan.button.variant as 'primary' | 'secondary'} class="card-btn">{plan.button.label}</Button>
+        <Button href={plan.button.href} variant={plan.button.variant as 'primary' | 'secondary'} class="card-btn" {...(plan.button.href.startsWith('http') ? { target: '_blank', rel: 'nofollow sponsored noopener' } : {})}>{plan.button.label}</Button>
       </article>
     ))}
   </div>

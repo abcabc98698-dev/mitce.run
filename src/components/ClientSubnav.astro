@@ -5,16 +5,16 @@ interface Props {
 const { current } = Astro.props;
 ---
 <nav class="client-subnav" aria-label="客户端分类导航">
-  <a href="/clients" class={`subnav-pill ${current === 'all' ? 'is-active' : ''}`}>
+  <a href="/clients/" class={`subnav-pill ${current === 'all' ? 'is-active' : ''}`}>
     ⚡ 全平台总览
   </a>
-  <a href="/clients/desktop" class={`subnav-pill ${current === 'desktop' ? 'is-active' : ''}`}>
+  <a href="/clients/desktop/" class={`subnav-pill ${current === 'desktop' ? 'is-active' : ''}`}>
     💻 桌面端 (Windows / Mac / Linux)
   </a>
-  <a href="/clients/mobile" class={`subnav-pill ${current === 'mobile' ? 'is-active' : ''}`}>
+  <a href="/clients/mobile/" class={`subnav-pill ${current === 'mobile' ? 'is-active' : ''}`}>
     📱 移动端 (iOS / Android)
   </a>
-  <a href="/clients/router" class={`subnav-pill ${current === 'router' ? 'is-active' : ''}`}>
+  <a href="/clients/router/" class={`subnav-pill ${current === 'router' ? 'is-active' : ''}`}>
     🌐 软路由 (OpenWrt / 网关)
   </a>
 </nav>

@@ -1,80 +1,40 @@
 {
   "meta": {
-    "title": "Terms and Conditions — Mitce",
-    "description": "The agreement behind a support agent that drafts on your behalf: what Mitce does, what stays yours, and what happens if it goes wrong."
+    "title": "数据核验条款与中立评测声明 — Mitce 推荐",
+    "description": "Mitce 网络基础设施可观测性实验室数据核验准则：三网晚高峰实测数据独立性、中立性声明、商业推广披露与用户合规自律规范。"
   },
-  "eyebrow": "Legal",
-  "title": "Terms and Conditions",
-  "updated": "Last updated 22 September 2026",
-  "intro": "Plain terms for a tool that writes on your behalf. If anything here is unclear, ask us before you sign — we would rather explain it now than argue about it later.",
+  "eyebrow": "合规与准则",
+  "title": "数据核验条款与服务声明",
+  "updated": "最近核验：2026年10月",
+  "intro": "为保障网络评测的客观性、透明性与数据真实性，Mitce 实验室制定本数据核验与使用条款。访问本站即视为您理解并接受本声明的所有内容。",
   "sections": [
     {
-      "title": "Who these terms are between",
-      "body": "These terms are an agreement between Mitce and the company that opens the account. Whoever accepts them confirms they are allowed to do so for that company."
+      "title": "一、 条款适用主体与中立定位",
+      "body": "Mitce (mitce.run) 是一家专注于跨境网络专线、骨干网 QoS 延迟与第三方开源客户端生态的独立技术观测平台。我们不对任何第三方机场的运营实体享有控制权，亦不对其服务器长效可用性提供商业连带担保。"
     },
     {
-      "title": "What Mitce does",
-      "body": "Mitce connects to a support inbox, drafts replies, sorts conversations by urgency and tone, and hands a conversation to a person when it should not answer. It is a tool your team operates. It does not replace the people who are accountable for the answers."
+      "title": "二、 评测数据来源与可观测性方法论",
+      "body": "本站展示的所有延迟、丢包率、单线程突发吞吐量及 AI/流媒体解锁状态，均基于 Mitce 分布式测试探针在每天 20:30~22:30（晚高峰拥塞期）通过中国电信、中国联通、中国移动三网物理环境真实采样采集。我们尽力确保数据的客观准确，但网络物理状态瞬息万变，数据仅反映测试周期内的样本表现。"
     },
     {
-      "title": "Accounts and access",
-      "body": "You decide who you invite and what they can reach. Keep credentials to the people who need them, and tell us quickly if an account is being used by someone who should not have it."
+      "title": "三、 商业返佣与推广披露 (Affiliate Disclosure)",
+      "body": "依据国际搜索合规准则，我们透明披露：本站部分指向服务商的注册通道包含推广专属优惠链接（如光速云优惠直达通道）。此类商业推广关系确保了实验室服务器测速探针的日常维护支出，但绝不影响我们评测打分的客观性与独立性。本站所有外部商业推广链接均严格附加 rel=\"nofollow sponsored noopener\" 属性。"
     },
     {
-      "title": "Your content and your customers’ data",
-      "body": "Your inbox stays yours. We process what is in it to run the service, on your instructions, under the privacy policy and any data processing agreement we have signed with you."
+      "title": "四、 用户网络使用与合规自律红线",
+      "body": "本站传播的所有开源客户端配置教程、网络优化指南与协议分析，纯粹面向跨境电商外贸沟通、学术科研文献查阅及合法开源软件协同开发。严禁任何个人或组织利用本站信息从事任何违反法律法规、危害公共安全或侵犯知识产权的行为。"
     },
     {
-      "title": "Every reply says it came from an agent",
-      "body": "Drafts carry a disclosure that an agent wrote them. You agree not to remove it or present a draft as written by a person. This is not a style preference, it is a condition of using the service."
+      "title": "五、 跑路预警与风险情报引用规范",
+      "body": "跑路预警雷达与阵亡档案馆发布的情报，基于公开的 DNS 解析状态、官方群组运营异动、用户工单反馈及测试探针断流数据综合研判，旨在为消费者提供客观的风险防范参考，不构成针对任何商业实体的恶意商业诋毁。"
     },
     {
-      "title": "Acceptable use",
-      "body": "Do not use Mitce to break the law, to generate abusive or deceptive messages, to work around usage limits, or to resell the service without a written agreement. Do not attempt to extract the underlying models or probe the service for weaknesses without asking us first."
+      "title": "六、 第三方服务责任与退款争议免责",
+      "body": "用户在第三方服务商平台发生的套餐购买、充值与退款纠纷，属于用户与第三方商家之间的独立合同关系。建议用户严格遵循本站倡导的“先月付试水”原则，降低潜在的预付资金风险。"
     },
     {
-      "title": "Shadow mode",
-      "body": "The two-week shadow rollout is provided as it stands and is not charged. During it the agent drafts and nothing sends without you. Treat anything it produces as a draft for review."
-    },
-    {
-      "title": "Plans, fees and billing",
-      "body": "Pricing is per resolved conversation, with a minimum volume and a commitment that depend on the plan. Fees exclude taxes. Invoices are due within thirty days unless an order form says otherwise."
-    },
-    {
-      "title": "Who owns what",
-      "body": "We keep the software, the models and everything we build around them. You keep your content. If you send us feedback we may act on it without owing you anything for it."
-    },
-    {
-      "title": "Confidentiality",
-      "body": "Each side keeps the other side’s commercial and technical information to itself, uses it only to work together, and protects it at least as carefully as its own."
-    },
-    {
-      "title": "Support and availability",
-      "body": "The support channel depends on the plan. We do not promise a specific uptime unless it is written into an order form."
-    },
-    {
-      "title": "What we do not promise",
-      "body": "Drafts are generated text. They can be wrong, incomplete or badly judged, which is why a person reviews them. Beyond what the law requires of us, the service is provided without implied warranties."
-    },
-    {
-      "title": "Limits on liability",
-      "body": "Neither side is liable for indirect or consequential loss. Our total liability is capped at the fees you paid in the twelve months before the claim."
-    },
-    {
-      "title": "Ending the agreement",
-      "body": "Either side can end it with thirty days’ notice. We can suspend an account for unpaid invoices or a serious breach of acceptable use. On exit you can export your data for thirty days."
-    },
-    {
-      "title": "Changes",
-      "body": "We may change the service and these terms. If a change matters to you we will say so before it takes effect."
-    },
-    {
-      "title": "Governing law",
-      "body": "These terms are governed by the law of the jurisdiction named in your order form, and disputes go to the courts there. PLACEHOLDER — confirm with counsel before publishing."
-    },
-    {
-      "title": "Contacting us",
-      "body": "Write to hello@example.com and say which company you are writing about."
+      "title": "七、 知识产权与原创内容保护",
+      "body": "Mitce 实验室原创发布的技术专栏、网络拓扑图、评测横评数据表及避坑方法论均受知识产权保护。任何第三方转载必须保留完整作者出处、原始链接与版权声明，严禁爬虫批量抓取洗稿。"
     }
   ]
 }

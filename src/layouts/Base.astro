@@ -49,7 +49,7 @@ const siteSchema = {
       '@id': `${new URL('/', siteUrl).href}#website`,
       url: new URL('/', siteUrl).href,
       name: 'Mitce',
-      description: 'Autonomous AI Agent Platform for Support & Operations',
+      description: 'Mitce (mitce.run) �� 2026 �߿�������ר���� 42 �һ���Ȩ���ɹ۲�������ʵ����',
       publisher: {
         '@id': `${new URL('/', siteUrl).href}#organization`,
       },
@@ -81,7 +81,7 @@ const siteSchema = {
 };
 ---
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -99,7 +99,7 @@ const siteSchema = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content="zh_CN" />
     {ogType === 'article' && articleData?.publishedTime && (
       <meta property="article:published_time" content={articleData.publishedTime} />
     )}

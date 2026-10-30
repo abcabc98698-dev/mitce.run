@@ -3,30 +3,30 @@
   "tagline": "2026 高可用网络专线与 AI 生产力基础设施评测实验室",
   "nav": {
     "links": [
-      { "href": "/brands", "label": "42家品牌库" },
+      { "href": "/brands/", "label": "42家品牌库" },
       {
-        "href": "/clients",
+        "href": "/clients/",
         "label": "客户端指南",
         "children": [
-          { "href": "/clients/desktop", "label": "桌面端 (Win / Mac)" },
-          { "href": "/clients/mobile", "label": "移动端 (iOS / Android)" },
-          { "href": "/clients/router", "label": "软路由 (OpenWrt)" }
+          { "href": "/clients/desktop/", "label": "桌面端 (Win / Mac)" },
+          { "href": "/clients/mobile/", "label": "移动端 (iOS / Android)" },
+          { "href": "/clients/router/", "label": "软路由 (OpenWrt)" }
         ]
       },
-      { "href": "/resources", "label": "免费资源" },
-      { "href": "/radar", "label": "跑路雷达" },
-      { "href": "/faq", "label": "百科FAQ" },
-      { "href": "/pricing", "label": "套餐横评" },
-      { "href": "/blog", "label": "专线评测专栏" }
+      { "href": "/resources/", "label": "免费资源" },
+      { "href": "/radar/", "label": "跑路雷达" },
+      { "href": "/faq/", "label": "百科FAQ" },
+      { "href": "/pricing/", "label": "套餐横评" },
+      { "href": "/blog/", "label": "专线评测专栏" }
     ],
     "login": { "href": "https://sahude.gsyvipaff.com/#/?code=keqgvT5Y", "label": "主推：光速云", "external": true },
-    "demo": { "href": "/brands", "label": "挑选机场" }
+    "demo": { "href": "/brands/", "label": "挑选机场" }
   },
   "cta": {
     "headingMuted": "拒绝晚高峰断联，",
     "heading": "把时间留给真正核心的业务与创作",
     "description": "基于 42 家主流机场的持续网络观测数据。涵盖 IEPL/IPLC 双专线、永久不过期流量包、多端客户端一键导入。",
-    "button": { "href": "/brands", "label": "探索 42 家机场品牌库" },
+    "button": { "href": "/brands/", "label": "探索 42 家机场品牌库" },
     "image": "/assets/site/handshake-particles.webp",
     "imageAlt": "Mitce 网络实验室分布式监测探针与专线拓扑可视化数据粒子"
   },
@@ -35,29 +35,29 @@
       {
         "label": "机场矩阵",
         "links": [
-          { "href": "/brands", "label": "42家机场品牌库" },
+          { "href": "/brands/", "label": "42家机场品牌库" },
           { "href": "https://sahude.gsyvipaff.com/#/?code=keqgvT5Y", "label": "第一主推：光速云", "external": true },
-          { "href": "/pricing", "label": "高性价比平价榜" },
-          { "href": "/pricing", "label": "企业级纯专线榜" }
+          { "href": "/pricing/", "label": "高性价比平价榜" },
+          { "href": "/pricing/", "label": "企业级纯专线榜" }
         ]
       },
       {
         "label": "客户端与工具",
         "links": [
-          { "href": "/clients", "label": "全平台客户端中心" },
-          { "href": "/resources", "label": "免费资源与官方镜像" },
-          { "href": "/clients/desktop", "label": "桌面端 Clash Verge" },
-          { "href": "/clients/mobile", "label": "移动端小火箭/v2rayNG" },
-          { "href": "/clients/router", "label": "OpenClash 软路由" }
+          { "href": "/clients/", "label": "全平台客户端中心" },
+          { "href": "/resources/", "label": "免费资源与官方镜像" },
+          { "href": "/clients/desktop/", "label": "桌面端 Clash Verge" },
+          { "href": "/clients/mobile/", "label": "移动端小火箭/v2rayNG" },
+          { "href": "/clients/router/", "label": "OpenClash 软路由" }
         ]
       },
       {
         "label": "风控与知识库",
         "links": [
-          { "href": "/radar", "label": "机场跑路预警雷达" },
-          { "href": "/faq", "label": "万字全景 FAQ 答疑" },
-          { "href": "/blog", "label": "专线深度横评" },
-          { "href": "/about", "label": "三网实测实验室" }
+          { "href": "/radar/", "label": "机场跑路预警雷达" },
+          { "href": "/faq/", "label": "万字全景 FAQ 答疑" },
+          { "href": "/blog/", "label": "专线深度横评" },
+          { "href": "/about/", "label": "三网实测实验室" }
         ]
       },
       {
@@ -65,8 +65,8 @@
         "links": [
           { "href": "mailto:contact@mitce.run", "label": "contact@mitce.run" },
           { "href": "/rss.xml", "label": "RSS 评测订阅" },
-          { "href": "/privacy", "label": "中立与推广合规声明" },
-          { "href": "/terms", "label": "数据核验条款" }
+          { "href": "/privacy/", "label": "中立与推广合规声明" },
+          { "href": "/terms/", "label": "数据核验条款" }
         ]
       }
     ],
